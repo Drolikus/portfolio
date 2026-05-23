@@ -1,13 +1,15 @@
 /**
- * Junior Web Developer Portfolio - Cinematic JavaScript
+ * Junior Web Developer Portfolio
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     initBootSequence();
     initThemeToggle();
     initMobileMenu();
     initScrollReveal();
     initNavbarScroll();
+    initActiveNavHighlight();
     initProjectFilter();
     initProjectModal();
     initContactForm();
@@ -15,9 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initTypingEffect();
     initMouseGlow();
-    initParallax();
-    initParticleSystem();
-    initBinaryRain();
+    if (!reduceMotion) {
+        initParallax();
+        initParticleSystem();
+        initBinaryRain();
+    }
     initCounterAnimation();
 });
 
@@ -27,10 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
 function initBootSequence() {
     const overlay = document.getElementById('bootOverlay');
     if (!overlay) return;
+    const delay = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 200 : 2800;
     setTimeout(() => {
         overlay.classList.add('done');
         setTimeout(() => overlay.remove(), 1000);
-    }, 3500);
+    }, delay);
 }
 
 /* ============================================
@@ -39,13 +44,16 @@ function initBootSequence() {
 function initThemeToggle() {
     const themeToggle = document.getElementById('themeToggle');
     const html = document.documentElement;
+    if (!themeToggle) return;
     const savedTheme = localStorage.getItem('theme') || 'dark';
     html.setAttribute('data-theme', savedTheme);
+    themeToggle.setAttribute('aria-label', savedTheme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
     themeToggle.addEventListener('click', () => {
         const currentTheme = html.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         html.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
+        themeToggle.setAttribute('aria-label', newTheme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
     });
 }
 
@@ -56,14 +64,17 @@ function initMobileMenu() {
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navLinks = document.getElementById('navLinks');
     if (!mobileMenuBtn || !navLinks) return;
+    mobileMenuBtn.setAttribute('aria-expanded', 'false');
     mobileMenuBtn.addEventListener('click', () => {
         mobileMenuBtn.classList.toggle('active');
         navLinks.classList.toggle('active');
+        mobileMenuBtn.setAttribute('aria-expanded', navLinks.classList.contains('active') ? 'true' : 'false');
     });
     navLinks.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             mobileMenuBtn.classList.remove('active');
             navLinks.classList.remove('active');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
         });
     });
 }
@@ -101,6 +112,46 @@ function initNavbarScroll() {
 }
 
 /* ============================================
+   ACTIVE NAVIGATION
+   ============================================ */
+function initActiveNavHighlight() {
+    const links = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+    const sections = links
+        .map(link => document.querySelector(link.getAttribute('href')))
+        .filter(Boolean);
+    if (links.length === 0 || sections.length === 0) return;
+
+    const setActive = (id) => {
+        links.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+        });
+    };
+
+    const updateActive = () => {
+        const navbarHeight = document.getElementById('navbar')?.offsetHeight || 0;
+        const marker = window.scrollY + navbarHeight + Math.min(window.innerHeight * 0.35, 260);
+        let current = sections[0].id;
+
+        sections.forEach(section => {
+            if (marker >= section.offsetTop) current = section.id;
+        });
+
+        setActive(current);
+    };
+
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            const targetId = link.getAttribute('href').slice(1);
+            setActive(targetId);
+        });
+    });
+
+    window.addEventListener('scroll', updateActive, { passive: true });
+    window.addEventListener('resize', updateActive);
+    updateActive();
+}
+
+/* ============================================
    PROJECT FILTERING
    ============================================ */
 function initProjectFilter() {
@@ -112,6 +163,7 @@ function initProjectFilter() {
             btn.classList.add('active');
             const filter = btn.getAttribute('data-filter');
             projectCards.forEach(card => {
+                clearTimeout(card.hideTimeout);
                 const category = card.getAttribute('data-category');
                 if (filter === 'all' || category === filter) {
                     card.classList.remove('hidden');
@@ -122,7 +174,7 @@ function initProjectFilter() {
                 } else {
                     card.style.opacity = '0';
                     card.style.transform = 'translateY(20px)';
-                    setTimeout(() => card.classList.add('hidden'), 300);
+                    card.hideTimeout = setTimeout(() => card.classList.add('hidden'), 300);
                 }
             });
         });
@@ -136,16 +188,16 @@ const projectData = {
     voltage: {
         title: 'Voltage — Guitar Store',
         subtitle: 'E-commerce Project',
-        desc: 'An online guitar store built from scratch with product catalog, shopping cart, wishlist, reviews, admin panel, order management, and multi-language support (EN/RU/UA). My main learning project where I practice real-world frontend development.',
+        desc: 'An online guitar store built from scratch with product catalog, shopping cart, wishlist, reviews, admin panel, order management, and multi-language support (EN/RU/UA/DE). My main learning project where I practice real-world frontend development.',
         tech: ['HTML', 'CSS', 'JavaScript', 'Responsive Design', 'i18n'],
-        features: ['Product catalog with categories', 'Shopping cart with add/remove', 'Wishlist functionality', 'Product reviews and ratings', 'Admin panel for management', 'Order tracking system', 'Multi-language support (EN/RU/UA)', 'Mobile-responsive design']
+        features: ['Product catalog with categories', 'Shopping cart with add/remove', 'Wishlist functionality', 'Product reviews and ratings', 'Admin panel for management', 'Order tracking system', 'Multi-language support (EN/RU/UA/DE)', 'Mobile-responsive design']
     },
     portfolio: {
         title: 'Portfolio Website',
         subtitle: 'Learning Project',
-        desc: 'This portfolio — built from scratch with HTML, CSS, and vanilla JavaScript. Features dark/light theme, canvas animations, scroll effects, project showcases, and responsive design.',
+        desc: 'This exact portfolio site, built from scratch with HTML, CSS, and vanilla JavaScript. It now has real project screenshots, a stronger hero section, project filtering, modal details, active navigation, theme switching, canvas effects, and responsive layouts.',
         tech: ['HTML', 'CSS', 'JavaScript', 'Canvas API'],
-        features: ['Dark/light theme toggle', 'Canvas particle animations', 'Binary rain effect', 'Scroll reveal animations', 'Project modal system', 'Fully responsive layout', 'Custom CSS animations', 'No external libraries']
+        features: ['Real screenshot-based project card', 'Dark/light theme toggle', 'Canvas particle animations', 'Binary rain effect', 'Scroll reveal animations', 'Project modal system', 'Fully responsive layout', 'Custom CSS animations']
     },
     landing: {
         title: 'Landing Page',
@@ -162,14 +214,13 @@ function initProjectModal() {
     modal.id = 'projectModal';
     modal.innerHTML = `
         <div class="project-modal-content">
-            <button class="project-modal-close" id="modalClose">&times;</button>
+            <button class="project-modal-close" id="modalClose" type="button" aria-label="Close project details">&times;</button>
             <div class="project-modal-body">
                 <h3 class="project-modal-title" id="modalTitle"></h3>
                 <p class="project-modal-subtitle" id="modalSubtitle"></p>
                 <p class="project-modal-desc" id="modalDesc"></p>
                 <div class="project-modal-tech" id="modalTech"></div>
                 <ul class="project-modal-features" id="modalFeatures"></ul>
-
             </div>
         </div>
     `;
@@ -555,14 +606,18 @@ function initCounterAnimation() {
 }
 
 function animateCounter(el, target) {
-    let current = 0;
-    const increment = target / 50;
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            current = target;
-            clearInterval(timer);
-        }
-        el.textContent = Math.floor(current) + '+';
-    }, 30);
+    const duration = 900;
+    const start = performance.now();
+
+    function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = target <= 2
+            ? Math.max(1, Math.round(target * eased))
+            : Math.floor(target * eased);
+        el.textContent = value + '+';
+        if (progress < 1) requestAnimationFrame(tick);
+    }
+
+    requestAnimationFrame(tick);
 }

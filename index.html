@@ -84,6 +84,7 @@
         <div class="container hero-container">
             <div class="hero-content" data-parallax="-0.04">
                 <img src="assets/studio-headshot.png" alt="Vladyslav Kikhtenko" class="profile-photo">
+                <p class="hero-kicker">Vladyslav Kikhtenko</p>
                 <div class="hero-badge">
                     <span class="badge-dot"></span>
                     <span class="badge-text">Open to opportunities</span>
@@ -92,14 +93,15 @@
                     <span class="title-line title-line-1">Junior Web</span>
                     <span class="title-line title-line-2">Developer</span>
                 </h1>
+                <p class="hero-role">Frontend learner building real e-commerce UI</p>
                 <div class="hero-typing">
                     <span class="typing-prefix">&gt; </span><span class="typing-text" id="typingText"></span><span class="typing-cursor">_</span>
                 </div>
                 <p class="hero-subtitle">
-                    Learning web development by building real projects. Currently developing Voltage — an online guitar store.
+                    I turn HTML, CSS, and JavaScript practice into polished interfaces. Right now I am building Voltage — an online guitar store with cart logic, admin flow, and multilingual UI.
                 </p>
                 <p class="hero-subtitle-mobile">
-                    Learning by building real projects. Currently developing Voltage — an online guitar store.
+                    Building polished interfaces while developing Voltage — an online guitar store.
                 </p>
                 <div class="hero-cta">
                     <a href="#projects" class="btn btn-primary">
@@ -110,6 +112,23 @@
                     </a>
                     <a href="#contact" class="btn btn-secondary">Get in Touch</a>
                 </div>
+                <div class="hero-metrics" aria-label="Portfolio highlights">
+                    <div class="hero-metric">
+                        <span>01</span>
+                        <strong>Main build</strong>
+                        <em>Voltage store</em>
+                    </div>
+                    <div class="hero-metric">
+                        <span>4</span>
+                        <strong>Languages</strong>
+                        <em>EN / RU / UA / DE</em>
+                    </div>
+                    <div class="hero-metric">
+                        <span>100+</span>
+                        <strong>Hours</strong>
+                        <em>Practice first</em>
+                    </div>
+                </div>
             </div>
             <div class="hero-code" data-parallax="0.03">
                 <div class="code-window">
@@ -119,10 +138,10 @@
                             <span></span>
                             <span></span>
                         </div>
-                        <span class="code-filename">cart.js</span>
+                        <span class="code-filename">voltage-cart.js</span>
                         <div class="code-status">
                             <span class="status-indicator"></span>
-                            <span class="status-text">running</span>
+                            <span class="status-text">shipping</span>
                         </div>
                     </div>
                     <pre class="code-body"><code><span class="token-keyword">const</span> cart = {
@@ -290,7 +309,7 @@
                         <span class="skill-tag">UI / UX</span>
                         <span class="skill-tag">E-commerce</span>
                         <span class="skill-tag">Admin Panels</span>
-                        <span class="skill-tag">i18n (EN/RU/UA)</span>
+                        <span class="skill-tag">i18n (EN/RU/UA/DE)</span>
                         <span class="skill-tag">Problem Solving</span>
                         <span class="skill-tag">Self-Learning</span>
                         <span class="skill-tag">Fast Iteration</span>
@@ -309,9 +328,9 @@
                 <h2 class="section-title">Featured Work</h2>
             </div>
             <div class="projects-filter reveal">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
-                <button class="filter-btn" data-filter="learning">Learning</button>
+                <button class="filter-btn active" type="button" data-filter="all">All</button>
+                <button class="filter-btn" type="button" data-filter="ecommerce">E-commerce</button>
+                <button class="filter-btn" type="button" data-filter="learning">Learning</button>
             </div>
             <div class="projects-grid" id="projectsGrid">
                 <article class="project-card reveal" data-category="ecommerce" data-project="voltage">
@@ -319,11 +338,11 @@
                         <div class="project-visual">
                             <div class="project-visual-grid"></div>
                             <svg class="project-icon" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-                                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                                <polygon points="13 2 3 14 11 14 9 22 21 9 13 9 13 2"></polygon>
                             </svg>
                         </div>
                         <div class="project-overlay">
-                            <button class="project-overlay-btn project-view-btn" data-project="voltage">
+                            <button class="project-overlay-btn project-view-btn" type="button" data-project="voltage">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
                                 Details
                             </button>
@@ -331,26 +350,31 @@
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Voltage — Guitar Store</h3>
+                        <div class="project-meta">
+                            <span>In progress</span>
+                            <span>E-commerce</span>
+                        </div>
                         <p class="project-desc">Online guitar store with product catalog, shopping cart, wishlist, reviews, admin panel, orders, and multi-language support.</p>
                         <div class="project-tech">
                             <span class="tech-badge">HTML</span>
                             <span class="tech-badge">CSS</span>
                             <span class="tech-badge">JavaScript</span>
                         </div>
+                        <div class="project-actions">
+                            <button class="project-action-btn project-action-btn--primary project-view-btn" type="button" data-project="voltage">
+                                <span>Explore</span>
+                            </button>
+                        </div>
                     </div>
                 </article>
                 <article class="project-card reveal" data-category="learning" data-project="portfolio">
                     <div class="project-image">
-                        <div class="project-visual project-visual--purple">
+                        <div class="project-visual project-visual--portfolio-shot">
                             <div class="project-visual-grid"></div>
-                            <svg class="project-icon" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-                                <polygon points="1 6 1 22 8 18 16 22 21 18 21 2 16 6 8 2 1 6"></polygon>
-                                <line x1="8" y1="2" x2="8" y2="18"></line>
-                                <line x1="16" y1="6" x2="16" y2="22"></line>
-                            </svg>
+                            <img src="assets/portfolio-preview.png" alt="Screenshot of this portfolio website" class="project-screenshot">
                         </div>
                         <div class="project-overlay">
-                            <button class="project-overlay-btn project-view-btn" data-project="portfolio">
+                            <button class="project-overlay-btn project-view-btn" type="button" data-project="portfolio">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
                                 Details
                             </button>
@@ -358,11 +382,20 @@
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Portfolio Website</h3>
-                        <p class="project-desc">This portfolio — built from scratch with HTML, CSS, and vanilla JavaScript. Dark theme, animations, responsive design.</p>
+                        <div class="project-meta">
+                            <span>Live</span>
+                            <span>Vanilla JS</span>
+                        </div>
+                        <p class="project-desc">This exact site: hero animations, project filters, modal details, live theme switcher, responsive layout, and polished contact section.</p>
                         <div class="project-tech">
                             <span class="tech-badge">HTML</span>
                             <span class="tech-badge">CSS</span>
                             <span class="tech-badge">JavaScript</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="project-action-btn project-view-btn" type="button" data-project="portfolio">
+                                <span>Details</span>
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -377,7 +410,7 @@
                             </svg>
                         </div>
                         <div class="project-overlay">
-                            <button class="project-overlay-btn project-view-btn" data-project="landing">
+                            <button class="project-overlay-btn project-view-btn" type="button" data-project="landing">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
                                 Details
                             </button>
@@ -385,11 +418,20 @@
                     </div>
                     <div class="project-info">
                         <h3 class="project-title">Landing Page</h3>
+                        <div class="project-meta">
+                            <span>Learning</span>
+                            <span>Responsive</span>
+                        </div>
                         <p class="project-desc">A responsive landing page built while learning Flexbox, Grid, and mobile-first design. My first hands-on project.</p>
                         <div class="project-tech">
                             <span class="tech-badge">HTML</span>
                             <span class="tech-badge">CSS</span>
                             <span class="tech-badge">Responsive</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="project-action-btn project-view-btn" type="button" data-project="landing">
+                                <span>Details</span>
+                            </button>
                         </div>
                     </div>
                 </article>
@@ -418,35 +460,64 @@
                             <div class="code-lang">HTML</div>
                         </div>
                         <pre class="code-body"><code><span class="token-keyword">&lt;article</span> <span class="token-type">class</span>=<span class="token-string">"product-card"</span><span class="token-keyword">&gt;</span>
-  <span class="token-keyword">&lt;img</span> <span class="token-type">src</span>=<span class="token-string">"guitar.jpg"</span> <span class="token-type">alt</span>=<span class="token-string">"Electric Guitar"</span> <span class="token-keyword">/&gt;</span>
-  <span class="token-keyword">&lt;div</span> <span class="token-type">class</span>=<span class="token-string">"info"</span><span class="token-keyword">&gt;</span>
+  <span class="token-keyword">&lt;div</span> <span class="token-type">class</span>=<span class="token-string">"product-media"</span><span class="token-keyword">&gt;&lt;/div&gt;</span>
+  <span class="token-keyword">&lt;div</span> <span class="token-type">class</span>=<span class="token-string">"product-info"</span><span class="token-keyword">&gt;</span>
+    <span class="token-keyword">&lt;p</span> <span class="token-type">class</span>=<span class="token-string">"eyebrow"</span><span class="token-keyword">&gt;</span>Electric Guitar<span class="token-keyword">&lt;/p&gt;</span>
     <span class="token-keyword">&lt;h3&gt;</span>Fender Stratocaster<span class="token-keyword">&lt;/h3&gt;</span>
-    <span class="token-keyword">&lt;p</span> <span class="token-type">class</span>=<span class="token-string">"price"</span><span class="token-keyword">&gt;</span>$899<span class="token-keyword">&lt;/p&gt;</span>
-    <span class="token-keyword">&lt;div</span> <span class="token-type">class</span>=<span class="token-string">"rating"</span><span class="token-keyword">&gt;</span>
-      <span class="token-keyword">&lt;span&gt;</span>★★★★★<span class="token-keyword">&lt;/span&gt;</span>
-      <span class="token-keyword">&lt;small&gt;</span>(24 reviews)<span class="token-keyword">&lt;/small&gt;</span>
-    <span class="token-keyword">&lt;/div&gt;</span>
-    <span class="token-keyword">&lt;button</span> <span class="token-type">class</span>=<span class="token-string">"btn-cart"</span><span class="token-keyword">&gt;</span>
-      Add to Cart
-    <span class="token-keyword">&lt;/button&gt;</span>
+    <span class="token-keyword">&lt;p</span> <span class="token-type">class</span>=<span class="token-string">"price"</span><span class="token-keyword">&gt;</span>&euro;899<span class="token-keyword">&lt;/p&gt;</span>
+    <span class="token-keyword">&lt;button</span> <span class="token-type">class</span>=<span class="token-string">"btn-cart"</span><span class="token-keyword">&gt;</span>Add to cart<span class="token-keyword">&lt;/button&gt;</span>
   <span class="token-keyword">&lt;/div&gt;</span>
 <span class="token-keyword">&lt;/article&gt;</span>
 
-<span class="token-keyword">&lt;style&gt;</span>
-  <span class="token-keyword">.product-card</span> {
-    <span class="token-type">display</span>: flex;
-    <span class="token-type">gap</span>: <span class="token-num">1rem</span>;
-    <span class="token-type">padding</span>: <span class="token-num">1rem</span>;
-    <span class="token-type">border-radius</span>: <span class="token-num">12px</span>;
-    <span class="token-type">background</span>: <span class="token-string">#1e293b</span>;
-    <span class="token-type">transition</span>: transform <span class="token-num">0.3s</span> ease;
+<span class="token-keyword">const</span> cart = {
+  items: [],
+  <span class="token-func">add</span>(product) {
+    <span class="token-keyword">this</span>.items = <span class="token-func">mergeQuantity</span>(<span class="token-keyword">this</span>.items, product);
+    <span class="token-func">renderCartBadge</span>(<span class="token-keyword">this</span>.items.length);
   }
-  <span class="token-keyword">.product-card:hover</span> {
-    <span class="token-type">transform</span>: <span class="token-func">translateY</span>(<span class="token-num">-4px</span>);
-  }
-<span class="token-keyword">&lt;/style&gt;</span></code></pre></code></pre>
+};</code></pre>
                     </div>
                 </div>
+                <aside class="build-panel">
+                    <div class="build-panel-header">
+                        <span class="build-label">Voltage build status</span>
+                        <span class="build-pill">v0.7</span>
+                    </div>
+                    <div class="store-preview">
+                        <div class="store-toolbar">
+                            <strong>Voltage</strong>
+                            <span>Cart: 2</span>
+                        </div>
+                        <div class="mini-product">
+                            <div class="mini-product-media">
+                                <span></span>
+                            </div>
+                            <div class="mini-product-info">
+                                <p>Product card mockup</p>
+                                <h3>Fender Stratocaster</h3>
+                                <strong>&euro;899</strong>
+                                <button type="button">Add to cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="build-progress">
+                        <div class="progress-row">
+                            <span>Catalog UI</span>
+                            <strong>90%</strong>
+                            <div class="progress-track"><span class="progress-bar progress-bar--90"></span></div>
+                        </div>
+                        <div class="progress-row">
+                            <span>Cart logic</span>
+                            <strong>80%</strong>
+                            <div class="progress-track"><span class="progress-bar progress-bar--80"></span></div>
+                        </div>
+                        <div class="progress-row">
+                            <span>Admin flow</span>
+                            <strong>55%</strong>
+                            <div class="progress-track"><span class="progress-bar progress-bar--55"></span></div>
+                        </div>
+                    </div>
+                </aside>
             </div>
         </div>
     </section>
@@ -545,13 +616,13 @@
                             <span>@VLADOSINAMSK on Telegram</span>
                         </a>
                     </div>
-                    <p style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">Portfolio and Voltage are still in development.</p>
+                    <p class="contact-note">Portfolio and Voltage are still in development.</p>
                 </div>
-                <div class="contact-form reveal" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-                    <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">Scan Telegram QR</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1rem;">Scan the code to open my Telegram profile.</p>
+                <div class="contact-form reveal contact-card">
+                    <h3 class="contact-card-title">Scan Telegram QR</h3>
+                    <p class="contact-card-text">Scan the code to open my Telegram profile.</p>
                     <img src="assets/telegram-qr.png" alt="Telegram QR code for @VLADOSINAMSK" class="qr-image">
-                    <a href="https://t.me/VLADOSINAMSK" class="btn btn-primary btn-full" style="margin-top: 0.5rem;">
+                    <a href="https://t.me/VLADOSINAMSK" class="btn btn-primary btn-full contact-telegram-btn">
                         <span>Open Telegram</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
