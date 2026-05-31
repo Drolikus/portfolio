@@ -42,6 +42,145 @@
     --shadow-glow-cyan: 0 0 20px rgba(8,145,178,0.08);
     --shadow-glow-purple: 0 0 20px rgba(124,58,237,0.08);
 }
+[data-theme="light"] .capability-panel,
+[data-theme="light"] .skill-proof-panel,
+[data-theme="light"] .project-ledger-panel,
+[data-theme="light"] .case-file-panel,
+[data-theme="light"] .lab-board-panel,
+[data-theme="light"] .quality-gate-panel,
+[data-theme="light"] .growth-panel,
+[data-theme="light"] .roadmap-panel,
+[data-theme="light"] .contact-fit-panel,
+[data-theme="light"] .contact-form,
+[data-theme="light"] .build-panel{
+    background:linear-gradient(135deg,rgba(255,255,255,0.92),rgba(236,248,252,0.86));
+    border-color:rgba(8,145,178,0.18);
+    box-shadow:0 22px 70px rgba(15,23,42,0.08),inset 0 1px 0 rgba(255,255,255,0.72);
+}
+[data-theme="light"] .project-ledger-panel,
+[data-theme="light"] .case-file-panel,
+[data-theme="light"] .lab-board-panel,
+[data-theme="light"] .quality-gate-panel{
+    background:linear-gradient(135deg,rgba(255,255,255,0.96),rgba(229,246,251,0.88) 54%,rgba(255,251,235,0.74));
+}
+[data-theme="light"] .capability-panel::before,
+[data-theme="light"] .skill-proof-panel::before,
+[data-theme="light"] .project-ledger-panel::before,
+[data-theme="light"] .case-file-panel::before,
+[data-theme="light"] .lab-board-panel::before,
+[data-theme="light"] .quality-gate-panel::before,
+[data-theme="light"] .growth-panel::before,
+[data-theme="light"] .roadmap-panel::before,
+[data-theme="light"] .contact-fit-panel::before,
+[data-theme="light"] .build-panel::before{
+    opacity:0.78;
+}
+[data-theme="light"] .capability-item,
+[data-theme="light"] .skill-proof-card,
+[data-theme="light"] .project-ledger-grid article,
+[data-theme="light"] .case-file-grid article,
+[data-theme="light"] .case-file-decision-list article,
+[data-theme="light"] .lab-board-grid article,
+[data-theme="light"] .quality-score,
+[data-theme="light"] .quality-live-audit,
+[data-theme="light"] .quality-gate-console,
+[data-theme="light"] .quality-tabs,
+[data-theme="light"] .quality-panel,
+[data-theme="light"] .quality-audit-item,
+[data-theme="light"] .growth-metrics article,
+[data-theme="light"] .roadmap-card,
+[data-theme="light"] .roadmap-guardrails article,
+[data-theme="light"] .contact-fit-grid article,
+[data-theme="light"] .contact-status-item,
+[data-theme="light"] .contact-message-kit,
+[data-theme="light"] .brief-message,
+[data-theme="light"] .preview-tabs,
+[data-theme="light"] .store-preview,
+[data-theme="light"] .preview-search,
+[data-theme="light"] .preview-product-grid article,
+[data-theme="light"] .preview-cart-row,
+[data-theme="light"] .preview-admin-card,
+[data-theme="light"] .preview-language-card,
+[data-theme="light"] .preview-order-list div,
+[data-theme="light"] .preview-lang-grid span,
+[data-theme="light"] .build-log-list li,
+[data-theme="light"] .timeline-evidence article{
+    background:rgba(255,255,255,0.72);
+    border-color:rgba(100,116,139,0.18);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.7);
+}
+[data-theme="light"] .project-action-btn,
+[data-theme="light"] .quality-audit-run,
+[data-theme="light"] .contact-message-btn,
+[data-theme="light"] .brief-option{
+    background:rgba(255,255,255,0.78);
+    border-color:rgba(100,116,139,0.22);
+    color:var(--text-secondary);
+}
+[data-theme="light"] .project-action-btn--primary,
+[data-theme="light"] .contact-action--primary{
+    background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple));
+    border-color:transparent;
+    color:#fff;
+}
+[data-theme="light"] .proof-badge,
+[data-theme="light"] .proof-mode-indicator{
+    background:rgba(255,255,255,0.92);
+    color:#15803d;
+    box-shadow:0 18px 48px rgba(15,23,42,0.12);
+}
+[data-theme="light"] .project-overlay{
+    background:rgba(15,23,42,0.58);
+}
+[data-theme="light"] .review-snapshot{
+    background:linear-gradient(180deg,rgba(248,250,252,0.98),rgba(229,246,251,0.72));
+}
+[data-theme="light"] .hero-focus-item,
+[data-theme="light"] .signature-item,
+[data-theme="light"] .review-snapshot-copy,
+[data-theme="light"] .upgrade-log-panel,
+[data-theme="light"] .visitor-route-panel,
+[data-theme="light"] .build-loop,
+[data-theme="light"] .project-case-hero,
+[data-theme="light"] .command-panel,
+[data-theme="light"] .nav-links.active{
+    background:linear-gradient(135deg,rgba(255,255,255,0.94),rgba(239,246,255,0.82));
+    border-color:rgba(100,116,139,0.18);
+    box-shadow:0 18px 48px rgba(15,23,42,0.08),inset 0 1px 0 rgba(255,255,255,0.7);
+}
+[data-theme="light"] .review-snapshot-card,
+[data-theme="light"] .upgrade-log-card,
+[data-theme="light"] .upgrade-log-action,
+[data-theme="light"] .visitor-route-tabs,
+[data-theme="light"] .visitor-route-output,
+[data-theme="light"] .visitor-route-step,
+[data-theme="light"] .build-loop-step,
+[data-theme="light"] .lab-visual,
+[data-theme="light"] .lab-visual-board span,
+[data-theme="light"] .project-case-hero-stats article,
+[data-theme="light"] .case-study-item,
+[data-theme="light"] .project-decision-list article,
+[data-theme="light"] .project-modal-status article,
+[data-theme="light"] .command-item,
+[data-theme="light"] .nav-links.active li:not(.nav-drawer-intro):not(.nav-drawer-status):not(.nav-drawer-action) a,
+[data-theme="light"] .nav-drawer-status div,
+[data-theme="light"] .code-tab,
+[data-theme="light"] .code-header,
+[data-theme="light"] .code-tabs,
+[data-theme="light"] .command-toggle kbd{
+    background:rgba(255,255,255,0.76);
+    border-color:rgba(100,116,139,0.18);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.68);
+}
+[data-theme="light"] .command-panel{
+    box-shadow:0 24px 80px rgba(15,23,42,0.18);
+}
+[data-theme="light"] .nav-links.active{
+    box-shadow:0 20px 58px rgba(15,23,42,0.16);
+}
+[data-theme="light"] .project-case-hero{
+    background:linear-gradient(135deg,rgba(236,254,255,0.86),rgba(245,243,255,0.8),rgba(255,251,235,0.72));
+}
 
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;font-size:16px}
