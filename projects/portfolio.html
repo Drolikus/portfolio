@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website Case Study — Vladyslav Kikhtenko</title>
+    <meta name="description" content="Portfolio website case study: proof-first navigation, quality gate, project cards, source links, and responsive UI.">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="case-page-shell">
+    <header class="case-nav">
+        <a class="logo" href="../index.html#home"><span class="logo-bracket">&lt;</span>Vlad<span class="logo-bracket">/&gt;</span></a>
+        <nav aria-label="Case navigation">
+            <a href="../index.html#projects">Projects</a>
+            <a href="voltage.html">Voltage</a>
+            <a href="lab.html">Lab</a>
+            <a href="../quality.html">Quality</a>
+        </nav>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light theme">
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+    </header>
+
+    <main class="case-main">
+        <section class="case-hero-section">
+            <a class="case-back-link" href="../index.html#projects">Back to projects</a>
+            <span class="case-kicker">Case 02 / Live portfolio system</span>
+            <h1>Portfolio website that can be inspected</h1>
+            <p>This site is treated as a product, not a landing-page poster. It includes project proof, active navigation, command actions, theme states, a quality gate, contact builder, and source links.</p>
+            <div class="case-hero-actions">
+                <a class="btn btn-primary" href="../index.html#home">Open live site</a>
+                <a class="btn btn-secondary" href="https://github.com/Drolikus/portfolio/blob/main/index.html" target="_blank" rel="noopener noreferrer">View source</a>
+            </div>
+            <div class="case-facts">
+                <article><span>Status</span><strong>Live</strong></article>
+                <article><span>Checks</span><strong>7 / 7 local audit</strong></article>
+                <article><span>Surface</span><strong>Responsive static site</strong></article>
+            </div>
+        </section>
+
+        <div class="case-shot-grid">
+            <figure class="case-shot">
+                <img src="../assets/case-portfolio-home.png" alt="Portfolio desktop home screenshot">
+                <figcaption>Desktop hero and proof-first positioning.</figcaption>
+            </figure>
+            <figure class="case-shot">
+                <img src="../assets/case-portfolio-mobile.png" alt="Portfolio mobile projects screenshot">
+                <figcaption>Mobile project cards and touch-friendly controls.</figcaption>
+            </figure>
+        </div>
+
+        <section class="case-section-grid">
+            <article>
+                <span>Goal</span>
+                <h2>Make the work easy to judge</h2>
+                <p>The page gives visitors direct routes: recruiter, client, mentor, projects, source, quality, and contact. It avoids hiding everything behind one decorative hero.</p>
+            </article>
+            <article>
+                <span>Polish</span>
+                <h2>Interactions support inspection</h2>
+                <p>Command palette, proof mode, filters, case routes, theme switching, and copy actions all point visitors toward evidence or contact.</p>
+            </article>
+            <article>
+                <span>Guardrail</span>
+                <h2>More depth, less clutter</h2>
+                <p>Long project details now live in case pages, so the homepage can stay scan-friendly while still offering deeper proof.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer class="case-footer">
+        <span>© <span id="currentYear"></span> Vladyslav Kikhtenko</span>
+        <a href="../index.html#contact">Contact</a>
+    </footer>
+    <script src="../js/case-pages.js"></script>
+</body>
+</html>

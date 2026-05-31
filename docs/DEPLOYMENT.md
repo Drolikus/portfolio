@@ -11,6 +11,7 @@ The main portfolio is a static site:
 
 ## Recommended Hosts
 
+- GitHub Pages: current live host at `https://drolikus.github.io/portfolio/`.
 - Netlify: simplest static deploy and form handling path.
 - Vercel: strong preview workflow, headers, and performance tooling.
 - Cloudflare Pages: CDN-first production option with security headers and caching.
@@ -22,6 +23,7 @@ The main portfolio is a static site:
 - Add caching policy for images and static CSS/JS.
 - Add redirect from secondary host to canonical host.
 - Verify mobile and desktop after deploy.
+- Confirm `404.html`, `quality.html`, and all `projects/*.html` routes resolve.
 - Add server-side environment variables before any OpenAI-powered feature.
 
 ## Suggested Headers

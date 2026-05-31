@@ -7,11 +7,18 @@ Latest local check against `http://127.0.0.1:8123/index.html`:
 - Live audit: `7 / 7`
 - Console errors: none
 - Horizontal overflow: none
-- Images loaded: `studio-headshot.png`, `portfolio-preview.png`, `telegram-qr.png`
-- Command items: 12
-- Proof targets: 9
+- Images loaded: 8 across the homepage and public case/quality routes
+- Command items: 13
+- Proof targets: 8
 - Quality tabs/panels: 4 / 4
 - Visitor route default: Recruiter route with Skills evidence, Project proof, Contact route
+
+## Public Quality Surface
+
+- Public quality page: `quality.html`
+- Custom GitHub Pages fallback: `404.html`
+- Case-study screenshots are generated through `npm run capture:screenshots`
+- Deep project proof lives in `projects/voltage.html`, `projects/portfolio.html`, and `projects/lab.html`
 
 ## HyperFrames QA Snapshot
 

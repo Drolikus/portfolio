@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavbarScroll();
     initActiveNavHighlight();
     initProjectFilter();
-    initProjectModal();
     initCodeShowcase();
     initVoltagePreview();
     initQualityGate();
@@ -213,6 +212,10 @@ function initCommandPalette() {
     };
 
     const scrollToTarget = (href) => {
+        if (!href.startsWith('#')) {
+            window.location.href = href;
+            return;
+        }
         const target = document.querySelector(href);
         if (!target) return;
         const navbarHeight = document.getElementById('navbar')?.offsetHeight || 0;
@@ -385,7 +388,7 @@ function initVisitorRoute() {
             title: 'See useful UI work before messaging',
             primary: { label: 'Start with projects', href: '#projects' },
             steps: [
-                { label: '01', title: 'Project surface', text: 'Check cards, modals, filters, and real interaction polish.', href: '#projects' },
+                { label: '01', title: 'Project surface', text: 'Check cards, case routes, filters, and real interaction polish.', href: '#projects' },
                 { label: '02', title: 'Quality gate', text: 'Confirm the page is checked instead of only decorated.', href: '#quality-gate' },
                 { label: '03', title: 'Message builder', text: 'Generate a clear opener for a small frontend task.', href: '#contact' }
             ]
@@ -547,267 +550,6 @@ function initProjectFilter() {
             });
         });
     });
-}
-
-/* ============================================
-   PROJECT MODAL
-   ============================================ */
-const projectData = {
-    voltage: {
-        title: 'Voltage — Guitar Store',
-        subtitle: 'E-commerce Project · In rebuild',
-        desc: 'An online guitar store rebuilt around product catalog, cart state, wishlist, reviews, admin flow, order management, and multi-language support (EN/RU/UA/DE). The live link waits until the core flow is stable, so the portfolio shows a case study instead of a fake demo.',
-        caseHero: {
-            kicker: 'Voltage case file',
-            headline: 'A rebuild focused on product behavior, not fake polish',
-            stats: [
-                { value: '4', label: 'core store flows' },
-                { value: '4', label: 'interface languages' },
-                { value: '0', label: 'unverified live links' }
-            ]
-        },
-        caseStudy: [
-            {
-                label: 'Problem',
-                text: 'Create a realistic e-commerce project instead of another static landing page, with flows that behave like a real store.'
-            },
-            {
-                label: 'What I built',
-                text: 'Product catalog, cart interactions, wishlist, reviews, admin panel ideas, order flow, and multilingual interface states.'
-            },
-            {
-                label: 'Rebuild focus',
-                text: 'Cleaner structure, better responsive behavior, simpler state handling, and UI that can grow without becoming messy.'
-            },
-            {
-                label: 'What I learned',
-                text: 'DOM state, reusable interface patterns, edge cases in carts, language switching, and how much polish comes from small details.'
-            }
-        ],
-        decisionMap: [
-            {
-                step: '01',
-                title: 'Scope before polish',
-                text: 'Catalog, cart, admin, and i18n define the rebuild before visual effects are added.'
-            },
-            {
-                step: '02',
-                title: 'State first',
-                text: 'Cart behavior, quantity merging, and interface feedback are treated as product logic.'
-            },
-            {
-                step: '03',
-                title: 'Ship when stable',
-                text: 'The live demo waits until normal user clicks cannot break the core store flow.'
-            }
-        ],
-        buildStatus: [
-            { label: 'Now', text: 'Reworking structure, store states, and responsive screens.' },
-            { label: 'Next', text: 'Move repeated UI patterns into cleaner reusable pieces.' },
-            { label: 'Proof', text: 'Use the portfolio preview as a transparent progress snapshot.' }
-        ],
-        tech: ['HTML', 'CSS', 'JavaScript', 'Responsive Design', 'i18n'],
-        features: ['Product catalog with categories', 'Shopping cart with add/remove', 'Wishlist functionality', 'Product reviews and ratings', 'Admin panel for management', 'Order tracking system', 'Multi-language support (EN/RU/UA/DE)', 'Mobile-responsive design'],
-        actions: [
-            { label: 'View UI Preview', href: '#showcase' },
-            { label: 'GitHub', href: 'https://github.com/Drolikus', external: true },
-            { label: 'Contact', href: '#contact' }
-        ]
-    },
-    portfolio: {
-        title: 'Portfolio Website',
-        subtitle: 'Live Portfolio System',
-        desc: 'This portfolio is a live proof surface built with HTML, CSS, and vanilla JavaScript. It now uses real project evidence, case files, project filtering, modal details, active navigation, theme switching, canvas effects, and responsive layouts.',
-        tech: ['HTML', 'CSS', 'JavaScript', 'Canvas API'],
-        features: ['Real screenshot-based project card', 'Dark/light theme toggle', 'Canvas particle animations', 'Binary rain effect', 'Scroll reveal animations', 'Project modal system', 'Fully responsive layout', 'Custom CSS animations'],
-        actions: [
-            { label: 'Open Site', href: '#home' },
-            { label: 'GitHub', href: 'https://github.com/Drolikus', external: true }
-        ]
-    },
-    lab: {
-        title: 'Frontend Practice Lab',
-        subtitle: 'UI Experiments - Pattern board',
-        desc: 'A focused practice space for interface patterns: responsive layouts, filters, modals, cards, theme states, form feedback, and micro-interactions. I use these experiments to build faster and cleaner across project work and this portfolio.',
-        caseHero: {
-            kicker: 'Practice system',
-            headline: 'A lab for testing UI patterns before they enter real projects',
-            stats: [
-                { value: '6', label: 'pattern groups' },
-                { value: '2', label: 'projects fed by it' },
-                { value: '1', label: 'shared design rhythm' }
-            ]
-        },
-        caseStudy: [
-            {
-                label: 'Purpose',
-                text: 'Train interface patterns in small, controlled pieces before mixing them into larger project screens.'
-            },
-            {
-                label: 'Used for',
-                text: 'Project cards, filters, modal behavior, theme states, contact feedback, and responsive layout pressure.'
-            },
-            {
-                label: 'Quality bar',
-                text: 'Every experiment needs a real use case, a mobile state, and a reason to exist in the portfolio or a project case.'
-            },
-            {
-                label: 'Learning result',
-                text: 'Cleaner CSS structure, stronger component instincts, and less random styling when building new sections.'
-            }
-        ],
-        decisionMap: [
-            {
-                step: '01',
-                title: 'Prototype small',
-                text: 'Start with one isolated pattern instead of redesigning a whole page at once.'
-            },
-            {
-                step: '02',
-                title: 'Stress the state',
-                text: 'Check long labels, mobile width, active states, empty states, and feedback timing.'
-            },
-            {
-                step: '03',
-                title: 'Promote only useful pieces',
-                text: 'Move patterns into the real site only when they make a project case or the portfolio clearer.'
-            }
-        ],
-        buildStatus: [
-            { label: 'Active', text: 'Layout, modal, theme, and contact patterns are already reused here.' },
-            { label: 'Next', text: 'Turn repeated patterns into cleaner React-ready component ideas.' },
-            { label: 'Guardrail', text: 'No experiment stays if it only adds noise or fake complexity.' }
-        ],
-        tech: ['HTML', 'CSS', 'JavaScript', 'Responsive Design'],
-        features: ['Reusable card layouts', 'Responsive spacing experiments', 'Filter and modal patterns', 'Theme state practice', 'Form feedback states', 'Mobile QA checks', 'Micro-interaction experiments', 'Semantic HTML structure'],
-        actions: [
-            { label: 'View Board', href: '#lab-board' },
-            { label: 'GitHub', href: 'https://github.com/Drolikus', external: true },
-            { label: 'Contact', href: '#contact' }
-        ]
-    }
-};
-
-function initProjectModal() {
-    const modal = document.createElement('div');
-    modal.className = 'project-modal';
-    modal.id = 'projectModal';
-    modal.innerHTML = `
-        <div class="project-modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-            <button class="project-modal-close" id="modalClose" type="button" aria-label="Close project details">&times;</button>
-            <div class="project-modal-body" id="modalBody">
-                <div class="project-case-hero" id="modalCaseHero" hidden></div>
-                <h3 class="project-modal-title" id="modalTitle"></h3>
-                <p class="project-modal-subtitle" id="modalSubtitle"></p>
-                <p class="project-modal-desc" id="modalDesc"></p>
-                <div class="project-case-study" id="modalCaseStudy"></div>
-                <div class="project-decision-map" id="modalDecisionMap" hidden></div>
-                <div class="project-modal-status" id="modalStatus" hidden></div>
-                <div class="project-modal-tech" id="modalTech"></div>
-                <ul class="project-modal-features" id="modalFeatures"></ul>
-                <div class="project-modal-actions" id="modalActions"></div>
-            </div>
-        </div>
-    `;
-    document.body.appendChild(modal);
-
-    const modalClose = document.getElementById('modalClose');
-    modalClose.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-    modal.addEventListener('click', (e) => {
-        const actionLink = e.target.closest('#modalActions a[href^="#"]');
-        if (!actionLink) return;
-        const target = document.querySelector(actionLink.getAttribute('href'));
-        if (!target) return;
-
-        e.preventDefault();
-        closeModal();
-        const navbarHeight = document.getElementById('navbar')?.offsetHeight || 0;
-        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-    });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
-
-    document.querySelectorAll('.project-view-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const projectId = btn.getAttribute('data-project');
-            openModal(projectId);
-        });
-    });
-}
-
-function openModal(projectId) {
-    const data = projectData[projectId];
-    if (!data) return;
-    const modalBody = document.getElementById('modalBody');
-    const caseHero = document.getElementById('modalCaseHero');
-    const decisionMap = document.getElementById('modalDecisionMap');
-    const modalStatus = document.getElementById('modalStatus');
-
-    modalBody.classList.toggle('project-modal-body--case', Boolean(data.caseHero));
-    caseHero.hidden = !data.caseHero;
-    caseHero.innerHTML = data.caseHero ? `
-        <div>
-            <span>${data.caseHero.kicker}</span>
-            <strong>${data.caseHero.headline}</strong>
-        </div>
-        <div class="project-case-hero-stats">
-            ${data.caseHero.stats.map(stat => `
-                <article>
-                    <strong>${stat.value}</strong>
-                    <span>${stat.label}</span>
-                </article>
-            `).join('')}
-        </div>
-    ` : '';
-
-    document.getElementById('modalTitle').textContent = data.title;
-    document.getElementById('modalSubtitle').textContent = data.subtitle;
-    document.getElementById('modalDesc').textContent = data.desc;
-    document.getElementById('modalCaseStudy').innerHTML = (data.caseStudy || []).map(item => `
-        <article class="case-study-item">
-            <span>${item.label}</span>
-            <p>${item.text}</p>
-        </article>
-    `).join('');
-    decisionMap.hidden = !data.decisionMap;
-    decisionMap.innerHTML = data.decisionMap ? `
-        <div class="project-modal-section-title">
-            <span>Decision map</span>
-            <strong>How the rebuild is controlled</strong>
-        </div>
-        <div class="project-decision-list">
-            ${data.decisionMap.map(item => `
-                <article>
-                    <span>${item.step}</span>
-                    <strong>${item.title}</strong>
-                    <p>${item.text}</p>
-                </article>
-            `).join('')}
-        </div>
-    ` : '';
-    modalStatus.hidden = !data.buildStatus;
-    modalStatus.innerHTML = data.buildStatus ? data.buildStatus.map(item => `
-        <article>
-            <span>${item.label}</span>
-            <p>${item.text}</p>
-        </article>
-    `).join('') : '';
-    document.getElementById('modalTech').innerHTML = data.tech.map(t => `<span class="tech-badge">${t}</span>`).join('');
-    document.getElementById('modalFeatures').innerHTML = data.features.map(f => `<li>${f}</li>`).join('');
-    document.getElementById('modalActions').innerHTML = (data.actions || []).map((action, index) => {
-        const className = index === 0 ? 'btn btn-primary' : 'btn btn-secondary';
-        const target = action.external ? ' target="_blank" rel="noopener noreferrer"' : '';
-        return `<a class="${className}" href="${action.href}"${target}>${action.label}</a>`;
-    }).join('');
-    document.getElementById('projectModal').classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeModal() {
-    document.getElementById('projectModal').classList.remove('active');
-    document.body.style.overflow = '';
 }
 
 /* ============================================
@@ -1482,8 +1224,7 @@ function initPanelSpotlight() {
         '.skill-proof-card',
         '.project-card',
         '.project-ledger-panel',
-        '.case-file-panel',
-        '.lab-board-panel',
+        '.case-index-panel',
         '.quality-gate-panel',
         '.build-panel',
         '.timeline-content',

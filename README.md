@@ -1,13 +1,22 @@
 # Vladyslav Kikhtenko Portfolio
 
+[![Live site](https://img.shields.io/badge/GitHub%20Pages-live-22c55e?style=flat-square)](https://drolikus.github.io/portfolio/)
+[![Quality gate](https://img.shields.io/badge/quality-7%20%2F%207-0891b2?style=flat-square)](https://drolikus.github.io/portfolio/quality.html)
+
 Proof-first frontend portfolio for Vladyslav Kikhtenko, a junior web developer in Germany building responsive interfaces, e-commerce flows, and practical frontend projects.
 
 ## What This Site Proves
 
 - Real project storytelling instead of empty portfolio cards.
-- Featured case-study structure for Voltage plus room for future frontend projects.
+- Dedicated case-study pages for Voltage, the portfolio system, and the UI practice lab.
 - Command palette, proof mode, visitor routes, quality gate, and contact message builder.
 - Static HTML, CSS, and vanilla JavaScript with responsive behavior and browser-tested interactions.
+
+## Live Links
+
+- Live site: https://drolikus.github.io/portfolio/
+- Public quality gate: https://drolikus.github.io/portfolio/quality.html
+- Case studies: [Voltage](https://drolikus.github.io/portfolio/projects/voltage.html), [Portfolio](https://drolikus.github.io/portfolio/projects/portfolio.html), [Practice Lab](https://drolikus.github.io/portfolio/projects/lab.html)
 
 ## Project Structure
 
@@ -18,6 +27,7 @@ Proof-first frontend portfolio for Vladyslav Kikhtenko, a junior web developer i
 |-- js/main.js
 |-- assets/
 |-- docs/
+|-- projects/
 |-- tools/
 `-- portfolio-walkthrough/
 ```
@@ -52,6 +62,13 @@ Generated social previews and document briefs are built from scripts in `tools/`
 python -m pip install -r requirements.txt
 python tools/build_social_preview.py
 python tools/build_portfolio_brief.py
+```
+
+Case-study screenshots are captured with Playwright:
+
+```bash
+npm install
+npm run capture:screenshots
 ```
 
 ## Current Status

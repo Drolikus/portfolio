@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voltage Case Study — Vladyslav Kikhtenko</title>
+    <meta name="description" content="Voltage case study: e-commerce rebuild with catalog, cart, admin, orders, and multilingual UI pressure.">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="case-page-shell">
+    <header class="case-nav">
+        <a class="logo" href="../index.html#home"><span class="logo-bracket">&lt;</span>Vlad<span class="logo-bracket">/&gt;</span></a>
+        <nav aria-label="Case navigation">
+            <a href="../index.html#projects">Projects</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="lab.html">Lab</a>
+            <a href="../quality.html">Quality</a>
+        </nav>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light theme">
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+    </header>
+
+    <main class="case-main">
+        <section class="case-hero-section">
+            <a class="case-back-link" href="../index.html#projects">Back to projects</a>
+            <span class="case-kicker">Case 01 / E-commerce rebuild</span>
+            <h1>Voltage: from practice project to real store flow</h1>
+            <p>The project is intentionally shown as a rebuild instead of a fake finished shop. The work focuses on product browsing, cart state, admin surfaces, order signals, and EN/RU/UA/DE interface pressure.</p>
+            <div class="case-hero-actions">
+                <a class="btn btn-primary" href="../index.html#showcase">View UI preview</a>
+                <a class="btn btn-secondary" href="https://github.com/Drolikus/portfolio/blob/main/projects/voltage.html" target="_blank" rel="noopener noreferrer">View source</a>
+            </div>
+            <div class="case-facts">
+                <article><span>Status</span><strong>In rebuild</strong></article>
+                <article><span>Core flows</span><strong>Catalog, cart, admin</strong></article>
+                <article><span>Stack</span><strong>HTML, CSS, JavaScript</strong></article>
+            </div>
+        </section>
+
+        <figure class="case-shot case-shot-wide">
+            <img src="../assets/case-voltage-preview.png" alt="Voltage interactive preview screenshot">
+            <figcaption>Current portfolio preview for the Voltage UI surface.</figcaption>
+        </figure>
+
+        <section class="case-section-grid">
+            <article>
+                <span>Problem</span>
+                <h2>Do not pretend the live store is done</h2>
+                <p>The project needs realistic state: products, cart merging, admin views, order states, and longer translated labels. Shipping a glossy empty demo would make the portfolio weaker.</p>
+            </article>
+            <article>
+                <span>Build direction</span>
+                <h2>Stabilize behavior before framework polish</h2>
+                <p>Core interactions stay in vanilla JavaScript while the UI patterns mature. React can come later, after the flows prove they deserve reusable components.</p>
+            </article>
+            <article>
+                <span>Evidence</span>
+                <h2>Visible limits beat vague claims</h2>
+                <p>The case explains what is ready, what is rebuilding, and why the live link waits. That keeps expectations honest and reviewable.</p>
+            </article>
+        </section>
+
+        <section class="case-checklist">
+            <h2>Next build pass</h2>
+            <ul>
+                <li>Finish cart quantity and feedback states.</li>
+                <li>Build admin overview with order and stock signals.</li>
+                <li>Stress test German labels on product and checkout UI.</li>
+                <li>Add real Voltage screenshots after the rebuild stabilizes.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="case-footer">
+        <span>© <span id="currentYear"></span> Vladyslav Kikhtenko</span>
+        <a href="../index.html#contact">Contact</a>
+    </footer>
+    <script src="../js/case-pages.js"></script>
+</body>
+</html>

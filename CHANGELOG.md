@@ -2,6 +2,8 @@
 
 ## 2026-05-31
 
+- Added dedicated case-study pages for Voltage, Portfolio Website, and Frontend Practice Lab.
+- Added public `quality.html`, custom `404.html`, case screenshots, source links, and GitHub Pages status links.
 - Added social preview asset, production metadata, and a 15-second portfolio motion reel.
 - Added `portfolio-walkthrough` project with DESIGN, SCRIPT, STORYBOARD, and a motion composition source.
 - Added repository documentation: README, changelog, roadmap, deployment notes, and quality notes.

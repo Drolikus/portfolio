@@ -1,0 +1,10 @@
+{
+  "name": "vladyslav-portfolio",
+  "private": true,
+  "scripts": {
+    "capture:screenshots": "node tools/capture_case_screenshots.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1"
+  }
+}
