@@ -4,12 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vladyslav Kikhtenko — Junior Web Developer</title>
+    <meta name="description" content="Portfolio of Vladyslav Kikhtenko, a junior web developer in Germany building responsive interfaces, e-commerce flows, and proof-first frontend projects.">
+    <meta name="author" content="Vladyslav Kikhtenko">
+    <meta name="theme-color" content="#05080f">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Vladyslav Kikhtenko — Junior Web Developer">
+    <meta property="og:description" content="Junior web developer portfolio focused on responsive UI, e-commerce flows, vanilla JavaScript interactions, and multilingual interfaces.">
+    <meta property="og:image" content="assets/social-preview.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vladyslav Kikhtenko — Junior Web Developer">
+    <meta name="twitter:description" content="Responsive UI, e-commerce flows, vanilla JavaScript interactions, and proof-first frontend project work.">
+    <meta name="twitter:image" content="assets/social-preview.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Vladyslav Kikhtenko",
+        "jobTitle": "Junior Web Developer",
+        "email": "mailto:vladikkihtenko@gmail.com",
+        "url": "https://github.com/Drolikus",
+        "sameAs": [
+            "https://github.com/Drolikus",
+            "https://t.me/VLADOSINAMSK"
+        ],
+        "knowsAbout": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Responsive Design",
+            "E-commerce UI"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "DE"
+        }
+    }
+    </script>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
     <!-- Boot Sequence Overlay -->
     <div class="boot-overlay" id="bootOverlay">
         <div class="boot-terminal">
@@ -32,20 +69,45 @@
     <div class="mouse-glow" id="mouseGlow"></div>
 
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
+    <nav class="navbar" id="navbar" aria-label="Primary navigation">
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                <span class="logo-bracket">&lt;</span>Dev<span class="logo-bracket">/&gt;</span>
+                <span class="logo-bracket">&lt;</span>Vlad<span class="logo-bracket">/&gt;</span>
             </a>
             <ul class="nav-links" id="navLinks">
+                <li class="nav-drawer-intro">
+                    <span>Menu</span>
+                    <strong>Vladyslav Kikhtenko</strong>
+                    <p>Junior frontend developer building proof-first interfaces in Germany.</p>
+                </li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#showcase">Showcase</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li class="nav-drawer-status">
+                    <div>
+                        <span>Status</span>
+                        <strong>Open to opportunities</strong>
+                    </div>
+                    <div>
+                        <span>Focus</span>
+                        <strong>Project systems</strong>
+                    </div>
+                </li>
+                <li class="nav-drawer-action">
+                    <a href="#contact">Message me</a>
+                </li>
             </ul>
             <div class="nav-actions">
+                <button class="command-toggle" id="commandToggle" type="button" aria-label="Open quick jump" aria-controls="commandPalette" aria-expanded="false">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <path d="M20 20l-3.5-3.5"></path>
+                    </svg>
+                    <kbd>Ctrl K</kbd>
+                </button>
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                     <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="12" r="5"></circle>
@@ -62,7 +124,7 @@
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
                 </button>
-                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu" aria-controls="navLinks">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -71,6 +133,7 @@
         </div>
     </nav>
 
+    <main id="main-content">
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-bg">
@@ -90,18 +153,18 @@
                     <span class="badge-text">Open to opportunities</span>
                 </div>
                 <h1 class="hero-title">
-                    <span class="title-line title-line-1">Junior Web</span>
-                    <span class="title-line title-line-2">Developer</span>
+                    <span class="title-line title-line-1">Vladyslav</span>
+                    <span class="title-line title-line-2">Kikhtenko</span>
                 </h1>
-                <p class="hero-role">Frontend learner building real e-commerce UI</p>
+                <p class="hero-role">Junior Web Developer building proof-first interfaces</p>
                 <div class="hero-typing">
                     <span class="typing-prefix">&gt; </span><span class="typing-text" id="typingText"></span><span class="typing-cursor">_</span>
                 </div>
                 <p class="hero-subtitle">
-                    I turn HTML, CSS, and JavaScript practice into polished interfaces. Right now I am building Voltage — an online guitar store with cart logic, admin flow, and multilingual UI.
+                    I build polished responsive interfaces with HTML, CSS, and JavaScript. Voltage is one featured e-commerce case, while the portfolio also tracks UI systems, quality checks, and future project work.
                 </p>
                 <p class="hero-subtitle-mobile">
-                    Building polished interfaces while developing Voltage — an online guitar store.
+                    Building polished interfaces through real projects, proof systems, and practical UI experiments.
                 </p>
                 <div class="hero-cta">
                     <a href="#projects" class="btn btn-primary">
@@ -110,23 +173,20 @@
                             <path d="M5 12h14M12 5l7 7-7 7"></path>
                         </svg>
                     </a>
-                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                    <a href="#contact" class="btn btn-secondary">Work Together</a>
                 </div>
-                <div class="hero-metrics" aria-label="Portfolio highlights">
-                    <div class="hero-metric">
-                        <span>01</span>
-                        <strong>Main build</strong>
-                        <em>Voltage store</em>
+                <div class="hero-focus" aria-label="Current development focus">
+                    <div class="hero-focus-item hero-focus-item--wide">
+                        <span>Current focus</span>
+                        <strong>Featured case</strong>
                     </div>
-                    <div class="hero-metric">
-                        <span>4</span>
-                        <strong>Languages</strong>
-                        <em>EN / RU / UA / DE</em>
+                    <div class="hero-focus-item">
+                        <span>Building</span>
+                        <strong>Cart, admin, i18n</strong>
                     </div>
-                    <div class="hero-metric">
-                        <span>100+</span>
-                        <strong>Hours</strong>
-                        <em>Practice first</em>
+                    <div class="hero-focus-item">
+                        <span>Germany time</span>
+                        <strong id="localTime">--:--</strong>
                     </div>
                 </div>
             </div>
@@ -175,6 +235,127 @@
         </div>
     </section>
 
+    <!-- Signature Strip -->
+    <section class="signature-strip" aria-label="Developer signature">
+        <div class="container signature-grid">
+            <div class="signature-item">
+                <span>Origin</span>
+                <strong>Ukraine → Germany</strong>
+            </div>
+            <div class="signature-item">
+                <span>Main build</span>
+                <strong>Project-first frontend</strong>
+            </div>
+            <div class="signature-item">
+                <span>Languages</span>
+                <strong>EN / RU / UA / DE</strong>
+            </div>
+            <div class="signature-item">
+                <span>Next step</span>
+                <strong>React + real UI systems</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviewer Snapshot -->
+    <section class="review-snapshot" aria-label="Portfolio quick reviewer snapshot">
+        <div class="container review-snapshot-grid">
+            <div class="review-snapshot-copy reveal">
+                <span>10-second scan</span>
+                <h2>What this portfolio proves right now</h2>
+                <p>A quick path for recruiters, clients, or mentors: see the live surface, inspect the main rebuild, then decide if the work feels structured enough to talk.</p>
+                <div class="review-snapshot-actions">
+                    <a class="project-action-btn project-action-btn--primary" href="#projects">
+                        <span>Review projects</span>
+                    </a>
+                    <a class="project-action-btn" href="#contact">
+                        <span>Start contact</span>
+                    </a>
+                    <button class="project-action-btn proof-toggle-btn" type="button" data-proof-toggle aria-pressed="false">
+                        <span>Proof mode</span>
+                    </button>
+                </div>
+            </div>
+            <div class="review-snapshot-cards">
+                <article class="review-snapshot-card reveal">
+                    <span>01</span>
+                    <strong>Real UI pressure</strong>
+                    <p>Voltage is one concrete product case; the system is built to support more projects without rewriting the whole story.</p>
+                </article>
+                <article class="review-snapshot-card reveal">
+                    <span>02</span>
+                    <strong>Visible execution</strong>
+                    <p>This site shows layout, motion, modals, filters, contact flow, screenshot cards, and responsive states in one place.</p>
+                </article>
+                <article class="review-snapshot-card reveal">
+                    <span>03</span>
+                    <strong>Honest scope</strong>
+                    <p>Stable work is shown as live, rebuilding work is marked clearly, and fake demo links stay out.</p>
+                </article>
+            </div>
+        </div>
+        <div class="container">
+            <div class="upgrade-log-panel reveal" id="upgrade-log" aria-label="Latest portfolio upgrades" data-proof-label="Recent upgrades are visible and traceable">
+                <span class="proof-badge">Proof: upgrade log</span>
+                <div class="upgrade-log-copy">
+                    <span>Latest upgrades</span>
+                    <strong>What changed in the interface</strong>
+                    <p>A visible changelog for the newest systems added to this portfolio, so the work is easy to find instead of hidden behind vague polish.</p>
+                </div>
+                <div class="upgrade-log-grid">
+                    <article class="upgrade-log-card">
+                        <span>01</span>
+                        <strong>Command center</strong>
+                        <p>Quick jump with search, section actions, Voltage case opening, proof toggle, and contact shortcuts.</p>
+                        <button class="upgrade-log-action" type="button" data-open-command-center>Open command center</button>
+                    </article>
+                    <article class="upgrade-log-card">
+                        <span>02</span>
+                        <strong>Proof mode</strong>
+                        <p>Highlights evidence blocks so visitors can inspect real proof instead of reading empty claims.</p>
+                        <button class="upgrade-log-action" type="button" data-proof-toggle aria-pressed="false">Toggle proof mode</button>
+                    </article>
+                    <article class="upgrade-log-card">
+                        <span>03</span>
+                        <strong>Quality gate</strong>
+                        <p>Live mini-audit checks overflow, images, navigation targets, proof wiring, command actions, and builder state.</p>
+                        <a class="upgrade-log-action" href="#quality-gate">View quality gate</a>
+                    </article>
+                    <article class="upgrade-log-card">
+                        <span>04</span>
+                        <strong>Message builder</strong>
+                        <p>Builds a specific contact opener and keeps copy/email draft actions wired to the generated text.</p>
+                        <a class="upgrade-log-action" href="#contact">Open builder</a>
+                    </article>
+                </div>
+            </div>
+            <div class="visitor-route-panel reveal" id="visitor-route" aria-label="Visitor route selector" data-proof-label="Visitor paths guide different audiences">
+                <span class="proof-badge">Proof: visitor route</span>
+                <div class="visitor-route-copy">
+                    <span>Visitor route</span>
+                    <strong>Pick the fastest path through the portfolio</strong>
+                    <p>Different visitors need different proof. Choose a route and the page will suggest the sections that matter first.</p>
+                    <div class="visitor-route-tabs" role="tablist" aria-label="Visitor route types">
+                        <button class="visitor-route-tab active" type="button" role="tab" aria-selected="true" data-route-tab="recruiter">Recruiter</button>
+                        <button class="visitor-route-tab" type="button" role="tab" aria-selected="false" data-route-tab="client">Client</button>
+                        <button class="visitor-route-tab" type="button" role="tab" aria-selected="false" data-route-tab="mentor">Mentor</button>
+                    </div>
+                </div>
+                <div class="visitor-route-output">
+                    <div class="visitor-route-head">
+                        <span id="visitorRouteKicker">Hiring route</span>
+                        <strong id="visitorRouteTitle">Check fit, proof, then contact</strong>
+                    </div>
+                    <div class="visitor-route-steps" id="visitorRouteSteps"></div>
+                    <div class="visitor-route-actions">
+                        <a class="upgrade-log-action" id="visitorRoutePrimary" href="#skills">Start route</a>
+                        <button class="upgrade-log-action" type="button" data-open-command-center>Use command center</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section class="about section" id="about">
         <div class="section-divider section-divider-top"></div>
@@ -186,26 +367,26 @@
             <div class="about-content">
                 <div class="about-text reveal">
                     <p>
-                        I am a beginner web developer from Ukraine, currently living in Germany. I am learning HTML, CSS, and JavaScript by building real projects step by step.
+                        I am a junior frontend developer from Ukraine, currently living in Germany. I build with HTML, CSS, and JavaScript while growing through real project work.
                     </p>
                     <p>
-                        My main project is Voltage, an online guitar store that I improve continuously.
+                        My current featured project is Voltage, an online guitar store, but the portfolio is designed to grow with more frontend cases.
                     </p>
                     <p>
-                        I learn fast by doing. Every project teaches me something new. This portfolio itself is one of my learning projects.
+                        I learn fast by shipping visible work, then tightening the weak parts: structure, states, responsiveness, and honest project proof.
                     </p>
                     <div class="about-stats">
                         <div class="stat">
                             <span class="stat-number" data-count="1">0</span>
-                            <span class="stat-label">Real Project</span>
+                            <span class="stat-label">Main Build</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number" data-count="1">0</span>
-                            <span class="stat-label">Week of Coding</span>
+                            <span class="stat-number" data-count="2">0</span>
+                            <span class="stat-label">Design Iterations</span>
                         </div>
                         <div class="stat">
                             <span class="stat-number" data-count="100">0</span>
-                            <span class="stat-label">Hours Learning</span>
+                            <span class="stat-label">Practice Hours</span>
                         </div>
                     </div>
                 </div>
@@ -226,7 +407,7 @@
                                     <span class="terminal-prompt">$</span>
                                     <span class="terminal-cmd">whoami</span>
                                 </div>
-                                <div class="terminal-line terminal-output">junior_developer</div>
+                                <div class="terminal-line terminal-output">junior_frontend_developer</div>
                                 <div class="terminal-line">
                                     <span class="terminal-prompt">$</span>
                                     <span class="terminal-cmd">cat skills.txt</span>
@@ -243,6 +424,34 @@
                     </div>
                 </div>
             </div>
+            <div class="build-loop reveal" aria-label="How I build projects">
+                <div class="build-loop-header">
+                    <span>Build loop</span>
+                    <strong>How I turn practice into real UI</strong>
+                </div>
+                <div class="build-loop-steps">
+                    <article class="build-loop-step">
+                        <span>01</span>
+                        <h3>Map the flow</h3>
+                        <p>I break the idea into screens, states, and user actions before writing the interface.</p>
+                    </article>
+                    <article class="build-loop-step">
+                        <span>02</span>
+                        <h3>Build the UI</h3>
+                        <p>I create the layout with semantic HTML, responsive CSS, and reusable visual patterns.</p>
+                    </article>
+                    <article class="build-loop-step">
+                        <span>03</span>
+                        <h3>Wire interactions</h3>
+                        <p>I add filters, modals, theme states, cart behavior, counters, and small feedback moments.</p>
+                    </article>
+                    <article class="build-loop-step">
+                        <span>04</span>
+                        <h3>Polish and learn</h3>
+                        <p>I test on different sizes, fix awkward details, and use every bug as the next lesson.</p>
+                    </article>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -252,7 +461,7 @@
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-tag">02. Skills</span>
-                <h2 class="section-title">Technical Expertise</h2>
+                <h2 class="section-title">Practical Frontend Skills</h2>
             </div>
             <div class="skills-grid">
                 <div class="skill-category reveal">
@@ -316,6 +525,67 @@
                     </div>
                 </div>
             </div>
+            <div class="capability-panel reveal">
+                <div class="capability-header">
+                    <span>What I can build now</span>
+                    <strong>Practical frontend, not just badges</strong>
+                </div>
+                <div class="capability-grid">
+                    <article class="capability-item">
+                        <span>01</span>
+                        <h3>Responsive interfaces</h3>
+                        <p>Clean layouts that work across desktop and mobile without breaking spacing or text.</p>
+                    </article>
+                    <article class="capability-item">
+                        <span>02</span>
+                        <h3>E-commerce flows</h3>
+                        <p>Catalog cards, cart states, wishlist patterns, product details, and admin-focused UI.</p>
+                    </article>
+                    <article class="capability-item">
+                        <span>03</span>
+                        <h3>Vanilla JS interactions</h3>
+                        <p>Filters, modals, theme switching, counters, scroll states, and small UI feedback loops.</p>
+                    </article>
+                    <article class="capability-item">
+                        <span>04</span>
+                        <h3>Multilingual UI</h3>
+                        <p>Interface thinking for EN/RU/UA/DE content, labels, and layout changes.</p>
+                    </article>
+                </div>
+            </div>
+            <div class="skill-proof-panel reveal" aria-label="Skill evidence map" data-proof-label="Skills tied to visible evidence">
+                <span class="proof-badge">Proof: skill map</span>
+                <div class="skill-proof-header">
+                    <span>Skill evidence map</span>
+                    <strong>Where the skills are visible on this site</strong>
+                </div>
+                <div class="skill-proof-grid">
+                    <article class="skill-proof-card">
+                        <span>HTML / CSS</span>
+                        <strong>Responsive layout system</strong>
+                        <p>Hero, project cards, dense panels, modals, contact layout, and mobile drawer all share the same visual rules.</p>
+                        <div class="skill-proof-meter" style="--level: 88%"><i></i></div>
+                    </article>
+                    <article class="skill-proof-card">
+                        <span>JavaScript</span>
+                        <strong>Interaction layer</strong>
+                        <p>Filtering, active navigation, modal cases, code tabs, preview modes, counters, copy actions, and theme state.</p>
+                        <div class="skill-proof-meter" style="--level: 82%"><i></i></div>
+                    </article>
+                    <article class="skill-proof-card">
+                        <span>UX thinking</span>
+                        <strong>States and clarity</strong>
+                        <p>Project honesty, case files, roadmap guardrails, message starters, and clear labels for what is live or rebuilding.</p>
+                        <div class="skill-proof-meter" style="--level: 78%"><i></i></div>
+                    </article>
+                    <article class="skill-proof-card">
+                        <span>QA mindset</span>
+                        <strong>Mobile and edge cases</strong>
+                        <p>Long labels, German-ready copy, modal scroll, active menu underline, responsive grids, and no horizontal overflow.</p>
+                        <div class="skill-proof-meter" style="--level: 74%"><i></i></div>
+                    </article>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -351,10 +621,16 @@
                     <div class="project-info">
                         <h3 class="project-title">Voltage — Guitar Store</h3>
                         <div class="project-meta">
-                            <span>In progress</span>
+                            <span>In rebuild</span>
                             <span>E-commerce</span>
                         </div>
-                        <p class="project-desc">Online guitar store with product catalog, shopping cart, wishlist, reviews, admin panel, orders, and multi-language support.</p>
+                        <p class="project-desc">E-commerce rebuild with catalog browsing, cart state, admin flow, orders, and multilingual interface pressure.</p>
+                        <div class="project-proof" aria-label="Voltage case study highlights">
+                            <span>Catalog</span>
+                            <span>Cart flow</span>
+                            <span>Admin</span>
+                            <span>i18n</span>
+                        </div>
                         <div class="project-tech">
                             <span class="tech-badge">HTML</span>
                             <span class="tech-badge">CSS</span>
@@ -362,8 +638,11 @@
                         </div>
                         <div class="project-actions">
                             <button class="project-action-btn project-action-btn--primary project-view-btn" type="button" data-project="voltage">
-                                <span>Explore</span>
+                                <span>Case Study</span>
                             </button>
+                            <a class="project-action-btn" href="https://github.com/Drolikus" target="_blank" rel="noopener noreferrer">
+                                <span>GitHub</span>
+                            </a>
                         </div>
                     </div>
                 </article>
@@ -386,55 +665,295 @@
                             <span>Live</span>
                             <span>Vanilla JS</span>
                         </div>
-                        <p class="project-desc">This exact site: hero animations, project filters, modal details, live theme switcher, responsive layout, and polished contact section.</p>
+                        <p class="project-desc">This portfolio as a live product: case files, active navigation, interactive previews, responsive layout, and a clearer contact flow.</p>
                         <div class="project-tech">
                             <span class="tech-badge">HTML</span>
                             <span class="tech-badge">CSS</span>
                             <span class="tech-badge">JavaScript</span>
                         </div>
                         <div class="project-actions">
+                            <a class="project-action-btn project-action-btn--primary" href="#home">
+                                <span>Open Site</span>
+                            </a>
                             <button class="project-action-btn project-view-btn" type="button" data-project="portfolio">
                                 <span>Details</span>
                             </button>
+                            <a class="project-action-btn" href="https://github.com/Drolikus" target="_blank" rel="noopener noreferrer">
+                                <span>GitHub</span>
+                            </a>
                         </div>
                     </div>
                 </article>
-                <article class="project-card reveal" data-category="learning" data-project="landing">
+                <article class="project-card reveal" data-category="learning" data-project="lab">
                     <div class="project-image">
-                        <div class="project-visual project-visual--cyan">
+                        <div class="project-visual project-visual--lab">
                             <div class="project-visual-grid"></div>
-                            <svg class="project-icon" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                                <line x1="8" y1="21" x2="16" y2="21"></line>
-                                <line x1="12" y1="17" x2="12" y2="21"></line>
-                            </svg>
+                            <div class="lab-visual">
+                                <div class="lab-visual-toolbar">
+                                    <span></span>
+                                    <span></span>
+                                    <strong>LAB</strong>
+                                </div>
+                                <div class="lab-visual-board">
+                                    <span>filters</span>
+                                    <span>modal</span>
+                                    <span>theme</span>
+                                    <span>forms</span>
+                                </div>
+                                <div class="lab-visual-meter">
+                                    <span></span>
+                                </div>
+                            </div>
                         </div>
                         <div class="project-overlay">
-                            <button class="project-overlay-btn project-view-btn" type="button" data-project="landing">
+                            <button class="project-overlay-btn project-view-btn" type="button" data-project="lab">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
                                 Details
                             </button>
                         </div>
                     </div>
                     <div class="project-info">
-                        <h3 class="project-title">Landing Page</h3>
+                        <h3 class="project-title">Frontend Practice Lab</h3>
                         <div class="project-meta">
                             <span>Learning</span>
-                            <span>Responsive</span>
+                            <span>UI experiments</span>
                         </div>
-                        <p class="project-desc">A responsive landing page built while learning Flexbox, Grid, and mobile-first design. My first hands-on project.</p>
+                        <p class="project-desc">A controlled pattern board for layouts, responsive states, filters, modals, form feedback, and micro-interactions.</p>
+                        <div class="project-proof" aria-label="Frontend practice lab patterns">
+                            <span>Layouts</span>
+                            <span>Filters</span>
+                            <span>Modals</span>
+                            <span>QA states</span>
+                        </div>
                         <div class="project-tech">
                             <span class="tech-badge">HTML</span>
                             <span class="tech-badge">CSS</span>
-                            <span class="tech-badge">Responsive</span>
+                            <span class="tech-badge">Interactions</span>
                         </div>
                         <div class="project-actions">
-                            <button class="project-action-btn project-view-btn" type="button" data-project="landing">
+                            <button class="project-action-btn project-view-btn" type="button" data-project="lab">
                                 <span>Details</span>
                             </button>
+                            <a class="project-action-btn" href="https://github.com/Drolikus" target="_blank" rel="noopener noreferrer">
+                                <span>GitHub</span>
+                            </a>
                         </div>
                     </div>
                 </article>
+            </div>
+            <div class="project-ledger-panel reveal" aria-label="Project honesty ledger" data-proof-label="Live, rebuilding, or lab status is explicit">
+                <span class="proof-badge">Proof: honest status</span>
+                <div class="project-ledger-copy">
+                    <span>Project honesty</span>
+                    <strong>Current status before shiny promises</strong>
+                    <p>Every project shows where it really stands: live, rebuilding, or used as a pattern lab. No hidden fake demo links, no inflated scope.</p>
+                </div>
+                <div class="project-ledger-grid">
+                    <article>
+                        <span class="ledger-state ledger-state--active">In rebuild</span>
+                        <strong>Voltage</strong>
+                        <p>Case study and UI preview are shown while the store flow is being stabilized.</p>
+                    </article>
+                    <article>
+                        <span class="ledger-state ledger-state--live">Live</span>
+                        <strong>Portfolio</strong>
+                        <p>This site is the live proof surface for layout, motion, copy, and project storytelling.</p>
+                    </article>
+                    <article>
+                        <span class="ledger-state">Pattern lab</span>
+                        <strong>Frontend Practice Lab</strong>
+                        <p>Small UI patterns are tested here before they become real product sections.</p>
+                    </article>
+                </div>
+            </div>
+            <div class="case-file-panel reveal" aria-label="Voltage rebuild case file" data-proof-label="Main product rebuild has a case file">
+                <span class="proof-badge">Proof: main case</span>
+                <div class="case-file-copy">
+                    <span class="case-file-kicker">Main case file</span>
+                    <h3>Voltage rebuild: from practice project to real store flow</h3>
+                    <p>Instead of adding fake demos while the rebuild is moving, this case file shows the product surface I am shaping: catalog browsing, cart state, admin overview, and multilingual interface states.</p>
+                    <div class="case-file-actions">
+                        <button class="project-action-btn project-action-btn--primary project-view-btn" type="button" data-project="voltage">
+                            <span>Open full case</span>
+                        </button>
+                        <a class="project-action-btn" href="#showcase">
+                            <span>View UI preview</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="case-file-grid">
+                    <article>
+                        <span>01</span>
+                        <strong>Catalog</strong>
+                        <p>Product cards, category filters, pricing, and responsive browsing states.</p>
+                    </article>
+                    <article>
+                        <span>02</span>
+                        <strong>Cart state</strong>
+                        <p>Add/remove behavior, quantity merging, totals, and feedback moments.</p>
+                    </article>
+                    <article>
+                        <span>03</span>
+                        <strong>Admin flow</strong>
+                        <p>Order status, stock signals, management screens, and clearer dashboard structure.</p>
+                    </article>
+                    <article>
+                        <span>04</span>
+                        <strong>i18n</strong>
+                        <p>EN/RU/UA/DE labels, longer German copy, and layout resilience.</p>
+                    </article>
+                </div>
+                <div class="case-file-decisions">
+                    <div class="case-file-decision-header">
+                        <span>Build decisions</span>
+                        <strong>How I avoid fake polish</strong>
+                    </div>
+                    <div class="case-file-decision-list">
+                        <article>
+                            <span>No fake demo</span>
+                            <p>The live link waits until the rebuild is stable, so the portfolio shows honest progress instead of a broken promise.</p>
+                        </article>
+                        <article>
+                            <span>Vanilla first</span>
+                            <p>I keep core behavior in HTML, CSS, and JavaScript before moving patterns into React components.</p>
+                        </article>
+                        <article>
+                            <span>Real UI pressure</span>
+                            <p>Cart state, admin screens, and EN/RU/UA/DE labels force the layout to handle realistic edge cases.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            <div class="lab-board-panel reveal" id="lab-board" aria-label="Frontend practice lab experiments" data-proof-label="Reusable UI patterns are tracked here">
+                <span class="proof-badge">Proof: pattern lab</span>
+                <div class="lab-board-copy">
+                    <span class="lab-board-kicker">UI experiments board</span>
+                    <h3>Small patterns before they become real product UI</h3>
+                    <p>This lab is where I test interface pieces in isolation before reusing them inside Voltage and this portfolio: states, spacing, responsive behavior, and small feedback moments.</p>
+                    <div class="lab-board-actions">
+                        <button class="project-action-btn project-action-btn--primary project-view-btn" type="button" data-project="lab">
+                            <span>Open lab case</span>
+                        </button>
+                        <a class="project-action-btn" href="#showcase">
+                            <span>View code preview</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="lab-board-grid">
+                    <article>
+                        <span>Pattern</span>
+                        <strong>Layout systems</strong>
+                        <p>Reusable sections, project cards, dense panels, and responsive spacing.</p>
+                        <em>Applied</em>
+                    </article>
+                    <article>
+                        <span>State</span>
+                        <strong>Filter logic</strong>
+                        <p>Category buttons, active states, empty-proof behavior, and clean transitions.</p>
+                        <em>Applied</em>
+                    </article>
+                    <article>
+                        <span>Flow</span>
+                        <strong>Modal UX</strong>
+                        <p>Case details, close states, section jumps, and scroll-lock behavior.</p>
+                        <em>Refined</em>
+                    </article>
+                    <article>
+                        <span>System</span>
+                        <strong>Theme states</strong>
+                        <p>Dark/light tokens, contrast checks, and reusable visual rhythm.</p>
+                        <em>Applied</em>
+                    </article>
+                    <article>
+                        <span>Feedback</span>
+                        <strong>Form moments</strong>
+                        <p>Validation, success states, contact actions, and copy fallback.</p>
+                        <em>Applied</em>
+                    </article>
+                    <article>
+                        <span>QA</span>
+                        <strong>Responsive checks</strong>
+                        <p>Mobile menu, compact grids, longer labels, and touch-friendly controls.</p>
+                        <em>Ongoing</em>
+                    </article>
+                </div>
+            </div>
+            <div class="quality-gate-panel reveal" id="quality-gate" aria-label="Portfolio quality gate" data-proof-label="Quality checks guard the polish">
+                <span class="proof-badge">Proof: QA gate</span>
+                <div class="quality-gate-copy">
+                    <span>Quality gate</span>
+                    <h3>Checks before adding more shine</h3>
+                    <p>Every visible upgrade has to survive basic product checks: mobile width, active navigation, modal behavior, contact route, copy clarity, and console health.</p>
+                    <div class="quality-score">
+                        <strong>Latest local pass</strong>
+                        <span>JS syntax / assets / no broken images / no overflow</span>
+                    </div>
+                    <div class="quality-live-audit" aria-label="Live page audit">
+                        <div class="quality-live-header">
+                            <div>
+                                <span>Live page audit</span>
+                                <strong id="qualityAuditScore">-- / --</strong>
+                            </div>
+                            <button class="quality-audit-run" id="qualityAuditRun" type="button">Run audit</button>
+                        </div>
+                        <p class="quality-audit-status" id="qualityAuditStatus">Waiting for page checks.</p>
+                        <div class="quality-audit-list" id="qualityAuditList" aria-live="polite"></div>
+                    </div>
+                </div>
+                <div class="quality-gate-console">
+                    <div class="quality-tabs" role="tablist" aria-label="Quality gate checks">
+                        <button class="quality-tab active" type="button" role="tab" aria-selected="true" aria-controls="quality-panel-mobile" data-quality-tab="mobile">Mobile</button>
+                        <button class="quality-tab" type="button" role="tab" aria-selected="false" aria-controls="quality-panel-navigation" data-quality-tab="navigation">Navigation</button>
+                        <button class="quality-tab" type="button" role="tab" aria-selected="false" aria-controls="quality-panel-interaction" data-quality-tab="interaction">Interaction</button>
+                        <button class="quality-tab" type="button" role="tab" aria-selected="false" aria-controls="quality-panel-content" data-quality-tab="content">Content</button>
+                    </div>
+                    <div class="quality-panels">
+                        <article class="quality-panel active" id="quality-panel-mobile" role="tabpanel" data-quality-panel="mobile">
+                            <div class="quality-panel-head">
+                                <span>Mobile pass</span>
+                                <strong>Compact without chaos</strong>
+                            </div>
+                            <ul class="quality-checklist">
+                                <li>Mobile drawer opens as a real menu, not a duplicate icon mess.</li>
+                                <li>Long labels wrap inside cards and buttons.</li>
+                                <li>Page keeps horizontal overflow at zero.</li>
+                            </ul>
+                        </article>
+                        <article class="quality-panel" id="quality-panel-navigation" role="tabpanel" data-quality-panel="navigation" hidden>
+                            <div class="quality-panel-head">
+                                <span>Navigation pass</span>
+                                <strong>People can orient fast</strong>
+                            </div>
+                            <ul class="quality-checklist">
+                                <li>Active section state updates while scrolling.</li>
+                                <li>Projects gets visible active underline on mobile.</li>
+                                <li>Quick jump opens with the navbar button or Ctrl+K.</li>
+                            </ul>
+                        </article>
+                        <article class="quality-panel" id="quality-panel-interaction" role="tabpanel" data-quality-panel="interaction" hidden>
+                            <div class="quality-panel-head">
+                                <span>Interaction pass</span>
+                                <strong>Controls behave like controls</strong>
+                            </div>
+                            <ul class="quality-checklist">
+                                <li>Project case modals lock page scroll and close cleanly.</li>
+                                <li>Voltage preview tabs update UI and progress state.</li>
+                                <li>Email copy has a fallback and visible toast feedback.</li>
+                            </ul>
+                        </article>
+                        <article class="quality-panel" id="quality-panel-content" role="tabpanel" data-quality-panel="content" hidden>
+                            <div class="quality-panel-head">
+                                <span>Content pass</span>
+                                <strong>Honest proof beats fake polish</strong>
+                            </div>
+                            <ul class="quality-checklist">
+                                <li>Rebuilding work is marked instead of pretending to be live.</li>
+                                <li>Skills are tied to visible evidence on the page.</li>
+                                <li>Contact path explains the fastest route clearly.</li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -456,10 +975,15 @@
                                 <span></span>
                                 <span></span>
                             </div>
-                            <span class="code-filename">product_card.html</span>
-                            <div class="code-lang">HTML</div>
+                            <span class="code-filename" id="showcaseCodeFilename">product_card.html</span>
+                            <div class="code-lang" id="showcaseCodeLang">HTML</div>
                         </div>
-                        <pre class="code-body"><code><span class="token-keyword">&lt;article</span> <span class="token-type">class</span>=<span class="token-string">"product-card"</span><span class="token-keyword">&gt;</span>
+                        <div class="code-tabs" role="tablist" aria-label="Voltage code layers">
+                            <button class="code-tab active" type="button" role="tab" aria-selected="true" aria-controls="showcaseCodeBlock" data-code-tab="html">HTML</button>
+                            <button class="code-tab" type="button" role="tab" aria-selected="false" aria-controls="showcaseCodeBlock" data-code-tab="css">CSS</button>
+                            <button class="code-tab" type="button" role="tab" aria-selected="false" aria-controls="showcaseCodeBlock" data-code-tab="js">JS</button>
+                        </div>
+                        <pre class="code-body"><code id="showcaseCodeBlock" aria-live="polite"><span class="token-keyword">&lt;article</span> <span class="token-type">class</span>=<span class="token-string">"product-card"</span><span class="token-keyword">&gt;</span>
   <span class="token-keyword">&lt;div</span> <span class="token-type">class</span>=<span class="token-string">"product-media"</span><span class="token-keyword">&gt;&lt;/div&gt;</span>
   <span class="token-keyword">&lt;div</span> <span class="token-type">class</span>=<span class="token-string">"product-info"</span><span class="token-keyword">&gt;</span>
     <span class="token-keyword">&lt;p</span> <span class="token-type">class</span>=<span class="token-string">"eyebrow"</span><span class="token-keyword">&gt;</span>Electric Guitar<span class="token-keyword">&lt;/p&gt;</span>
@@ -467,55 +991,90 @@
     <span class="token-keyword">&lt;p</span> <span class="token-type">class</span>=<span class="token-string">"price"</span><span class="token-keyword">&gt;</span>&euro;899<span class="token-keyword">&lt;/p&gt;</span>
     <span class="token-keyword">&lt;button</span> <span class="token-type">class</span>=<span class="token-string">"btn-cart"</span><span class="token-keyword">&gt;</span>Add to cart<span class="token-keyword">&lt;/button&gt;</span>
   <span class="token-keyword">&lt;/div&gt;</span>
-<span class="token-keyword">&lt;/article&gt;</span>
-
-<span class="token-keyword">const</span> cart = {
-  items: [],
-  <span class="token-func">add</span>(product) {
-    <span class="token-keyword">this</span>.items = <span class="token-func">mergeQuantity</span>(<span class="token-keyword">this</span>.items, product);
-    <span class="token-func">renderCartBadge</span>(<span class="token-keyword">this</span>.items.length);
-  }
-};</code></pre>
+<span class="token-keyword">&lt;/article&gt;</span></code></pre>
                     </div>
                 </div>
                 <aside class="build-panel">
                     <div class="build-panel-header">
-                        <span class="build-label">Voltage build status</span>
-                        <span class="build-pill">v0.7</span>
+                        <span class="build-label">Voltage interactive preview</span>
+                        <span class="build-pill">v0.8</span>
+                    </div>
+                    <div class="preview-tabs" role="tablist" aria-label="Voltage preview modes">
+                        <button class="preview-tab active" type="button" role="tab" aria-selected="true" aria-controls="voltagePreviewStage" data-preview-mode="catalog">Catalog</button>
+                        <button class="preview-tab" type="button" role="tab" aria-selected="false" aria-controls="voltagePreviewStage" data-preview-mode="cart">Cart</button>
+                        <button class="preview-tab" type="button" role="tab" aria-selected="false" aria-controls="voltagePreviewStage" data-preview-mode="admin">Admin</button>
+                        <button class="preview-tab" type="button" role="tab" aria-selected="false" aria-controls="voltagePreviewStage" data-preview-mode="i18n">i18n</button>
                     </div>
                     <div class="store-preview">
                         <div class="store-toolbar">
-                            <strong>Voltage</strong>
-                            <span>Cart: 2</span>
+                            <strong id="voltagePreviewTitle">Catalog flow</strong>
+                            <span id="voltagePreviewBadge">3 products</span>
                         </div>
-                        <div class="mini-product">
-                            <div class="mini-product-media">
-                                <span></span>
+                        <div class="voltage-preview-stage" id="voltagePreviewStage" aria-live="polite">
+                            <div class="preview-search">
+                                <span>Search guitars</span>
+                                <strong>Electric</strong>
                             </div>
-                            <div class="mini-product-info">
-                                <p>Product card mockup</p>
-                                <h3>Fender Stratocaster</h3>
-                                <strong>&euro;899</strong>
-                                <button type="button">Add to cart</button>
+                            <div class="preview-product-grid">
+                                <article>
+                                    <span>Electric</span>
+                                    <strong>Fender Stratocaster</strong>
+                                    <em>&euro;899</em>
+                                </article>
+                                <article>
+                                    <span>Bass</span>
+                                    <strong>Jazz Bass Player</strong>
+                                    <em>&euro;749</em>
+                                </article>
+                                <article>
+                                    <span>Acoustic</span>
+                                    <strong>Yamaha FG800</strong>
+                                    <em>&euro;329</em>
+                                </article>
                             </div>
                         </div>
                     </div>
                     <div class="build-progress">
-                        <div class="progress-row">
+                        <div class="progress-row active" data-preview-progress="catalog">
                             <span>Catalog UI</span>
                             <strong>90%</strong>
                             <div class="progress-track"><span class="progress-bar progress-bar--90"></span></div>
                         </div>
-                        <div class="progress-row">
+                        <div class="progress-row" data-preview-progress="cart">
                             <span>Cart logic</span>
                             <strong>80%</strong>
                             <div class="progress-track"><span class="progress-bar progress-bar--80"></span></div>
                         </div>
-                        <div class="progress-row">
+                        <div class="progress-row" data-preview-progress="admin">
                             <span>Admin flow</span>
                             <strong>55%</strong>
                             <div class="progress-track"><span class="progress-bar progress-bar--55"></span></div>
                         </div>
+                        <div class="progress-row" data-preview-progress="i18n">
+                            <span>Language states</span>
+                            <strong>70%</strong>
+                            <div class="progress-track"><span class="progress-bar progress-bar--70"></span></div>
+                        </div>
+                    </div>
+                    <div class="build-log" aria-label="Latest build notes">
+                        <div class="build-log-header">
+                            <span>Latest build log</span>
+                            <strong>May 2026</strong>
+                        </div>
+                        <ol class="build-log-list">
+                            <li>
+                                <span>v0.8</span>
+                                <p>Added faster boot, latest build log, and stronger active navigation.</p>
+                            </li>
+                            <li>
+                                <span>v0.7</span>
+                                <p>Polished Voltage case study, project actions, and roadmap cards.</p>
+                            </li>
+                            <li>
+                                <span>v0.6</span>
+                                <p>Reworked hero identity, language signal, and portfolio screenshot card.</p>
+                            </li>
+                        </ol>
                     </div>
                 </aside>
             </div>
@@ -528,48 +1087,110 @@
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-tag">05. Experience</span>
-                <h2 class="section-title">Career Timeline</h2>
+                <h2 class="section-title">Build Timeline</h2>
+            </div>
+            <div class="growth-panel reveal" aria-label="Current growth snapshot">
+                <div class="growth-copy">
+                    <span class="growth-kicker">Growth snapshot</span>
+                    <h3>From first builds to product thinking</h3>
+                    <p>I improve by shipping visible work, then tightening the weak parts: structure, states, responsiveness, copy, and honest project proof.</p>
+                    <div class="growth-proof-strip">
+                        <span>No fake demos</span>
+                        <span>Build notes</span>
+                        <span>Mobile checks</span>
+                    </div>
+                </div>
+                <div class="growth-metrics">
+                    <article>
+                        <span>Main build</span>
+                        <strong>Voltage</strong>
+                        <p>E-commerce flow with catalog, cart, admin, and i18n pressure.</p>
+                    </article>
+                    <article>
+                        <span>Pattern system</span>
+                        <strong>Lab board</strong>
+                        <p>Reusable UI ideas tested before they enter real screens.</p>
+                    </article>
+                    <article>
+                        <span>Portfolio proof</span>
+                        <strong>Case files</strong>
+                        <p>Each project explains decisions, limits, and current status.</p>
+                    </article>
+                    <article>
+                        <span>Next level</span>
+                        <strong>React-ready</strong>
+                        <p>Moving vanilla patterns toward components and state.</p>
+                    </article>
+                </div>
             </div>
             <div class="timeline">
                 <div class="timeline-item reveal">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <h3>Building Voltage — Guitar Store</h3>
-                            <span class="timeline-date">In Progress</span>
+                            <h3>Rebuilding Voltage — Guitar Store</h3>
+                            <span class="timeline-date">May 2026 rebuild</span>
                         </div>
                         <span class="timeline-company">Main Project</span>
-                        <p>Developing a full online guitar store with product catalog, cart, wishlist, reviews, admin panel, order management, and multi-language support. Learning by doing every day.</p>
+                        <p>Reworking the online guitar store with a cleaner product catalog, cart flow, wishlist, reviews, admin panel, order management, and EN/RU/UA/DE language support.</p>
                         <div class="timeline-tags">
                             <span>HTML</span>
                             <span>CSS</span>
                             <span>JavaScript</span>
                             <span>i18n</span>
                         </div>
+                        <div class="timeline-evidence">
+                            <article>
+                                <span>Surface</span>
+                                <strong>Catalog + cart</strong>
+                            </article>
+                            <article>
+                                <span>Pressure</span>
+                                <strong>Admin + i18n</strong>
+                            </article>
+                            <article>
+                                <span>Guardrail</span>
+                                <strong>Stable before live</strong>
+                            </article>
+                        </div>
                     </div>
                 </div>
                 <div class="timeline-item reveal">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <h3>Built This Portfolio</h3>
-                            <span class="timeline-date">Recently</span>
+                            <h3>Shipped Portfolio v2</h3>
+                            <span class="timeline-date">May 2026</span>
                         </div>
-                        <span class="timeline-company">Learning Project</span>
-                        <p>Created this portfolio from scratch with dark theme, animations, canvas effects, responsive design, and project showcases. First time working with advanced CSS and JS.</p>
+                        <span class="timeline-company">Self-directed Build</span>
+                        <p>Upgraded this portfolio with a personal hero, project actions, screenshot-based cards, active navigation, canvas effects, responsive design, and stronger case-study details.</p>
                         <div class="timeline-tags">
                             <span>CSS Animations</span>
                             <span>Canvas</span>
                             <span>Responsive</span>
                         </div>
+                        <div class="timeline-evidence">
+                            <article>
+                                <span>UX</span>
+                                <strong>Active navigation</strong>
+                            </article>
+                            <article>
+                                <span>Proof</span>
+                                <strong>Project case files</strong>
+                            </article>
+                            <article>
+                                <span>QA</span>
+                                <strong>Browser checks</strong>
+                            </article>
+                        </div>
                     </div>
                 </div>
                 <div class="timeline-item reveal">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <h3>Started Learning Web Dev</h3>
-                            <span class="timeline-date">1 Week Ago</span>
+                            <h3>Started Building for the Web</h3>
+                            <span class="timeline-date">May 2026</span>
                         </div>
                         <span class="timeline-company">The Beginning</span>
                         <p>Decided to learn web development by building real projects. Started with HTML, CSS basics, and immediately began creating tangible things.</p>
@@ -578,7 +1199,82 @@
                             <span>CSS</span>
                             <span>Self-Learning</span>
                         </div>
+                        <div class="timeline-evidence">
+                            <article>
+                                <span>Method</span>
+                                <strong>Learn by building</strong>
+                            </article>
+                            <article>
+                                <span>Base</span>
+                                <strong>HTML + CSS</strong>
+                            </article>
+                            <article>
+                                <span>Habit</span>
+                                <strong>Improve daily</strong>
+                            </article>
+                        </div>
                     </div>
+                </div>
+            </div>
+            <div class="roadmap-panel reveal" aria-label="Next learning roadmap">
+                <div class="roadmap-header">
+                    <span>Next roadmap</span>
+                    <strong>Where I am pushing next</strong>
+                </div>
+                <div class="roadmap-grid">
+                    <article class="roadmap-card">
+                        <span class="roadmap-status roadmap-status--active">Now</span>
+                        <h3>Voltage rebuild</h3>
+                        <p>Clean up structure, cart logic, admin flow, and multilingual UI before showing fresh screenshots.</p>
+                        <ul class="roadmap-checklist">
+                            <li>Product states</li>
+                            <li>Cleaner screens</li>
+                        </ul>
+                    </article>
+                    <article class="roadmap-card">
+                        <span class="roadmap-status">Next</span>
+                        <h3>React fundamentals</h3>
+                        <p>Move from vanilla JavaScript patterns into components, state, props, and reusable UI structure.</p>
+                        <ul class="roadmap-checklist">
+                            <li>Components</li>
+                            <li>State patterns</li>
+                        </ul>
+                    </article>
+                    <article class="roadmap-card">
+                        <span class="roadmap-status">Next</span>
+                        <h3>Public repo polish</h3>
+                        <p>Prepare cleaner GitHub repositories with readable README files, project notes, and setup steps.</p>
+                        <ul class="roadmap-checklist">
+                            <li>README files</li>
+                            <li>Setup notes</li>
+                        </ul>
+                    </article>
+                    <article class="roadmap-card">
+                        <span class="roadmap-status">After</span>
+                        <h3>Deploy-ready demos</h3>
+                        <p>Add real live demos only when the projects are stable enough to represent the work properly.</p>
+                        <ul class="roadmap-checklist">
+                            <li>Stable clicks</li>
+                            <li>Real preview</li>
+                        </ul>
+                    </article>
+                </div>
+                <div class="roadmap-guardrails" aria-label="Roadmap guardrails">
+                    <article>
+                        <span>Rule 01</span>
+                        <strong>Proof over promises</strong>
+                        <p>Show screenshots, case notes, and working states before claiming a full product.</p>
+                    </article>
+                    <article>
+                        <span>Rule 02</span>
+                        <strong>Small stable steps</strong>
+                        <p>Improve one real behavior at a time instead of adding noisy features.</p>
+                    </article>
+                    <article>
+                        <span>Rule 03</span>
+                        <strong>Reusable patterns</strong>
+                        <p>Promote only UI pieces that help Voltage, the portfolio, or future React work.</p>
+                    </article>
                 </div>
             </div>
         </div>
@@ -590,11 +1286,116 @@
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-tag">06. Contact</span>
-                <h2 class="section-title">Get in Touch</h2>
+                <h2 class="section-title">Work Together</h2>
             </div>
             <div class="contact-content">
                 <div class="contact-info reveal">
-                    <p>My name is Vladyslav Kikhtenko. I am from Ukraine and currently live in Germany. I am at the beginning of my web development journey and learn by building real projects. My main project is Voltage, an online guitar store that I improve step by step.</p>
+                    <p>My name is Vladyslav Kikhtenko. I am from Ukraine and currently live in Germany. I build responsive frontend interfaces, practice through real project work, and use Voltage as one active e-commerce case among a growing project set.</p>
+                    <div class="contact-fit-panel" aria-label="Best reasons to contact me" data-proof-label="Contact fit is scoped before outreach">
+                        <span class="proof-badge">Proof: contact fit</span>
+                        <div class="contact-fit-header">
+                            <span>Best fit</span>
+                            <strong>What to message me about</strong>
+                        </div>
+                        <div class="contact-fit-grid">
+                            <article>
+                                <span>01</span>
+                                <strong>Junior frontend role</strong>
+                                <p>HTML, CSS, JavaScript, responsive UI, e-commerce screens, and clean project work.</p>
+                            </article>
+                            <article>
+                                <span>02</span>
+                                <strong>Small UI task</strong>
+                                <p>Landing cleanup, portfolio sections, mobile fixes, modals, forms, and interaction polish.</p>
+                            </article>
+                            <article>
+                                <span>03</span>
+                                <strong>Project feedback</strong>
+                                <p>Practical review for layout, clarity, user flow, and next frontend steps.</p>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="contact-status">
+                        <div class="contact-status-item">
+                            <span>Looking for</span>
+                            <strong>Junior frontend roles</strong>
+                        </div>
+                        <div class="contact-status-item">
+                            <span>Location</span>
+                            <strong>Germany / remote</strong>
+                        </div>
+                        <div class="contact-status-item">
+                            <span>Languages</span>
+                            <strong>EN / RU / UA / DE</strong>
+                        </div>
+                        <div class="contact-status-item">
+                            <span>Focus</span>
+                            <strong>E-commerce UI</strong>
+                        </div>
+                    </div>
+                    <div class="contact-actions">
+                        <button class="contact-action contact-copy-btn" type="button" data-copy="vladikkihtenko@gmail.com">
+                            <span>Copy Email</span>
+                        </button>
+                        <a class="contact-action contact-action--primary" href="https://t.me/VLADOSINAMSK" target="_blank" rel="noopener noreferrer">
+                            <span>Message on Telegram</span>
+                        </a>
+                    </div>
+                    <div class="contact-message-kit" aria-label="Quick message starters" data-proof-label="Contact messages are generated from real intent">
+                        <span class="proof-badge">Proof: message UX</span>
+                        <div class="contact-message-kit-header">
+                            <span>Message starters</span>
+                            <strong>Copy a clean opener</strong>
+                        </div>
+                        <div class="contact-message-actions">
+                            <button class="contact-message-btn" type="button" data-copy="Hi Vlad, I found your portfolio and want to talk about a junior frontend opportunity." data-copy-label="Job opener">
+                                <span>Job opener</span>
+                            </button>
+                            <button class="contact-message-btn" type="button" data-copy="Hi Vlad, I have a small frontend task: layout, responsive fixes, UI states, or interaction polish. Can we discuss it?" data-copy-label="Project opener">
+                                <span>Project opener</span>
+                            </button>
+                        </div>
+                        <div class="contact-brief-builder" data-brief-builder>
+                            <div class="brief-builder-header">
+                                <span>Message builder</span>
+                                <strong>Build a specific opener</strong>
+                            </div>
+                            <div class="brief-builder-groups">
+                                <div class="brief-builder-group" data-brief-group="intent">
+                                    <span>Reason</span>
+                                    <div class="brief-options">
+                                        <button class="brief-option active" type="button" data-brief-option="role" aria-pressed="true">Junior role</button>
+                                        <button class="brief-option" type="button" data-brief-option="task" aria-pressed="false">UI task</button>
+                                        <button class="brief-option" type="button" data-brief-option="feedback" aria-pressed="false">Feedback</button>
+                                    </div>
+                                </div>
+                                <div class="brief-builder-group" data-brief-group="focus">
+                                    <span>Focus</span>
+                                    <div class="brief-options">
+                                        <button class="brief-option active" type="button" data-brief-option="voltage" aria-pressed="true">Voltage</button>
+                                        <button class="brief-option" type="button" data-brief-option="portfolio" aria-pressed="false">Portfolio</button>
+                                        <button class="brief-option" type="button" data-brief-option="responsive" aria-pressed="false">Responsive UI</button>
+                                    </div>
+                                </div>
+                                <div class="brief-builder-group" data-brief-group="route">
+                                    <span>Route</span>
+                                    <div class="brief-options">
+                                        <button class="brief-option active" type="button" data-brief-option="telegram" aria-pressed="true">Telegram</button>
+                                        <button class="brief-option" type="button" data-brief-option="email" aria-pressed="false">Email</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <textarea class="brief-message" id="briefMessage" rows="4" readonly aria-label="Generated contact message"></textarea>
+                            <div class="brief-builder-actions">
+                                <button class="contact-message-btn brief-copy-btn" type="button" data-copy="" data-copy-label="Built message">
+                                    <span>Copy built message</span>
+                                </button>
+                                <a class="contact-message-btn brief-mail-link" id="briefMailLink" href="mailto:vladikkihtenko@gmail.com">
+                                    <span>Open email draft</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="contact-links">
                         <a href="mailto:vladikkihtenko@gmail.com" class="contact-link">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -603,26 +1404,31 @@
                             </svg>
                             <span>vladikkihtenko@gmail.com</span>
                         </a>
-                        <a href="https://github.com/Drolikus" class="contact-link">
+                        <a href="https://github.com/Drolikus" class="contact-link" target="_blank" rel="noopener noreferrer">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                             </svg>
                             <span>github.com/Drolikus</span>
                         </a>
-                        <a href="https://t.me/VLADOSINAMSK" class="contact-link">
+                        <a href="https://t.me/VLADOSINAMSK" class="contact-link" target="_blank" rel="noopener noreferrer">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
                             </svg>
                             <span>@VLADOSINAMSK on Telegram</span>
                         </a>
                     </div>
-                    <p class="contact-note">Portfolio and Voltage are still in development.</p>
+                    <p class="contact-note">Portfolio, Voltage, and future project cases are still in development.</p>
                 </div>
                 <div class="contact-form reveal contact-card">
+                    <div class="contact-route">
+                        <span>Fastest route</span>
+                        <strong>Telegram first, email for details</strong>
+                        <p>Send a short message, role, task, or link. I can answer with current availability and next steps.</p>
+                    </div>
                     <h3 class="contact-card-title">Scan Telegram QR</h3>
                     <p class="contact-card-text">Scan the code to open my Telegram profile.</p>
                     <img src="assets/telegram-qr.png" alt="Telegram QR code for @VLADOSINAMSK" class="qr-image">
-                    <a href="https://t.me/VLADOSINAMSK" class="btn btn-primary btn-full contact-telegram-btn">
+                    <a href="https://t.me/VLADOSINAMSK" class="btn btn-primary btn-full contact-telegram-btn" target="_blank" rel="noopener noreferrer">
                         <span>Open Telegram</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
@@ -633,18 +1439,108 @@
         </div>
     </section>
 
+    <div class="command-palette" id="commandPalette" aria-hidden="true">
+        <div class="command-panel" role="dialog" aria-modal="true" aria-labelledby="commandTitle">
+            <div class="command-search-row">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="M20 20l-3.5-3.5"></path>
+                </svg>
+                <input id="commandSearch" type="search" autocomplete="off" placeholder="Jump to project, proof, contact..." aria-label="Search quick actions">
+                <button class="command-close" id="commandClose" type="button" aria-label="Close quick jump">&times;</button>
+            </div>
+            <div class="command-meta">
+                <span id="commandTitle">Quick jump</span>
+                <strong>Navigate, inspect, contact</strong>
+            </div>
+            <div class="command-list" id="commandList" role="listbox" aria-label="Quick actions">
+                <button class="command-item" type="button" data-command-href="#projects" data-command-keywords="projects featured work portfolio voltage lab">
+                    <span>Project proof</span>
+                    <strong>Open featured projects</strong>
+                    <em>Section</em>
+                </button>
+                <button class="command-item" type="button" data-command-href="#upgrade-log" data-command-keywords="latest upgrades changelog changes command proof quality builder">
+                    <span>Upgrade log</span>
+                    <strong>View latest interface upgrades</strong>
+                    <em>Section</em>
+                </button>
+                <button class="command-item" type="button" data-command-href="#visitor-route" data-command-keywords="visitor route recruiter client mentor path">
+                    <span>Visitor route</span>
+                    <strong>Choose the right proof path</strong>
+                    <em>Guide</em>
+                </button>
+                <button class="command-item" type="button" data-command-project="voltage" data-command-keywords="voltage guitar store ecommerce case study cart admin i18n">
+                    <span>Main case</span>
+                    <strong>Open Voltage case file</strong>
+                    <em>Modal</em>
+                </button>
+                <button class="command-item" type="button" data-command-href="#skills" data-command-keywords="skills evidence html css javascript qa ux">
+                    <span>Skill evidence</span>
+                    <strong>View practical frontend map</strong>
+                    <em>Section</em>
+                </button>
+                <button class="command-item" type="button" data-command-href="#showcase" data-command-keywords="showcase code preview voltage html css js">
+                    <span>Code surface</span>
+                    <strong>Jump to interactive showcase</strong>
+                    <em>Preview</em>
+                </button>
+                <button class="command-item" type="button" data-command-href="#lab-board" data-command-keywords="lab board patterns filters modals theme forms">
+                    <span>Pattern lab</span>
+                    <strong>Inspect UI experiments board</strong>
+                    <em>Section</em>
+                </button>
+                <button class="command-item" type="button" data-command-href="#quality-gate" data-command-keywords="quality gate qa checks mobile navigation interaction content">
+                    <span>Quality gate</span>
+                    <strong>Review production QA checks</strong>
+                    <em>Section</em>
+                </button>
+                <button class="command-item" type="button" data-command-proof data-command-keywords="proof mode evidence highlight real work quality">
+                    <span>Proof mode</span>
+                    <strong>Toggle evidence highlights</strong>
+                    <em>Mode</em>
+                </button>
+                <button class="command-item" type="button" data-command-copy="vladikkihtenko@gmail.com" data-command-keywords="email copy contact gmail message">
+                    <span>Contact</span>
+                    <strong>Copy email address</strong>
+                    <em>Copy</em>
+                </button>
+                <button class="command-item" type="button" data-command-href="#contact" data-command-keywords="contact telegram email work together opportunity">
+                    <span>Contact route</span>
+                    <strong>Go to Telegram and email block</strong>
+                    <em>Section</em>
+                </button>
+                <button class="command-item" type="button" data-command-href="#contact" data-command-keywords="message builder brief contact opener email telegram">
+                    <span>Message builder</span>
+                    <strong>Build a contact opener</strong>
+                    <em>Tool</em>
+                </button>
+            </div>
+            <p class="command-empty" id="commandEmpty">No matching action. Try project, Voltage, skills, proof, contact, or lab.</p>
+            <div class="command-footer">
+                <span>Enter to run</span>
+                <span>Esc to close</span>
+            </div>
+        </div>
+    </div>
+    <div class="proof-mode-indicator" id="proofModeIndicator" aria-live="polite">
+        <span>Proof mode</span>
+        <strong>Evidence highlighted</strong>
+    </div>
+    <div class="copy-toast" id="copyToast" role="status" aria-live="polite">Email copied</div>
+    </main>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
                     <a href="index.html" class="logo">
-                        <span class="logo-bracket">&lt;</span>Dev<span class="logo-bracket">/&gt;</span>
+                        <span class="logo-bracket">&lt;</span>Vlad<span class="logo-bracket">/&gt;</span>
                     </a>
                     <p>Learning by building. One project at a time.</p>
                 </div>
                 <div class="footer-social">
-                    <a href="https://github.com/Drolikus" class="social-link" aria-label="GitHub">
+                    <a href="https://github.com/Drolikus" class="social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                         </svg>
@@ -657,6 +1553,7 @@
         </div>
     </footer>
 
+    <script src="js/monitoring.js?v=20260531b"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
