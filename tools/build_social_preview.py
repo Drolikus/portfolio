@@ -115,7 +115,7 @@ rounded(draw, (42, 34, 1558, 866), 18, (255, 255, 255, 105), outline=(122, 164, 
 rounded(draw, (62, 58, 1538, 842), 12, (244, 251, 255, 102), outline=(255, 255, 255, 170), width=2)
 
 # Left identity block. It deliberately owns only the left column, so it never
-# collides with the evidence panel.
+# collides with the details panel.
 left_x, left_y, left_w = 110, 118, 565
 text(draw, (left_x, left_y), "VLADYSLAV KIKHTENKO", fill=(70, 93, 120), font_obj=F_MONO_BOLD)
 text(draw, (left_x, left_y + 74), "Junior Frontend", fill=INK, font_obj=F_TITLE)
@@ -123,7 +123,7 @@ text(draw, (left_x, left_y + 144), "Developer", fill=INK, font_obj=F_TITLE_SMALL
 wrapped_text(
     draw,
     (left_x, left_y + 235),
-    "Frontend projects, responsive UI, and a portfolio built around visible proof.",
+    "Frontend projects, responsive UI, and case-study pages.",
     F_ROLE,
     MUTED,
     left_w,
@@ -139,28 +139,28 @@ for chip in chips:
     text(draw, (cx + 19, 444), chip, fill=(33, 72, 104), font_obj=F_MONO_BOLD)
     cx += chip_w + 13
 
-# Evidence panel.
+# Details panel.
 panel = (730, 104, 1465, 610)
 rounded(draw, panel, 18, (226, 244, 253, 226), outline=(80, 156, 212, 195), width=3)
-text(draw, (770, 146), "EVIDENCE PANEL", fill=(38, 75, 108), font_obj=F_MONO_BOLD)
-text(draw, (770, 190), "Readable blocks only. No fake UI labels.", fill=PANEL_TEXT, font_obj=F_SMALL)
+text(draw, (770, 146), "PROJECT DETAILS", fill=(38, 75, 108), font_obj=F_MONO_BOLD)
+text(draw, (770, 190), "Readable blocks, current status, source links.", fill=PANEL_TEXT, font_obj=F_SMALL)
 
 cards = [
     {
         "value": "12",
-        "label": "COMMAND ACTIONS",
-        "desc": "Jump, proof, modal, contact.",
+        "label": "QUICK ACTIONS",
+        "desc": "Projects, skills, checks, contact.",
         "accent": CYAN,
     },
     {
-        "value": "9",
-        "label": "PROOF BLOCKS",
-        "desc": "Evidence across the site.",
+        "value": "3",
+        "label": "CASE PAGES",
+        "desc": "Voltage, portfolio, lab.",
         "accent": PURPLE,
     },
     {
         "value": "7/7",
-        "label": "LIVE QA AUDIT",
+        "label": "LOCAL CHECKS",
         "desc": "Overflow, assets, nav, wiring.",
         "accent": GREEN,
     },
@@ -186,14 +186,14 @@ for i, item in enumerate(cards):
     text(draw, (x1 + 22, y1 + 62), item["label"], fill=INK, font_obj=F_MONO_BOLD)
     wrapped_text(draw, (x1 + 22, y1 + 88), item["desc"], F_MICRO, MUTED, card_w - 42, line_gap=2, max_lines=1)
 
-# Bottom proof strip.
+# Bottom project strip.
 footer = (110, 642, 1465, 792)
 rounded(draw, footer, 14, DARK + (230,), outline=(95, 150, 196, 165), width=2)
 text(draw, (146, 678), "Portfolio that can be inspected", fill=(247, 252, 255), font_obj=F_FOOTER)
 wrapped_text(
     draw,
     (146, 725),
-    "Command center, proof mode, visitor routes, quality gate, message builder, and room for more project cases.",
+    "Quick navigation, visitor routes, site checks, message builder, and room for more project cases.",
     F_BODY,
     (205, 223, 237),
     1110,

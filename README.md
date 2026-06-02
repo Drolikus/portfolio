@@ -1,21 +1,21 @@
 # Vladyslav Kikhtenko Portfolio
 
 [![Live site](https://img.shields.io/badge/GitHub%20Pages-live-22c55e?style=flat-square)](https://drolikus.github.io/portfolio/)
-[![Quality gate](https://img.shields.io/badge/quality-7%20%2F%207-0891b2?style=flat-square)](https://drolikus.github.io/portfolio/quality.html)
+[![Site checks](https://img.shields.io/badge/checks-7%20%2F%207-0891b2?style=flat-square)](https://drolikus.github.io/portfolio/quality.html)
 
-Proof-first frontend portfolio for Vladyslav Kikhtenko, a junior web developer in Germany building responsive interfaces, e-commerce flows, and practical frontend projects.
+Frontend portfolio for Vladyslav Kikhtenko, a junior web developer in Germany building responsive interfaces, e-commerce UI, and practical frontend projects.
 
-## What This Site Proves
+## What This Site Includes
 
-- Real project storytelling instead of empty portfolio cards.
-- Dedicated case-study pages for Voltage, the portfolio system, and the UI practice lab.
-- Command palette, proof mode, visitor routes, quality gate, and contact message builder.
+- Project cards with clear current status.
+- Dedicated case-study pages for Voltage, the portfolio site, and the UI practice lab.
+- Quick navigation, visitor routes, site checks, and contact message helpers.
 - Static HTML, CSS, and vanilla JavaScript with responsive behavior and browser-tested interactions.
 
 ## Live Links
 
 - Live site: https://drolikus.github.io/portfolio/
-- Public quality gate: https://drolikus.github.io/portfolio/quality.html
+- Site checks: https://drolikus.github.io/portfolio/quality.html
 - Case studies: [Voltage](https://drolikus.github.io/portfolio/projects/voltage.html), [Portfolio](https://drolikus.github.io/portfolio/projects/portfolio.html), [Practice Lab](https://drolikus.github.io/portfolio/projects/lab.html)
 
 ## Project Structure
@@ -28,8 +28,7 @@ Proof-first frontend portfolio for Vladyslav Kikhtenko, a junior web developer i
 |-- assets/
 |-- docs/
 |-- projects/
-|-- tools/
-`-- portfolio-walkthrough/
+`-- tools/
 ```
 
 ## Local Preview
@@ -40,19 +39,16 @@ The portfolio is a static site. Open it through a local static server:
 http://127.0.0.1:8123/index.html
 ```
 
-The motion reel runs separately:
+## Site Checks
+
+- Browser checks cover console errors, image loading, horizontal overflow, section targets, case links, quick links, and message builder wiring.
+- The homepage includes a small site checks section with a 7/7 local pass.
+- Case-study screenshots are captured with Playwright.
 
 ```bash
-cd portfolio-walkthrough
-npm run dev
+npm install
+npm run capture:screenshots
 ```
-
-## Quality Signals
-
-- Browser QA checks console errors, image loading, overflow, section targets, proof targets, command items, and live audit state.
-- The page includes its own Quality Gate section with a 7/7 live audit.
-- The motion reel passes `npm run check` with zero lint errors and zero lint warnings.
-- Guarded monitoring bootstrap exists in `js/monitoring.js`; Sentry can be enabled after project DSN setup.
 
 ## Optional Tooling
 
@@ -62,13 +58,6 @@ Generated social previews and document briefs are built from scripts in `tools/`
 python -m pip install -r requirements.txt
 python tools/build_social_preview.py
 python tools/build_portfolio_brief.py
-```
-
-Case-study screenshots are captured with Playwright:
-
-```bash
-npm install
-npm run capture:screenshots
 ```
 
 ## Current Status

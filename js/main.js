@@ -4,11 +4,9 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    initBootSequence();
     initThemeToggle();
     initMobileMenu();
     initCommandPalette();
-    initProofMode();
     initVisitorRoute();
     initScrollReveal();
     initNavbarScroll();
@@ -16,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initProjectFilter();
     initCodeShowcase();
     initVoltagePreview();
-    initQualityGate();
+    initSiteChecks();
     initContactBriefBuilder();
     initContactActions();
     initContactForm();
@@ -24,42 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
     initLocalTime();
     initSmoothScroll();
     initTypingEffect();
-    initMouseGlow();
     initPanelSpotlight();
     if (!reduceMotion) {
         initParallax();
-        initParticleSystem();
-        initBinaryRain();
     }
     initCounterAnimation();
 });
-
-/* ============================================
-   BOOT SEQUENCE
-   ============================================ */
-function initBootSequence() {
-    const overlay = document.getElementById('bootOverlay');
-    if (!overlay) return;
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let bootSeen = false;
-
-    try {
-        bootSeen = sessionStorage.getItem('portfolioBootSeen') === 'true';
-        sessionStorage.setItem('portfolioBootSeen', 'true');
-    } catch (error) {
-        bootSeen = false;
-    }
-
-    const hasDeepLink = window.location.hash && window.location.hash !== '#home';
-    const useFastBoot = prefersReducedMotion || bootSeen || hasDeepLink;
-    if (useFastBoot) overlay.classList.add('boot-fast');
-
-    const delay = useFastBoot ? 260 : 1450;
-    setTimeout(() => {
-        overlay.classList.add('done');
-        setTimeout(() => overlay.remove(), useFastBoot ? 450 : 650);
-    }, delay);
-}
 
 /* ============================================
    THEME TOGGLE
@@ -227,9 +195,7 @@ function initCommandPalette() {
     const runCommand = async (item) => {
         if (!item) return;
         const href = item.getAttribute('data-command-href');
-        const projectId = item.getAttribute('data-command-project');
         const copyValue = item.getAttribute('data-command-copy');
-        const proofCommand = item.hasAttribute('data-command-proof');
         closePalette();
 
         if (href) {
@@ -237,18 +203,8 @@ function initCommandPalette() {
             return;
         }
 
-        if (projectId) {
-            setTimeout(() => openModal(projectId), 120);
-            return;
-        }
-
         if (copyValue) {
             await copyText(copyValue);
-            return;
-        }
-
-        if (proofCommand) {
-            document.dispatchEvent(new CustomEvent('portfolio:toggleProofMode'));
         }
     };
 
@@ -308,60 +264,6 @@ function initCommandPalette() {
 }
 
 /* ============================================
-   PROOF MODE
-   ============================================ */
-function initProofMode() {
-    const toggles = [...document.querySelectorAll('[data-proof-toggle]')];
-    const proofTargets = [...document.querySelectorAll('[data-proof-label]')];
-    const toast = document.getElementById('copyToast');
-    if (!toggles.length || !proofTargets.length) return;
-
-    const showToast = (message) => {
-        if (!toast) return;
-        toast.textContent = message;
-        toast.classList.add('show');
-        clearTimeout(showToast.timer);
-        showToast.timer = setTimeout(() => toast.classList.remove('show'), 2200);
-    };
-
-    const setProofMode = (isActive, shouldToast = false) => {
-        document.body.classList.toggle('proof-mode', isActive);
-        toggles.forEach(toggle => {
-            toggle.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-        });
-
-        try {
-            sessionStorage.setItem('portfolioProofMode', isActive ? 'true' : 'false');
-        } catch (error) {
-            // Session storage can be unavailable in some embedded browsers.
-        }
-
-        if (shouldToast) {
-            showToast(isActive ? 'Proof mode enabled' : 'Proof mode disabled');
-        }
-    };
-
-    let savedMode = false;
-    try {
-        savedMode = sessionStorage.getItem('portfolioProofMode') === 'true';
-    } catch (error) {
-        savedMode = false;
-    }
-
-    toggles.forEach(toggle => {
-        toggle.addEventListener('click', () => {
-            setProofMode(!document.body.classList.contains('proof-mode'), true);
-        });
-    });
-
-    document.addEventListener('portfolio:toggleProofMode', () => {
-        setProofMode(!document.body.classList.contains('proof-mode'), true);
-    });
-
-    setProofMode(savedMode);
-}
-
-/* ============================================
    VISITOR ROUTE
    ============================================ */
 function initVisitorRoute() {
@@ -375,11 +277,11 @@ function initVisitorRoute() {
     const routes = {
         recruiter: {
             kicker: 'Hiring route',
-            title: 'Check fit, proof, then contact',
+            title: 'Check fit, projects, then contact',
             primary: { label: 'Start with skills', href: '#skills' },
             steps: [
-                { label: '01', title: 'Skills evidence', text: 'See practical frontend skills tied to visible work.', href: '#skills' },
-                { label: '02', title: 'Project proof', text: 'Review featured cases, portfolio systems, and honest status.', href: '#projects' },
+                { label: '01', title: 'Skills map', text: 'See practical frontend skills tied to visible work.', href: '#skills' },
+                { label: '02', title: 'Project cases', text: 'Review featured cases, portfolio systems, and current status.', href: '#projects' },
                 { label: '03', title: 'Contact route', text: 'Use the builder or Telegram/email once the fit is clear.', href: '#contact' }
             ]
         },
@@ -389,7 +291,7 @@ function initVisitorRoute() {
             primary: { label: 'Start with projects', href: '#projects' },
             steps: [
                 { label: '01', title: 'Project surface', text: 'Check cards, case routes, filters, and real interaction polish.', href: '#projects' },
-                { label: '02', title: 'Quality gate', text: 'Confirm the page is checked instead of only decorated.', href: '#quality-gate' },
+                { label: '02', title: 'Site checks', text: 'Confirm the page is checked instead of only decorated.', href: '#site-checks' },
                 { label: '03', title: 'Message builder', text: 'Generate a clear opener for a small frontend task.', href: '#contact' }
             ]
         },
@@ -399,7 +301,7 @@ function initVisitorRoute() {
             primary: { label: 'Start with roadmap', href: '#experience' },
             steps: [
                 { label: '01', title: 'Build timeline', text: 'See how the project work evolved and what changed.', href: '#experience' },
-                { label: '02', title: 'Quality checks', text: 'Review the live audit and current guardrails.', href: '#quality-gate' },
+                { label: '02', title: 'Site checks', text: 'Review current guardrails and browser checks.', href: '#site-checks' },
                 { label: '03', title: 'Pattern lab', text: 'Inspect reusable UI experiments feeding future work.', href: '#lab-board' }
             ]
         }
@@ -482,6 +384,7 @@ function initActiveNavHighlight() {
         .map(link => document.querySelector(link.getAttribute('href')))
         .filter(Boolean);
     if (links.length === 0 || sections.length === 0) return;
+    const sectionIds = new Set(sections.map(section => section.id));
 
     const setActive = (id) => {
         links.forEach(link => {
@@ -493,6 +396,19 @@ function initActiveNavHighlight() {
                 link.removeAttribute('aria-current');
             }
         });
+    };
+
+    const alignToHash = () => {
+        const hashId = decodeURIComponent(window.location.hash.slice(1));
+        if (!hashId || !sectionIds.has(hashId)) return false;
+        const target = document.getElementById(hashId);
+        const navbarHeight = document.getElementById('navbar')?.offsetHeight || 0;
+        const targetPosition = Math.max(0, target.getBoundingClientRect().top + window.pageYOffset - navbarHeight + 1);
+        if (Math.abs(window.scrollY - targetPosition) > 4) {
+            window.scrollTo({ top: targetPosition, behavior: 'auto' });
+        }
+        setActive(hashId);
+        return true;
     };
 
     const updateActive = () => {
@@ -519,7 +435,24 @@ function initActiveNavHighlight() {
 
     window.addEventListener('scroll', updateActive, { passive: true });
     window.addEventListener('resize', updateActive);
-    updateActive();
+    window.addEventListener('hashchange', () => {
+        requestAnimationFrame(() => {
+            alignToHash();
+            updateActive();
+        });
+    });
+    if (window.location.hash) {
+        requestAnimationFrame(() => {
+            alignToHash();
+            updateActive();
+        });
+        setTimeout(() => {
+            alignToHash();
+            updateActive();
+        }, 250);
+    } else {
+        updateActive();
+    }
 }
 
 /* ============================================
@@ -768,15 +701,15 @@ function initVoltagePreview() {
 }
 
 /* ============================================
-   QUALITY GATE
+   SITE CHECKS
    ============================================ */
-function initQualityGate() {
+function initSiteChecks() {
     const tabs = [...document.querySelectorAll('[data-quality-tab]')];
     const panels = [...document.querySelectorAll('[data-quality-panel]')];
-    const auditRun = document.getElementById('qualityAuditRun');
-    const auditScore = document.getElementById('qualityAuditScore');
-    const auditStatus = document.getElementById('qualityAuditStatus');
-    const auditList = document.getElementById('qualityAuditList');
+    const checkRun = document.getElementById('siteCheckRun');
+    const checkScore = document.getElementById('siteCheckScore');
+    const checkStatus = document.getElementById('siteCheckStatus');
+    const checkList = document.getElementById('siteCheckList');
     if (!tabs.length || !panels.length) return;
 
     const setQualityTab = (mode) => {
@@ -801,8 +734,8 @@ function initQualityGate() {
         "'": '&#039;'
     })[char]);
 
-    const runQualityAudit = () => {
-        if (!auditScore || !auditStatus || !auditList) return;
+    const runSiteChecks = () => {
+        if (!checkScore || !checkStatus || !checkList) return;
 
         const brokenImages = [...document.images]
             .filter(image => image.complete && image.naturalWidth === 0)
@@ -812,8 +745,8 @@ function initQualityGate() {
             .map(link => link.getAttribute('href'))
             .filter((href, index, all) => href && all.indexOf(href) === index)
             .filter(href => !document.querySelector(href));
-        const proofTargets = document.querySelectorAll('[data-proof-label]').length;
         const commandItems = document.querySelectorAll('.command-item').length;
+        const caseLinks = document.querySelectorAll('.case-index-actions a[href^="projects/"]').length;
         const briefMessage = document.getElementById('briefMessage');
         const briefCopy = document.querySelector('.brief-copy-btn');
         const activeQualityPanel = document.querySelector('[data-quality-panel]:not([hidden])');
@@ -836,13 +769,13 @@ function initQualityGate() {
                 detail: missingNavTargets.length ? missingNavTargets.join(', ') : `${navLinks.length} nav links point to real sections`
             },
             {
-                label: 'Proof layer mapped',
-                passed: proofTargets >= 7,
-                detail: `${proofTargets} evidence blocks connected to Proof mode`
+                label: 'Case links resolve',
+                passed: caseLinks >= 3,
+                detail: `${caseLinks} project case links available`
             },
             {
-                label: 'Command palette coverage',
-                passed: commandItems >= 10,
+                label: 'Quick links coverage',
+                passed: commandItems >= 9,
                 detail: `${commandItems} quick actions available`
             },
             {
@@ -851,19 +784,19 @@ function initQualityGate() {
                 detail: briefMessage ? `${briefMessage.value.length} characters generated and wired to copy` : 'builder not found'
             },
             {
-                label: 'Quality tabs wired',
+                label: 'Check tabs wired',
                 passed: tabs.length === 4 && panels.length === 4 && Boolean(activeQualityPanel),
                 detail: `${tabs.length} tabs / ${panels.length} panels, active: ${activeQualityPanel?.getAttribute('data-quality-panel') || 'none'}`
             }
         ];
 
         const passedCount = checks.filter(check => check.passed).length;
-        auditScore.textContent = `${passedCount} / ${checks.length}`;
-        auditStatus.textContent = passedCount === checks.length ? 'All live checks pass in this viewport.' : 'Some checks need attention in this viewport.';
-        auditStatus.classList.toggle('pass', passedCount === checks.length);
-        auditStatus.classList.toggle('warn', passedCount !== checks.length);
-        auditList.innerHTML = checks.map(check => `
-            <article class="quality-audit-item ${check.passed ? 'pass' : 'fail'}">
+        checkScore.textContent = `${passedCount} / ${checks.length}`;
+        checkStatus.textContent = passedCount === checks.length ? 'All checks pass in this viewport.' : 'Some checks need attention in this viewport.';
+        checkStatus.classList.toggle('pass', passedCount === checks.length);
+        checkStatus.classList.toggle('warn', passedCount !== checks.length);
+        checkList.innerHTML = checks.map(check => `
+            <article class="site-check-item ${check.passed ? 'pass' : 'fail'}">
                 <i>${check.passed ? 'OK' : '!'}</i>
                 <div>
                     <strong>${escapeHtml(check.label)}</strong>
@@ -877,9 +810,9 @@ function initQualityGate() {
         tab.addEventListener('click', () => setQualityTab(tab.getAttribute('data-quality-tab')));
     });
 
-    auditRun?.addEventListener('click', runQualityAudit);
+    checkRun?.addEventListener('click', runSiteChecks);
     setQualityTab('mobile');
-    setTimeout(runQualityAudit, 650);
+    setTimeout(runSiteChecks, 650);
 }
 
 /* ============================================
@@ -915,7 +848,7 @@ function initContactBriefBuilder() {
         },
         focus: {
             voltage: 'I am especially interested in your Voltage e-commerce rebuild and the catalog/cart/admin UI direction.',
-            portfolio: 'I am especially interested in the portfolio system, proof mode, case files, and interaction polish.',
+            portfolio: 'I am especially interested in the portfolio system, case pages, and interaction polish.',
             responsive: 'I am especially interested in responsive UI quality, mobile behavior, and edge-case handling.'
         },
         route: {
@@ -1180,27 +1113,6 @@ function initTypingEffect() {
 }
 
 /* ============================================
-   MOUSE GLOW TRACKING
-   ============================================ */
-function initMouseGlow() {
-    const glow = document.getElementById('mouseGlow');
-    if (!glow || window.matchMedia('(pointer: coarse)').matches) return;
-    let mouseX = 0, mouseY = 0, currentX = 0, currentY = 0;
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    }, { passive: true });
-    function animateGlow() {
-        currentX += (mouseX - currentX) * 0.08;
-        currentY += (mouseY - currentY) * 0.08;
-        glow.style.left = currentX + 'px';
-        glow.style.top = currentY + 'px';
-        requestAnimationFrame(animateGlow);
-    }
-    animateGlow();
-}
-
-/* ============================================
    PANEL SPOTLIGHT
    ============================================ */
 function initPanelSpotlight() {
@@ -1220,12 +1132,12 @@ function initPanelSpotlight() {
         '.growth-panel',
         '.skill-category',
         '.capability-panel',
-        '.skill-proof-panel',
-        '.skill-proof-card',
+        '.skill-map-panel',
+        '.skill-map-card',
         '.project-card',
         '.project-ledger-panel',
         '.case-index-panel',
-        '.quality-gate-panel',
+        '.site-checks-panel',
         '.build-panel',
         '.timeline-content',
         '.roadmap-panel',
@@ -1268,161 +1180,6 @@ function initParallax() {
             ticking = true;
         }
     }, { passive: true });
-}
-
-/* ============================================
-   PARTICLE SYSTEM
-   ============================================ */
-function initParticleSystem() {
-    const canvas = document.getElementById('particleCanvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    let animationId;
-    let isVisible = true;
-
-    function resize() {
-        canvas.width = canvas.parentElement.offsetWidth;
-        canvas.height = canvas.parentElement.offsetHeight;
-    }
-    resize();
-    window.addEventListener('resize', resize);
-
-    const PARTICLE_COUNT = window.matchMedia('(pointer: coarse)').matches ? 30 : 60;
-
-    class Particle {
-        constructor() {
-            this.reset();
-        }
-        reset() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 2 + 0.5;
-            this.speedX = (Math.random() - 0.5) * 0.5;
-            this.speedY = (Math.random() - 0.5) * 0.5;
-            this.opacity = Math.random() * 0.5 + 0.2;
-        }
-        update() {
-            this.x += this.speedX;
-            this.y += this.speedY;
-            if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
-                this.reset();
-            }
-        }
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(0, 212, 255, ${this.opacity})`;
-            ctx.fill();
-        }
-    }
-
-    for (let i = 0; i < PARTICLE_COUNT; i++) {
-        particles.push(new Particle());
-    }
-
-    function animate() {
-        animationId = null;
-        if (!isVisible) return;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => { p.update(); p.draw(); });
-        // Draw connections
-        for (let i = 0; i < particles.length; i++) {
-            for (let j = i + 1; j < particles.length; j++) {
-                const dx = particles[i].x - particles[j].x;
-                const dy = particles[i].y - particles[j].y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                if (distance < 100) {
-                    ctx.beginPath();
-                    ctx.moveTo(particles[i].x, particles[i].y);
-                    ctx.lineTo(particles[j].x, particles[j].y);
-                    ctx.strokeStyle = `rgba(0, 212, 255, ${0.1 * (1 - distance / 100)})`;
-                    ctx.lineWidth = 0.5;
-                    ctx.stroke();
-                }
-            }
-        }
-        animationId = requestAnimationFrame(animate);
-    }
-
-    // Visibility observer
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            isVisible = entry.isIntersecting;
-            if (isVisible && !animationId) animate();
-        });
-    });
-    observer.observe(canvas);
-    animate();
-}
-
-/* ============================================
-   BINARY RAIN EFFECT
-   ============================================ */
-function initBinaryRain() {
-    const canvas = document.getElementById('binaryCanvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let drops = [];
-    let animationId;
-    let isVisible = false;
-
-    function resize() {
-        canvas.width = canvas.parentElement.offsetWidth;
-        canvas.height = canvas.parentElement.offsetHeight;
-        const columns = Math.floor(canvas.width / 14);
-        drops = [];
-        for (let i = 0; i < columns; i++) {
-            drops.push({
-                x: i * 14,
-                y: Math.random() * -100,
-                speed: Math.random() * 2 + 1,
-                chars: [],
-                length: Math.floor(Math.random() * 15 + 5)
-            });
-            for (let j = 0; j < drops[i].length; j++) {
-                drops[i].chars.push(Math.random() > 0.5 ? '1' : '0');
-            }
-        }
-    }
-    resize();
-    window.addEventListener('resize', resize);
-
-    function animate() {
-        animationId = null;
-        if (!isVisible) return;
-        ctx.fillStyle = 'rgba(5, 8, 15, 0.1)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.font = '12px "JetBrains Mono", monospace';
-        drops.forEach(drop => {
-            drop.y += drop.speed;
-            if (drop.y > canvas.height) {
-                drop.y = -drop.length * 14;
-                drop.speed = Math.random() * 2 + 1;
-                drop.length = Math.floor(Math.random() * 15 + 5);
-                drop.chars = [];
-                for (let j = 0; j < drop.length; j++) {
-                    drop.chars.push(Math.random() > 0.5 ? '1' : '0');
-                }
-            }
-            for (let i = 0; i < drop.chars.length; i++) {
-                const y = drop.y - i * 14;
-                if (y < 0 || y > canvas.height) continue;
-                const alpha = i === 0 ? 1 : Math.max(0, 0.8 - i * 0.08);
-                ctx.fillStyle = `rgba(0, 212, 255, ${alpha * 0.3})`;
-                ctx.fillText(drop.chars[i], drop.x, y);
-            }
-        });
-        animationId = requestAnimationFrame(animate);
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            isVisible = entry.isIntersecting;
-            if (isVisible && !animationId) animate();
-        });
-    });
-    observer.observe(canvas);
 }
 
 /* ============================================

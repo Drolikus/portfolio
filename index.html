@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vladyslav Kikhtenko — Junior Web Developer</title>
-    <meta name="description" content="Portfolio of Vladyslav Kikhtenko, a junior web developer in Germany building responsive interfaces, e-commerce flows, and proof-first frontend projects.">
+    <meta name="description" content="Portfolio of Vladyslav Kikhtenko, a junior web developer in Germany building responsive interfaces, e-commerce flows, and practical frontend projects.">
     <meta name="author" content="Vladyslav Kikhtenko">
     <meta name="theme-color" content="#05080f">
     <meta property="og:type" content="website">
@@ -13,12 +13,12 @@
     <meta property="og:image" content="assets/social-preview.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Vladyslav Kikhtenko — Junior Web Developer">
-    <meta name="twitter:description" content="Responsive UI, e-commerce flows, vanilla JavaScript interactions, and proof-first frontend project work.">
+    <meta name="twitter:description" content="Responsive UI, e-commerce flows, vanilla JavaScript interactions, and practical frontend project work.">
     <meta name="twitter:image" content="assets/social-preview.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=20260603">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -47,26 +47,8 @@
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to content</a>
-    <!-- Boot Sequence Overlay -->
-    <div class="boot-overlay" id="bootOverlay">
-        <div class="boot-terminal">
-            <div class="boot-line"><span class="boot-prompt">$</span> <span class="boot-cmd">npm run dev</span></div>
-            <div class="boot-line boot-output">[ OK ] Loading HTML modules...</div>
-            <div class="boot-line boot-output">[ OK ] Mounting CSS stylesheets...</div>
-            <div class="boot-line boot-output">[ OK ] Starting JavaScript engine...</div>
-            <div class="boot-line boot-output">[ OK ] Importing project data...</div>
-            <div class="boot-line boot-output">[ OK ] Building responsive layouts...</div>
-            <div class="boot-line boot-output">[ OK ] Applying dark theme...</div>
-            <div class="boot-line boot-output">[ OK ] Portfolio loaded successfully.</div>
-            <div class="boot-line boot-output boot-blink">_</div>
-        </div>
-    </div>
-
     <!-- Noise Texture Overlay -->
     <div class="noise-overlay"></div>
-
-    <!-- Mouse Glow -->
-    <div class="mouse-glow" id="mouseGlow"></div>
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar" aria-label="Primary navigation">
@@ -78,7 +60,7 @@
                 <li class="nav-drawer-intro">
                     <span>Menu</span>
                     <strong>Vladyslav Kikhtenko</strong>
-                    <p>Junior frontend developer building proof-first interfaces in Germany.</p>
+                    <p>Junior frontend developer building responsive interfaces in Germany.</p>
                 </li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -138,8 +120,6 @@
     <section class="hero" id="home">
         <div class="hero-bg">
             <div class="hero-grid" id="heroGrid"></div>
-            <canvas class="hero-particles" id="particleCanvas"></canvas>
-            <canvas class="hero-binary" id="binaryCanvas"></canvas>
             <div class="hero-glow hero-glow-1" data-parallax="0.03"></div>
             <div class="hero-glow hero-glow-2" data-parallax="-0.02"></div>
             <div class="hero-glow hero-glow-3" data-parallax="0.05"></div>
@@ -156,15 +136,15 @@
                     <span class="title-line title-line-1">Vladyslav</span>
                     <span class="title-line title-line-2">Kikhtenko</span>
                 </h1>
-                <p class="hero-role">Junior Web Developer building proof-first interfaces</p>
+                <p class="hero-role">Junior Web Developer building responsive interfaces</p>
                 <div class="hero-typing">
                     <span class="typing-prefix">&gt; </span><span class="typing-text" id="typingText"></span><span class="typing-cursor">_</span>
                 </div>
                 <p class="hero-subtitle">
-                    I build polished responsive interfaces with HTML, CSS, and JavaScript. Voltage is one featured e-commerce case, while the portfolio also tracks UI systems, quality checks, and future project work.
+                    I build polished responsive interfaces with HTML, CSS, and JavaScript. Voltage is one featured e-commerce case, while the portfolio tracks UI systems, site checks, and future project work.
                 </p>
                 <p class="hero-subtitle-mobile">
-                    Building polished interfaces through real projects, proof systems, and practical UI experiments.
+                    Building polished interfaces through real projects and practical UI experiments.
                 </p>
                 <div class="hero-cta">
                     <a href="#projects" class="btn btn-primary">
@@ -262,7 +242,7 @@
         <div class="container review-snapshot-grid">
             <div class="review-snapshot-copy reveal">
                 <span>10-second scan</span>
-                <h2>What this portfolio proves right now</h2>
+                <h2>What this portfolio shows right now</h2>
                 <p>A quick path for recruiters, clients, or mentors: see the live surface, inspect the main rebuild, then decide if the work feels structured enough to talk.</p>
                 <div class="review-snapshot-actions">
                     <a class="project-action-btn project-action-btn--primary" href="#projects">
@@ -271,9 +251,6 @@
                     <a class="project-action-btn" href="#contact">
                         <span>Start contact</span>
                     </a>
-                    <button class="project-action-btn proof-toggle-btn" type="button" data-proof-toggle aria-pressed="false">
-                        <span>Proof mode</span>
-                    </button>
                 </div>
             </div>
             <div class="review-snapshot-cards">
@@ -290,36 +267,35 @@
                 <article class="review-snapshot-card reveal">
                     <span>03</span>
                     <strong>Honest scope</strong>
-                    <p>Stable work is shown as live, rebuilding work is marked clearly, and fake demo links stay out.</p>
+                    <p>Stable work is linked directly, while work in progress is marked clearly.</p>
                 </article>
             </div>
         </div>
         <div class="container">
-            <div class="upgrade-log-panel reveal" id="upgrade-log" aria-label="Latest portfolio upgrades" data-proof-label="Recent upgrades are visible and traceable">
-                <span class="proof-badge">Proof: upgrade log</span>
+            <div class="upgrade-log-panel reveal" id="upgrade-log" aria-label="Latest portfolio updates">
                 <div class="upgrade-log-copy">
-                    <span>Latest upgrades</span>
-                    <strong>What changed in the interface</strong>
-                    <p>A visible changelog for the newest systems added to this portfolio, so the work is easy to find instead of hidden behind vague polish.</p>
+                    <span>Recent updates</span>
+                    <strong>What changed recently</strong>
+                    <p>A short changelog for the main portfolio improvements: navigation, case pages, screenshots, and contact flow.</p>
                 </div>
                 <div class="upgrade-log-grid">
                     <article class="upgrade-log-card">
                         <span>01</span>
-                        <strong>Command center</strong>
-                        <p>Quick jump with search, section actions, Voltage case opening, proof toggle, and contact shortcuts.</p>
-                        <button class="upgrade-log-action" type="button" data-open-command-center>Open command center</button>
+                        <strong>Quick navigation</strong>
+                        <p>Search opens project pages, skills, site checks, and contact routes without adding another menu.</p>
+                        <button class="upgrade-log-action" type="button" data-open-command-center>Open quick links</button>
                     </article>
                     <article class="upgrade-log-card">
                         <span>02</span>
-                        <strong>Proof mode</strong>
-                        <p>Highlights evidence blocks so visitors can inspect real proof instead of reading empty claims.</p>
-                        <button class="upgrade-log-action" type="button" data-proof-toggle aria-pressed="false">Toggle proof mode</button>
+                        <strong>Case pages</strong>
+                        <p>Project details moved into separate pages with screenshots, current status, and source links.</p>
+                        <a class="upgrade-log-action" href="#lab-board">View cases</a>
                     </article>
                     <article class="upgrade-log-card">
                         <span>03</span>
-                        <strong>Quality gate</strong>
-                        <p>Live mini-audit checks overflow, images, navigation targets, proof wiring, command actions, and builder state.</p>
-                        <a class="upgrade-log-action" href="#quality-gate">View quality gate</a>
+                        <strong>Site checks</strong>
+                        <p>Basic checks cover overflow, images, navigation targets, quick links, and contact form wiring.</p>
+                        <a class="upgrade-log-action" href="#site-checks">View checks</a>
                     </article>
                     <article class="upgrade-log-card">
                         <span>04</span>
@@ -329,12 +305,11 @@
                     </article>
                 </div>
             </div>
-            <div class="visitor-route-panel reveal" id="visitor-route" aria-label="Visitor route selector" data-proof-label="Visitor paths guide different audiences">
-                <span class="proof-badge">Proof: visitor route</span>
+            <div class="visitor-route-panel reveal" id="visitor-route" aria-label="Visitor route selector">
                 <div class="visitor-route-copy">
                     <span>Visitor route</span>
                     <strong>Pick the fastest path through the portfolio</strong>
-                    <p>Different visitors need different proof. Choose a route and the page will suggest the sections that matter first.</p>
+                    <p>Different visitors need different details. Choose a route and the page will suggest the sections that matter first.</p>
                     <div class="visitor-route-tabs" role="tablist" aria-label="Visitor route types">
                         <button class="visitor-route-tab active" type="button" role="tab" aria-selected="true" data-route-tab="recruiter">Recruiter</button>
                         <button class="visitor-route-tab" type="button" role="tab" aria-selected="false" data-route-tab="client">Client</button>
@@ -344,12 +319,12 @@
                 <div class="visitor-route-output">
                     <div class="visitor-route-head">
                         <span id="visitorRouteKicker">Hiring route</span>
-                        <strong id="visitorRouteTitle">Check fit, proof, then contact</strong>
+                        <strong id="visitorRouteTitle">Check fit, projects, then contact</strong>
                     </div>
                     <div class="visitor-route-steps" id="visitorRouteSteps"></div>
                     <div class="visitor-route-actions">
                         <a class="upgrade-log-action" id="visitorRoutePrimary" href="#skills">Start route</a>
-                        <button class="upgrade-log-action" type="button" data-open-command-center>Use command center</button>
+                        <button class="upgrade-log-action" type="button" data-open-command-center>Use quick links</button>
                     </div>
                 </div>
             </div>
@@ -373,7 +348,7 @@
                         My current featured project is Voltage, an online guitar store, but the portfolio is designed to grow with more frontend cases.
                     </p>
                     <p>
-                        I learn fast by shipping visible work, then tightening the weak parts: structure, states, responsiveness, and honest project proof.
+                        I learn fast by shipping visible work, then tightening the weak parts: structure, states, responsiveness, and clear project notes.
                     </p>
                     <div class="about-stats">
                         <div class="stat">
@@ -553,36 +528,35 @@
                     </article>
                 </div>
             </div>
-            <div class="skill-proof-panel reveal" aria-label="Skill evidence map" data-proof-label="Skills tied to visible evidence">
-                <span class="proof-badge">Proof: skill map</span>
-                <div class="skill-proof-header">
-                    <span>Skill evidence map</span>
+            <div class="skill-map-panel reveal" aria-label="Skill detail map">
+                <div class="skill-map-header">
+                    <span>Skill map</span>
                     <strong>Where the skills are visible on this site</strong>
                 </div>
-                <div class="skill-proof-grid">
-                    <article class="skill-proof-card">
+                <div class="skill-map-grid">
+                    <article class="skill-map-card">
                         <span>HTML / CSS</span>
                         <strong>Responsive layout system</strong>
                         <p>Hero, project cards, dense panels, case pages, contact layout, and mobile drawer all share the same visual rules.</p>
-                        <div class="skill-proof-meter" style="--level: 88%"><i></i></div>
+                        <div class="skill-map-meter" style="--level: 88%"><i></i></div>
                     </article>
-                    <article class="skill-proof-card">
+                    <article class="skill-map-card">
                         <span>JavaScript</span>
                         <strong>Interaction layer</strong>
                         <p>Filtering, active navigation, case routes, code tabs, preview modes, counters, copy actions, and theme state.</p>
-                        <div class="skill-proof-meter" style="--level: 82%"><i></i></div>
+                        <div class="skill-map-meter" style="--level: 82%"><i></i></div>
                     </article>
-                    <article class="skill-proof-card">
+                    <article class="skill-map-card">
                         <span>UX thinking</span>
                         <strong>States and clarity</strong>
-                        <p>Project honesty, case files, roadmap guardrails, message starters, and clear labels for what is live or rebuilding.</p>
-                        <div class="skill-proof-meter" style="--level: 78%"><i></i></div>
+                        <p>Project status, case pages, roadmap notes, message starters, and clear labels for what is live or rebuilding.</p>
+                        <div class="skill-map-meter" style="--level: 78%"><i></i></div>
                     </article>
-                    <article class="skill-proof-card">
+                    <article class="skill-map-card">
                         <span>QA mindset</span>
                         <strong>Mobile and edge cases</strong>
                         <p>Long labels, German-ready copy, scroll states, active menu underline, responsive grids, and no horizontal overflow.</p>
-                        <div class="skill-proof-meter" style="--level: 74%"><i></i></div>
+                        <div class="skill-map-meter" style="--level: 74%"><i></i></div>
                     </article>
                 </div>
             </div>
@@ -625,7 +599,7 @@
                             <span>E-commerce</span>
                         </div>
                         <p class="project-desc">E-commerce rebuild with catalog browsing, cart state, admin flow, orders, and multilingual interface pressure.</p>
-                        <div class="project-proof" aria-label="Voltage case study highlights">
+                        <div class="project-tags" aria-label="Voltage case study highlights">
                             <span>Catalog</span>
                             <span>Cart flow</span>
                             <span>Admin</span>
@@ -716,7 +690,7 @@
                             <span>UI experiments</span>
                         </div>
                         <p class="project-desc">A controlled pattern board for layouts, responsive states, filters, dialogs, form feedback, and micro-interactions.</p>
-                        <div class="project-proof" aria-label="Frontend practice lab patterns">
+                        <div class="project-tags" aria-label="Frontend practice lab patterns">
                             <span>Layouts</span>
                             <span>Filters</span>
                             <span>Dialogs</span>
@@ -738,12 +712,11 @@
                     </div>
                 </article>
             </div>
-            <div class="project-ledger-panel reveal" aria-label="Project honesty ledger" data-proof-label="Live, rebuilding, or lab status is explicit">
-                <span class="proof-badge">Proof: honest status</span>
+            <div class="project-ledger-panel reveal" aria-label="Project status overview">
                 <div class="project-ledger-copy">
-                    <span>Project honesty</span>
-                    <strong>Current status before shiny promises</strong>
-                    <p>Every project shows where it really stands: live, rebuilding, or used as a pattern lab. No hidden fake demo links, no inflated scope.</p>
+                    <span>Project status</span>
+                    <strong>Current work and availability</strong>
+                    <p>Each project card marks whether the work is live, in rebuild, or used as a small UI practice area.</p>
                 </div>
                 <div class="project-ledger-grid">
                     <article>
@@ -754,7 +727,7 @@
                     <article>
                         <span class="ledger-state ledger-state--live">Live</span>
                         <strong>Portfolio</strong>
-                        <p>This site is the live proof surface for layout, motion, copy, and project storytelling.</p>
+                        <p>This site is the live portfolio surface for layout, motion, copy, and project storytelling.</p>
                     </article>
                     <article>
                         <span class="ledger-state">Pattern lab</span>
@@ -763,20 +736,19 @@
                     </article>
                 </div>
             </div>
-            <div class="case-index-panel reveal" id="lab-board" aria-label="Project case study index" data-proof-label="Detailed project proof lives on dedicated case pages">
-                <span class="proof-badge">Proof: case pages</span>
+            <div class="case-index-panel reveal" id="lab-board" aria-label="Project case study index">
                 <div class="case-index-copy">
                     <div>
                         <span>Case study index</span>
-                        <strong>Deep proof moved off the homepage</strong>
+                        <strong>Project details live on separate pages</strong>
                     </div>
-                    <p>The homepage stays scannable. Full reasoning, screenshots, quality notes, and source links now live in separate case pages.</p>
+                    <p>The homepage stays scannable. Screenshots, current status, notes, and source links now live in separate case pages.</p>
                 </div>
                 <div class="case-index-grid">
                     <article>
                         <span>Case 01</span>
                         <h3>Voltage rebuild</h3>
-                        <p>E-commerce catalog, cart state, admin flow, orders, and multilingual UI pressure without pretending the rebuild is finished.</p>
+                        <p>E-commerce catalog, cart state, admin flow, orders, and multilingual UI work while the rebuild continues.</p>
                         <div class="case-index-actions">
                             <a class="project-action-btn project-action-btn--primary" href="projects/voltage.html">Read case</a>
                             <a class="project-action-btn" href="https://github.com/Drolikus/portfolio/blob/main/projects/voltage.html" target="_blank" rel="noopener noreferrer">Source</a>
@@ -785,7 +757,7 @@
                     <article>
                         <span>Case 02</span>
                         <h3>Portfolio website</h3>
-                        <p>Live proof surface with command actions, proof mode, quality gate, responsive states, and deployment notes.</p>
+                        <p>Live portfolio site with quick navigation, case pages, site checks, responsive states, and deployment notes.</p>
                         <div class="case-index-actions">
                             <a class="project-action-btn project-action-btn--primary" href="projects/portfolio.html">Read case</a>
                             <a class="project-action-btn" href="https://github.com/Drolikus/portfolio/blob/main/index.html" target="_blank" rel="noopener noreferrer">Source</a>
@@ -802,34 +774,33 @@
                     </article>
                 </div>
             </div>
-            <div class="quality-gate-panel reveal" id="quality-gate" aria-label="Portfolio quality gate" data-proof-label="Quality checks guard the polish">
-                <span class="proof-badge">Proof: QA gate</span>
-                <div class="quality-gate-copy">
-                    <span>Quality gate</span>
-                    <h3>Checks before adding more shine</h3>
+            <div class="site-checks-panel reveal" id="site-checks" aria-label="Portfolio site checks">
+                <div class="site-checks-copy">
+                    <span>Site checks</span>
+                    <h3>Basic checks before shipping changes</h3>
                     <p>Every visible upgrade has to survive basic product checks: mobile width, active navigation, case routes, contact route, copy clarity, and console health.</p>
                     <div class="quality-score">
                         <strong>Latest local pass</strong>
                         <span>JS syntax / assets / no broken images / no overflow</span>
                     </div>
                     <div class="case-index-actions">
-                        <a class="project-action-btn project-action-btn--primary" href="quality.html">Open quality page</a>
+                        <a class="project-action-btn project-action-btn--primary" href="quality.html">Open checks page</a>
                         <a class="project-action-btn" href="docs/QUALITY.md">Read notes</a>
                     </div>
-                    <div class="quality-live-audit" aria-label="Live page audit">
+                    <div class="site-check-live" aria-label="Live page checks">
                         <div class="quality-live-header">
                             <div>
-                                <span>Live page audit</span>
-                                <strong id="qualityAuditScore">-- / --</strong>
+                                <span>Live page checks</span>
+                                <strong id="siteCheckScore">-- / --</strong>
                             </div>
-                            <button class="quality-audit-run" id="qualityAuditRun" type="button">Run audit</button>
+                            <button class="site-check-run" id="siteCheckRun" type="button">Run checks</button>
                         </div>
-                        <p class="quality-audit-status" id="qualityAuditStatus">Waiting for page checks.</p>
-                        <div class="quality-audit-list" id="qualityAuditList" aria-live="polite"></div>
+                        <p class="site-check-status" id="siteCheckStatus">Waiting for checks.</p>
+                        <div class="site-check-list" id="siteCheckList" aria-live="polite"></div>
                     </div>
                 </div>
-                <div class="quality-gate-console">
-                    <div class="quality-tabs" role="tablist" aria-label="Quality gate checks">
+                <div class="site-checks-console">
+                    <div class="quality-tabs" role="tablist" aria-label="Site check categories">
                         <button class="quality-tab active" type="button" role="tab" aria-selected="true" aria-controls="quality-panel-mobile" data-quality-tab="mobile">Mobile</button>
                         <button class="quality-tab" type="button" role="tab" aria-selected="false" aria-controls="quality-panel-navigation" data-quality-tab="navigation">Navigation</button>
                         <button class="quality-tab" type="button" role="tab" aria-selected="false" aria-controls="quality-panel-interaction" data-quality-tab="interaction">Interaction</button>
@@ -838,7 +809,7 @@
                     <div class="quality-panels">
                         <article class="quality-panel active" id="quality-panel-mobile" role="tabpanel" data-quality-panel="mobile">
                             <div class="quality-panel-head">
-                                <span>Mobile pass</span>
+                                <span>Mobile</span>
                                 <strong>Compact without chaos</strong>
                             </div>
                             <ul class="quality-checklist">
@@ -849,7 +820,7 @@
                         </article>
                         <article class="quality-panel" id="quality-panel-navigation" role="tabpanel" data-quality-panel="navigation" hidden>
                             <div class="quality-panel-head">
-                                <span>Navigation pass</span>
+                                <span>Navigation</span>
                                 <strong>People can orient fast</strong>
                             </div>
                             <ul class="quality-checklist">
@@ -860,23 +831,23 @@
                         </article>
                         <article class="quality-panel" id="quality-panel-interaction" role="tabpanel" data-quality-panel="interaction" hidden>
                             <div class="quality-panel-head">
-                                <span>Interaction pass</span>
+                                <span>Interaction</span>
                                 <strong>Controls behave like controls</strong>
                             </div>
                             <ul class="quality-checklist">
-                                <li>Project proof opens as direct case-study routes instead of hidden homepage clutter.</li>
+                                <li>Project details open as direct case-study routes instead of hidden homepage clutter.</li>
                                 <li>Voltage preview tabs update UI and progress state.</li>
                                 <li>Email copy has a fallback and visible toast feedback.</li>
                             </ul>
                         </article>
                         <article class="quality-panel" id="quality-panel-content" role="tabpanel" data-quality-panel="content" hidden>
                             <div class="quality-panel-head">
-                                <span>Content pass</span>
-                                <strong>Honest proof beats fake polish</strong>
+                                <span>Content</span>
+                                <strong>Clear scope beats inflated claims</strong>
                             </div>
                             <ul class="quality-checklist">
-                                <li>Rebuilding work is marked instead of pretending to be live.</li>
-                                <li>Skills are tied to visible evidence on the page.</li>
+                                <li>Rebuilding work is marked clearly.</li>
+                                <li>Skills are tied to visible work on the page.</li>
                                 <li>Contact path explains the fastest route clearly.</li>
                             </ul>
                         </article>
@@ -925,7 +896,7 @@
                 <aside class="build-panel">
                     <div class="build-panel-header">
                         <span class="build-label">Voltage interactive preview</span>
-                        <span class="build-pill">v0.8</span>
+                        <span class="build-pill">Current</span>
                     </div>
                     <div class="preview-tabs" role="tablist" aria-label="Voltage preview modes">
                         <button class="preview-tab active" type="button" role="tab" aria-selected="true" aria-controls="voltagePreviewStage" data-preview-mode="catalog">Catalog</button>
@@ -991,15 +962,15 @@
                         </div>
                         <ol class="build-log-list">
                             <li>
-                                <span>v0.8</span>
-                                <p>Added faster boot, latest build log, and stronger active navigation.</p>
+                                <span>May 2026</span>
+                                <p>Updated the build log and active navigation behavior.</p>
                             </li>
                             <li>
-                                <span>v0.7</span>
+                                <span>May 2026</span>
                                 <p>Polished Voltage case study, project actions, and roadmap cards.</p>
                             </li>
                             <li>
-                                <span>v0.6</span>
+                                <span>May 2026</span>
                                 <p>Reworked hero identity, language signal, and portfolio screenshot card.</p>
                             </li>
                         </ol>
@@ -1021,9 +992,9 @@
                 <div class="growth-copy">
                     <span class="growth-kicker">Growth snapshot</span>
                     <h3>From first builds to product thinking</h3>
-                    <p>I improve by shipping visible work, then tightening the weak parts: structure, states, responsiveness, copy, and honest project proof.</p>
-                    <div class="growth-proof-strip">
-                        <span>No fake demos</span>
+                    <p>I improve by shipping visible work, then tightening the weak parts: structure, states, responsiveness, copy, and project documentation.</p>
+                    <div class="growth-note-strip">
+                        <span>Current status</span>
                         <span>Build notes</span>
                         <span>Mobile checks</span>
                     </div>
@@ -1040,7 +1011,7 @@
                         <p>Reusable UI ideas tested before they enter real screens.</p>
                     </article>
                     <article>
-                        <span>Portfolio proof</span>
+                        <span>Portfolio site</span>
                         <strong>Case files</strong>
                         <p>Each project explains decisions, limits, and current status.</p>
                     </article>
@@ -1067,7 +1038,7 @@
                             <span>JavaScript</span>
                             <span>i18n</span>
                         </div>
-                        <div class="timeline-evidence">
+                        <div class="timeline-details">
                             <article>
                                 <span>Surface</span>
                                 <strong>Catalog + cart</strong>
@@ -1091,19 +1062,19 @@
                             <span class="timeline-date">May 2026</span>
                         </div>
                         <span class="timeline-company">Self-directed Build</span>
-                        <p>Upgraded this portfolio with a personal hero, project actions, screenshot-based cards, active navigation, canvas effects, responsive design, and stronger case-study details.</p>
+                        <p>Upgraded this portfolio with a personal hero, project actions, screenshot-based cards, active navigation, responsive design, and stronger case-study details.</p>
                         <div class="timeline-tags">
                             <span>CSS Animations</span>
                             <span>Canvas</span>
                             <span>Responsive</span>
                         </div>
-                        <div class="timeline-evidence">
+                        <div class="timeline-details">
                             <article>
                                 <span>UX</span>
                                 <strong>Active navigation</strong>
                             </article>
                             <article>
-                                <span>Proof</span>
+                                <span>Details</span>
                                 <strong>Project case files</strong>
                             </article>
                             <article>
@@ -1127,7 +1098,7 @@
                             <span>CSS</span>
                             <span>Self-Learning</span>
                         </div>
-                        <div class="timeline-evidence">
+                        <div class="timeline-details">
                             <article>
                                 <span>Method</span>
                                 <strong>Learn by building</strong>
@@ -1190,7 +1161,7 @@
                 <div class="roadmap-guardrails" aria-label="Roadmap guardrails">
                     <article>
                         <span>Rule 01</span>
-                        <strong>Proof over promises</strong>
+                        <strong>Clear scope</strong>
                         <p>Show screenshots, case notes, and working states before claiming a full product.</p>
                     </article>
                     <article>
@@ -1219,8 +1190,7 @@
             <div class="contact-content">
                 <div class="contact-info reveal">
                     <p>My name is Vladyslav Kikhtenko. I am from Ukraine and currently live in Germany. I build responsive frontend interfaces, practice through real project work, and use Voltage as one active e-commerce case among a growing project set.</p>
-                    <div class="contact-fit-panel" aria-label="Best reasons to contact me" data-proof-label="Contact fit is scoped before outreach">
-                        <span class="proof-badge">Proof: contact fit</span>
+                    <div class="contact-fit-panel" aria-label="Best reasons to contact me">
                         <div class="contact-fit-header">
                             <span>Best fit</span>
                             <strong>What to message me about</strong>
@@ -1269,8 +1239,7 @@
                             <span>Message on Telegram</span>
                         </a>
                     </div>
-                    <div class="contact-message-kit" aria-label="Quick message starters" data-proof-label="Contact messages are generated from real intent">
-                        <span class="proof-badge">Proof: message UX</span>
+                    <div class="contact-message-kit" aria-label="Quick message starters">
                         <div class="contact-message-kit-header">
                             <span>Message starters</span>
                             <strong>Copy a clean opener</strong>
@@ -1374,7 +1343,7 @@
                     <circle cx="11" cy="11" r="7"></circle>
                     <path d="M20 20l-3.5-3.5"></path>
                 </svg>
-                <input id="commandSearch" type="search" autocomplete="off" placeholder="Jump to project, proof, contact..." aria-label="Search quick actions">
+                <input id="commandSearch" type="search" autocomplete="off" placeholder="Jump to project, skills, contact..." aria-label="Search quick actions">
                 <button class="command-close" id="commandClose" type="button" aria-label="Close quick jump">&times;</button>
             </div>
             <div class="command-meta">
@@ -1383,18 +1352,18 @@
             </div>
             <div class="command-list" id="commandList" role="listbox" aria-label="Quick actions">
                 <button class="command-item" type="button" data-command-href="#projects" data-command-keywords="projects featured work portfolio voltage lab">
-                    <span>Project proof</span>
+                    <span>Project cases</span>
                     <strong>Open featured projects</strong>
                     <em>Section</em>
                 </button>
-                <button class="command-item" type="button" data-command-href="#upgrade-log" data-command-keywords="latest upgrades changelog changes command proof quality builder">
-                    <span>Upgrade log</span>
-                    <strong>View latest interface upgrades</strong>
+                <button class="command-item" type="button" data-command-href="#upgrade-log" data-command-keywords="latest updates changelog changes quick links checks builder">
+                    <span>Updates</span>
+                    <strong>View latest site updates</strong>
                     <em>Section</em>
                 </button>
                 <button class="command-item" type="button" data-command-href="#visitor-route" data-command-keywords="visitor route recruiter client mentor path">
                     <span>Visitor route</span>
-                    <strong>Choose the right proof path</strong>
+                    <strong>Choose the right review path</strong>
                     <em>Guide</em>
                 </button>
                 <button class="command-item" type="button" data-command-href="projects/voltage.html" data-command-keywords="voltage guitar store ecommerce case study cart admin i18n">
@@ -1402,8 +1371,8 @@
                     <strong>Open Voltage case page</strong>
                     <em>Case</em>
                 </button>
-                <button class="command-item" type="button" data-command-href="#skills" data-command-keywords="skills evidence html css javascript qa ux">
-                    <span>Skill evidence</span>
+                <button class="command-item" type="button" data-command-href="#skills" data-command-keywords="skills html css javascript qa ux">
+                    <span>Skill map</span>
                     <strong>View practical frontend map</strong>
                     <em>Section</em>
                 </button>
@@ -1417,20 +1386,15 @@
                     <strong>Inspect UI experiments board</strong>
                     <em>Section</em>
                 </button>
-                <button class="command-item" type="button" data-command-href="#quality-gate" data-command-keywords="quality gate qa checks mobile navigation interaction content">
-                    <span>Quality gate</span>
-                    <strong>Review production QA checks</strong>
+                <button class="command-item" type="button" data-command-href="#site-checks" data-command-keywords="site checks qa mobile navigation interaction content">
+                    <span>Site checks</span>
+                    <strong>Review browser checks</strong>
                     <em>Section</em>
                 </button>
-                <button class="command-item" type="button" data-command-href="quality.html" data-command-keywords="quality page site health screenshots audit github pages">
+                <button class="command-item" type="button" data-command-href="quality.html" data-command-keywords="checks page site health screenshots github pages">
                     <span>Site health</span>
-                    <strong>Open public quality page</strong>
+                    <strong>Open public checks page</strong>
                     <em>Page</em>
-                </button>
-                <button class="command-item" type="button" data-command-proof data-command-keywords="proof mode evidence highlight real work quality">
-                    <span>Proof mode</span>
-                    <strong>Toggle evidence highlights</strong>
-                    <em>Mode</em>
                 </button>
                 <button class="command-item" type="button" data-command-copy="vladikkihtenko@gmail.com" data-command-keywords="email copy contact gmail message">
                     <span>Contact</span>
@@ -1448,16 +1412,12 @@
                     <em>Tool</em>
                 </button>
             </div>
-            <p class="command-empty" id="commandEmpty">No matching action. Try project, Voltage, skills, proof, contact, or lab.</p>
+            <p class="command-empty" id="commandEmpty">No matching action. Try project, Voltage, skills, contact, or lab.</p>
             <div class="command-footer">
                 <span>Enter to run</span>
                 <span>Esc to close</span>
             </div>
         </div>
-    </div>
-    <div class="proof-mode-indicator" id="proofModeIndicator" aria-live="polite">
-        <span>Proof mode</span>
-        <strong>Evidence highlighted</strong>
     </div>
     <div class="copy-toast" id="copyToast" role="status" aria-live="polite">Email copied</div>
     </main>
@@ -1473,7 +1433,7 @@
                     <p>Learning by building. One project at a time.</p>
                     <div class="footer-status" aria-label="Portfolio status links">
                         <a href="https://drolikus.github.io/portfolio/" target="_blank" rel="noopener noreferrer">Live on GitHub Pages</a>
-                        <a href="quality.html">Quality gate</a>
+                        <a href="quality.html">Site checks</a>
                         <a href="https://github.com/Drolikus/portfolio" target="_blank" rel="noopener noreferrer">Source repository</a>
                     </div>
                 </div>
@@ -1491,7 +1451,6 @@
         </div>
     </footer>
 
-    <script src="js/monitoring.js?v=20260531b"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main.js?v=20260603"></script>
 </body>
 </html>

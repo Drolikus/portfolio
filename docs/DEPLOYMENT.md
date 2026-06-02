@@ -24,7 +24,6 @@ The main portfolio is a static site:
 - Add redirect from secondary host to canonical host.
 - Verify mobile and desktop after deploy.
 - Confirm `404.html`, `quality.html`, and all `projects/*.html` routes resolve.
-- Add server-side environment variables before any OpenAI-powered feature.
 
 ## Suggested Headers
 
@@ -34,7 +33,7 @@ Referrer-Policy: strict-origin-when-cross-origin
 Permissions-Policy: camera=(), microphone=(), geolocation=()
 ```
 
-Use a Content Security Policy only after checking external assets and any future analytics or Sentry scripts.
+Use a Content Security Policy only after checking external assets and any future analytics scripts.
 
 ## Added Config Files
 

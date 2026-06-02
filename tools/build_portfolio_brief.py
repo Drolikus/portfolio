@@ -81,7 +81,7 @@ lead = doc.add_paragraph()
 style_paragraph(lead, after=8, line=1.12)
 add_run(
     lead,
-    "I build polished responsive interfaces with visible proof: real project states, quality checks, command navigation, and honest scope. My main product build is Voltage, an online guitar store with catalog, cart, admin, and multilingual UI direction.",
+    "I build polished responsive interfaces with clear project status, site checks, quick navigation, and practical scope. My main product build is Voltage, an online guitar store with catalog, cart, admin, and multilingual UI direction.",
     color="1F2937",
     size=9.8,
 )
@@ -90,9 +90,9 @@ summary = doc.add_table(rows=1, cols=4)
 summary.alignment = WD_TABLE_ALIGNMENT.CENTER
 summary.autofit = False
 labels = [
-    ("12", "command actions"),
-    ("9", "proof blocks"),
-    ("7/7", "live QA audit"),
+    ("12", "quick actions"),
+    ("3", "case pages"),
+    ("7/7", "local checks"),
     ("4", "visitor routes/views"),
 ]
 for idx, (value, label) in enumerate(labels):
@@ -106,11 +106,11 @@ for idx, (value, label) in enumerate(labels):
     add_run(p, value + "\n", bold=True, color="0891B2" if idx != 2 else "15803D", size=15)
     add_run(p, label, color="334155", size=8)
 
-heading(doc, "Project proof")
+heading(doc, "Project cases")
 projects = doc.add_table(rows=3, cols=3)
 projects.alignment = WD_TABLE_ALIGNMENT.CENTER
 projects.autofit = False
-headers = ["Surface", "What it proves", "Current status"]
+headers = ["Surface", "What it shows", "Current status"]
 for i, text in enumerate(headers):
     cell = projects.cell(0, i)
     set_cell_shading(cell, "0F172A")
@@ -119,7 +119,7 @@ for i, text in enumerate(headers):
     add_run(p, text, bold=True, color="F8FAFC", size=8.6)
 rows = [
     ("Voltage", "E-commerce UI pressure: catalog, cart, admin flow, i18n labels.", "Active rebuild"),
-    ("Portfolio", "Command palette, proof mode, visitor routes, contact builder, QA gate.", "Live proof surface"),
+    ("Portfolio", "Quick navigation, visitor routes, contact builder, site checks.", "Live portfolio site"),
 ]
 for r, row in enumerate(rows, start=1):
     for c, text in enumerate(row):
@@ -136,17 +136,17 @@ work = doc.add_paragraph()
 style_paragraph(work, after=4, line=1.13)
 for item in [
     "Ship visible work, then tighten weak parts.",
-    "Tie claims to proof instead of vague self-praise.",
+    "Keep claims tied to visible project work.",
     "Test mobile, overflow, assets, navigation, and interaction wiring.",
-    "Keep future AI/Sentry features behind safe backend or configuration boundaries.",
+    "Ship features only after the behavior is real.",
 ]:
-    work.add_run("• ").font.name = "Arial"
+    work.add_run("- ").font.name = "Arial"
     add_run(work, item + "\n", color="334155", size=9.2)
 
 heading(doc, "Best fit")
 fit = doc.add_paragraph()
 style_paragraph(fit, after=6, line=1.13)
-add_run(fit, "Junior frontend role, UI implementation task, portfolio/code review, or practical frontend mentorship. Strongest current evidence: responsive static UI, vanilla JavaScript interactions, product storytelling, and quality guardrails.", color="334155", size=9.2)
+add_run(fit, "Junior frontend role, UI implementation task, portfolio/code review, or practical frontend mentorship. Strongest current work: responsive static UI, vanilla JavaScript interactions, product storytelling, and browser checks.", color="334155", size=9.2)
 
 footer = doc.add_paragraph()
 footer.alignment = WD_ALIGN_PARAGRAPH.CENTER
