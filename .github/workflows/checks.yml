@@ -1,0 +1,33 @@
+name: Site checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Chromium for Playwright
+        run: npx playwright install --with-deps chromium
+
+      - name: Serve site
+        run: |
+          python3 -m http.server 8123 &
+          sleep 2
+
+      - name: Run smoke checks
+        env:
+          PORTFOLIO_URL: http://127.0.0.1:8123/index.html
+        run: npm run check:smoke

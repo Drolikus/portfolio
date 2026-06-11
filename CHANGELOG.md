@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-06-11
+
+- Removed dead contact-form validation code and fixed the misleading "contact form wiring" check label.
+- Added a blocking inline theme script to remove the light-theme flash (FOUC) on all pages.
+- Optimized images (`tools/optimize_images.py`): assets dropped from ~6.6 MB to ~0.5 MB; added `loading`, `width`, and `height` to `<img>` tags.
+- Added SEO/sharing essentials: canonical URLs, absolute Open Graph image, `robots.txt`, `sitemap.xml`, SVG favicon, apple-touch-icon, and a web manifest.
+- Added a headless Playwright smoke check (`tools/smoke_check.js`) and a GitHub Actions workflow that runs it on push and pull requests.
+- Added a Content-Security-Policy to the Netlify, Vercel, and Cloudflare header configs.
+- Trimmed an unused font weight, deduplicated clipboard/toast helpers in `js/main.js`.
+
 ## 2026-06-03
 
 - Removed overbuilt portfolio signals and unused experimental planning docs.

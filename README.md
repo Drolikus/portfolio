@@ -47,8 +47,13 @@ http://127.0.0.1:8123/index.html
 
 ```bash
 npm install
-npm run capture:screenshots
+npm run capture:screenshots   # capture + optimize case screenshots
+npm run optimize:images       # recompress/resize assets in place
+npm run check:smoke           # headless smoke checks (serve the site first)
 ```
+
+Smoke checks also run automatically on push and pull requests via
+`.github/workflows/checks.yml`.
 
 ## Optional Tooling
 

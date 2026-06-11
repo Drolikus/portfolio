@@ -4,6 +4,28 @@ A prioritized review of the portfolio's current weak points with concrete
 actions. Priorities: **P0** (correctness / ship-blockers), **P1** (high impact,
 low-to-medium effort), **P2** (polish and longer-term).
 
+## Status (updated 2026-06-11)
+
+Implemented in this pass:
+
+- **Done #1, #3** — removed dead contact-form code; fixed the FOUC theme flash
+  with a blocking inline script on every page.
+- **Done #4, #5** — images optimized (~6.6 MB → ~0.5 MB) via
+  `tools/optimize_images.py`; added `loading`/`width`/`height` to images.
+- **Done #6** — canonical URLs, absolute OG image, `robots.txt`, `sitemap.xml`,
+  SVG favicon, apple-touch-icon, and `site.webmanifest`.
+- **Done #7** — Playwright smoke check + GitHub Actions workflow.
+- **Done #10 (partial), #11 (partial)** — deduplicated clipboard/toast helpers;
+  trimmed an unused font weight.
+- **Done #12** — Content-Security-Policy added to all three header configs
+  (note: GitHub Pages does not apply custom headers, so CSP is active only on
+  Netlify/Vercel/Cloudflare).
+
+Still open: **#2** (real backend if a typed form is reintroduced), **#8**
+(verify contact details), **#9** (add real case studies — content work),
+**#10/#11** (split the `index.html` monolith, add a minify/font-subset build),
+**#13** (theme model is now consistent — verify after deploy).
+
 ---
 
 ## P0 — Correctness

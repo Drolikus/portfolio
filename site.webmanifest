@@ -1,0 +1,23 @@
+{
+  "name": "Vladyslav Kikhtenko — Junior Web Developer",
+  "short_name": "Vlad Portfolio",
+  "description": "Portfolio of Vladyslav Kikhtenko, a junior web developer building responsive interfaces and practical frontend projects.",
+  "start_url": "/portfolio/",
+  "scope": "/portfolio/",
+  "display": "standalone",
+  "background_color": "#05080f",
+  "theme_color": "#05080f",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

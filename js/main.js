@@ -2,6 +2,50 @@
  * Junior Web Developer Portfolio
  */
 
+/* ============================================
+   SHARED HELPERS
+   ============================================ */
+function showCopyToast(message) {
+    const toast = document.getElementById('copyToast');
+    if (!toast) return;
+    toast.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(showCopyToast.timer);
+    showCopyToast.timer = setTimeout(() => toast.classList.remove('show'), 2200);
+}
+
+function fallbackCopy(text) {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.setAttribute('readonly', '');
+    textArea.style.position = 'fixed';
+    textArea.style.top = '0';
+    textArea.style.left = '-9999px';
+    textArea.style.width = '1px';
+    textArea.style.height = '1px';
+    textArea.style.opacity = '0';
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    textArea.setSelectionRange(0, textArea.value.length);
+    let copied = false;
+    try {
+        copied = document.execCommand('copy');
+    } catch (error) {
+        copied = false;
+    }
+    textArea.remove();
+    return copied;
+}
+
+async function copyToClipboard(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+    } else if (!fallbackCopy(text)) {
+        throw new Error('Copy failed');
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     initThemeToggle();
@@ -17,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initSiteChecks();
     initContactBriefBuilder();
     initContactActions();
-    initContactForm();
     initCurrentYear();
     initLocalTime();
     initSmoothScroll();
@@ -91,38 +134,10 @@ function initCommandPalette() {
     const empty = document.getElementById('commandEmpty');
     const items = [...document.querySelectorAll('.command-item')];
     const openTriggers = [...document.querySelectorAll('[data-open-command-center]')];
-    const toast = document.getElementById('copyToast');
     if (!palette || !toggle || !search || items.length === 0) return;
 
     let selectedIndex = 0;
     let previousFocus = null;
-
-    const showToast = (message) => {
-        if (!toast) return;
-        toast.textContent = message;
-        toast.classList.add('show');
-        clearTimeout(showToast.timer);
-        showToast.timer = setTimeout(() => toast.classList.remove('show'), 2200);
-    };
-
-    const fallbackCopy = (text) => {
-        const textArea = document.createElement('textarea');
-        textArea.value = text;
-        textArea.setAttribute('readonly', '');
-        textArea.style.position = 'fixed';
-        textArea.style.left = '-9999px';
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
-        let copied = false;
-        try {
-            copied = document.execCommand('copy');
-        } catch (error) {
-            copied = false;
-        }
-        textArea.remove();
-        return copied;
-    };
 
     const visibleItems = () => items.filter(item => !item.hidden);
 
@@ -168,14 +183,10 @@ function initCommandPalette() {
     const copyText = async (text) => {
         if (!text) return;
         try {
-            if (navigator.clipboard && window.isSecureContext) {
-                await navigator.clipboard.writeText(text);
-            } else if (!fallbackCopy(text)) {
-                throw new Error('Copy failed');
-            }
-            showToast('Email copied');
+            await copyToClipboard(text);
+            showCopyToast('Email copied');
         } catch (error) {
-            showToast('Copy blocked - use contact link');
+            showCopyToast('Copy blocked - use contact link');
         }
     };
 
@@ -897,40 +908,7 @@ function initContactBriefBuilder() {
    ============================================ */
 function initContactActions() {
     const copyButtons = document.querySelectorAll('[data-copy]');
-    const toast = document.getElementById('copyToast');
     if (copyButtons.length === 0) return;
-
-    const showToast = (message) => {
-        if (!toast) return;
-        toast.textContent = message;
-        toast.classList.add('show');
-        clearTimeout(showToast.timer);
-        showToast.timer = setTimeout(() => toast.classList.remove('show'), 2200);
-    };
-
-    const fallbackCopy = (text) => {
-        const textArea = document.createElement('textarea');
-        textArea.value = text;
-        textArea.setAttribute('readonly', '');
-        textArea.style.position = 'fixed';
-        textArea.style.top = '0';
-        textArea.style.left = '-9999px';
-        textArea.style.width = '1px';
-        textArea.style.height = '1px';
-        textArea.style.opacity = '0';
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
-        textArea.setSelectionRange(0, textArea.value.length);
-        let copied = false;
-        try {
-            copied = document.execCommand('copy');
-        } catch (error) {
-            copied = false;
-        }
-        textArea.remove();
-        return copied;
-    };
 
     copyButtons.forEach(button => {
         button.addEventListener('click', async () => {
@@ -938,13 +916,9 @@ function initContactActions() {
             if (!text) return;
 
             try {
-                if (navigator.clipboard && window.isSecureContext) {
-                    await navigator.clipboard.writeText(text);
-                } else if (!fallbackCopy(text)) {
-                    throw new Error('Copy failed');
-                }
+                await copyToClipboard(text);
                 const label = button.getAttribute('data-copy-label') || 'Email';
-                showToast(`${label} copied`);
+                showCopyToast(`${label} copied`);
             } catch (error) {
                 const briefMessage = button.classList.contains('brief-copy-btn') ? document.getElementById('briefMessage') : null;
                 if (briefMessage) {
@@ -952,75 +926,12 @@ function initContactActions() {
                     briefMessage.select();
                     briefMessage.classList.add('is-selected');
                     setTimeout(() => briefMessage.classList.remove('is-selected'), 2200);
-                    showToast('Message selected - press Ctrl+C');
+                    showCopyToast('Message selected - press Ctrl+C');
                     return;
                 }
-                showToast('Copy blocked - use link');
+                showCopyToast('Copy blocked - use link');
             }
         });
-    });
-}
-
-/* ============================================
-   CONTACT FORM VALIDATION
-   ============================================ */
-function initContactForm() {
-    const form = document.getElementById('contactForm');
-    if (!form) return;
-
-    const fields = {
-        name: { el: document.getElementById('name'), error: document.getElementById('nameError'), validate: (val) => val.trim().length >= 2 },
-        email: { el: document.getElementById('email'), error: document.getElementById('emailError'), validate: (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim()) },
-        subject: { el: document.getElementById('subject'), error: document.getElementById('subjectError'), validate: (val) => val.trim().length >= 2 },
-        message: { el: document.getElementById('message'), error: document.getElementById('messageError'), validate: (val) => val.trim().length >= 10 }
-    };
-
-    Object.values(fields).forEach(field => {
-        if (!field.el) return;
-        field.el.addEventListener('blur', () => validateField(field));
-        field.el.addEventListener('input', () => { if (field.el.classList.contains('error')) validateField(field); });
-    });
-
-    function validateField(field) {
-        const isValid = field.validate(field.el.value);
-        if (!isValid && field.el.value.trim() !== '') {
-            field.el.classList.add('error');
-            field.error.classList.add('show');
-            return false;
-        } else {
-            field.el.classList.remove('error');
-            field.error.classList.remove('show');
-            return true;
-        }
-    }
-
-    function validateAll() {
-        let isValid = true;
-        Object.values(fields).forEach(field => {
-            if (!field.validate(field.el.value)) {
-                field.el.classList.add('error');
-                field.error.classList.add('show');
-                isValid = false;
-            }
-        });
-        return isValid;
-    }
-
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        if (!validateAll()) return;
-        const submitBtn = document.getElementById('submitBtn');
-        const formSuccess = document.getElementById('formSuccess');
-        const originalBtnContent = submitBtn.innerHTML;
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = `<span>Sending...</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="20"><animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="1s" repeatCount="indefinite"/></circle></svg>`;
-        setTimeout(() => {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalBtnContent;
-            formSuccess.classList.add('show');
-            form.reset();
-            setTimeout(() => formSuccess.classList.remove('show'), 5000);
-        }, 1500);
     });
 }
 
