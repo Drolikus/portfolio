@@ -22,7 +22,10 @@ Frontend portfolio for Vladyslav Kikhtenko, a junior web developer in Germany bu
 
 ```text
 .
-|-- index.html
+|-- index.html              # generated — do not edit by hand
+|-- src/
+|   |-- index.template.html # homepage shell with include markers
+|   `-- partials/           # one section per file (head, nav, hero, ...)
 |-- css/styles.css
 |-- js/main.js
 |-- assets/
@@ -30,6 +33,18 @@ Frontend portfolio for Vladyslav Kikhtenko, a junior web developer in Germany bu
 |-- projects/
 `-- tools/
 ```
+
+## Editing the Homepage
+
+`index.html` is assembled from `src/index.template.html` and the section
+partials in `src/partials/`. Edit the partials, then rebuild:
+
+```bash
+npm run build        # regenerate index.html
+npm run check:build  # verify index.html matches its source (also runs in CI)
+```
+
+CI fails if `index.html` drifts from its partials, so commit the rebuilt file.
 
 ## Local Preview
 

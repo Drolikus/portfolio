@@ -9,6 +9,7 @@
 - Added a headless Playwright smoke check (`tools/smoke_check.js`) and a GitHub Actions workflow that runs it on push and pull requests.
 - Added a Content-Security-Policy to the Netlify, Vercel, and Cloudflare header configs.
 - Trimmed an unused font weight, deduplicated clipboard/toast helpers in `js/main.js`.
+- Split the `index.html` monolith into `src/index.template.html` + `src/partials/` section files, assembled by `tools/build_html.py`; CI verifies the generated `index.html` stays in sync.
 
 ## 2026-06-03
 

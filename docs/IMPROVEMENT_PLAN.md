@@ -15,16 +15,18 @@ Implemented in this pass:
 - **Done #6** — canonical URLs, absolute OG image, `robots.txt`, `sitemap.xml`,
   SVG favicon, apple-touch-icon, and `site.webmanifest`.
 - **Done #7** — Playwright smoke check + GitHub Actions workflow.
-- **Done #10 (partial), #11 (partial)** — deduplicated clipboard/toast helpers;
-  trimmed an unused font weight.
+- **Done #10** — deduplicated clipboard/toast helpers; split the `index.html`
+  monolith into `src/index.template.html` + `src/partials/` assembled by
+  `tools/build_html.py` (CI checks it stays in sync).
+- **Done #11 (partial)** — trimmed an unused font weight.
 - **Done #12** — Content-Security-Policy added to all three header configs
   (note: GitHub Pages does not apply custom headers, so CSP is active only on
   Netlify/Vercel/Cloudflare).
 
 Still open: **#2** (real backend if a typed form is reintroduced), **#8**
 (verify contact details), **#9** (add real case studies — content work),
-**#10/#11** (split the `index.html` monolith, add a minify/font-subset build),
-**#13** (theme model is now consistent — verify after deploy).
+**#11** (add a minify/font-subset build step), **#13** (theme model is now
+consistent — verify after deploy).
 
 ---
 

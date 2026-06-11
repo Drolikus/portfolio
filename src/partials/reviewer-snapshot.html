@@ -1,0 +1,93 @@
+    <!-- Reviewer Snapshot -->
+    <section class="review-snapshot" aria-label="Portfolio quick reviewer snapshot">
+        <div class="container review-snapshot-grid">
+            <div class="review-snapshot-copy reveal">
+                <span>10-second scan</span>
+                <h2>What this portfolio shows right now</h2>
+                <p>A quick path for recruiters, clients, or mentors: see the live surface, inspect the main rebuild, then decide if the work feels structured enough to talk.</p>
+                <div class="review-snapshot-actions">
+                    <a class="project-action-btn project-action-btn--primary" href="#projects">
+                        <span>Review projects</span>
+                    </a>
+                    <a class="project-action-btn" href="#contact">
+                        <span>Start contact</span>
+                    </a>
+                </div>
+            </div>
+            <div class="review-snapshot-cards">
+                <article class="review-snapshot-card reveal">
+                    <span>01</span>
+                    <strong>Real UI pressure</strong>
+                    <p>Voltage is one concrete product case; the system is built to support more projects without rewriting the whole story.</p>
+                </article>
+                <article class="review-snapshot-card reveal">
+                    <span>02</span>
+                    <strong>Visible execution</strong>
+                    <p>This site shows layout, motion, case routes, filters, contact flow, screenshot cards, and responsive states in one place.</p>
+                </article>
+                <article class="review-snapshot-card reveal">
+                    <span>03</span>
+                    <strong>Honest scope</strong>
+                    <p>Stable work is linked directly, while work in progress is marked clearly.</p>
+                </article>
+            </div>
+        </div>
+        <div class="container">
+            <div class="upgrade-log-panel reveal" id="upgrade-log" aria-label="Latest portfolio updates">
+                <div class="upgrade-log-copy">
+                    <span>Recent updates</span>
+                    <strong>What changed recently</strong>
+                    <p>A short changelog for the main portfolio improvements: navigation, case pages, screenshots, and contact flow.</p>
+                </div>
+                <div class="upgrade-log-grid">
+                    <article class="upgrade-log-card">
+                        <span>01</span>
+                        <strong>Quick navigation</strong>
+                        <p>Search opens project pages, skills, site checks, and contact routes without adding another menu.</p>
+                        <button class="upgrade-log-action" type="button" data-open-command-center>Open quick links</button>
+                    </article>
+                    <article class="upgrade-log-card">
+                        <span>02</span>
+                        <strong>Case pages</strong>
+                        <p>Project details moved into separate pages with screenshots, current status, and source links.</p>
+                        <a class="upgrade-log-action" href="#lab-board">View cases</a>
+                    </article>
+                    <article class="upgrade-log-card">
+                        <span>03</span>
+                        <strong>Site checks</strong>
+                        <p>Basic checks cover overflow, images, navigation targets, quick links, and the contact message builder.</p>
+                        <a class="upgrade-log-action" href="#site-checks">View checks</a>
+                    </article>
+                    <article class="upgrade-log-card">
+                        <span>04</span>
+                        <strong>Message builder</strong>
+                        <p>Builds a specific contact opener and keeps copy/email draft actions wired to the generated text.</p>
+                        <a class="upgrade-log-action" href="#contact">Open builder</a>
+                    </article>
+                </div>
+            </div>
+            <div class="visitor-route-panel reveal" id="visitor-route" aria-label="Visitor route selector">
+                <div class="visitor-route-copy">
+                    <span>Visitor route</span>
+                    <strong>Pick the fastest path through the portfolio</strong>
+                    <p>Different visitors need different details. Choose a route and the page will suggest the sections that matter first.</p>
+                    <div class="visitor-route-tabs" role="tablist" aria-label="Visitor route types">
+                        <button class="visitor-route-tab active" type="button" role="tab" aria-selected="true" data-route-tab="recruiter">Recruiter</button>
+                        <button class="visitor-route-tab" type="button" role="tab" aria-selected="false" data-route-tab="client">Client</button>
+                        <button class="visitor-route-tab" type="button" role="tab" aria-selected="false" data-route-tab="mentor">Mentor</button>
+                    </div>
+                </div>
+                <div class="visitor-route-output">
+                    <div class="visitor-route-head">
+                        <span id="visitorRouteKicker">Hiring route</span>
+                        <strong id="visitorRouteTitle">Check fit, projects, then contact</strong>
+                    </div>
+                    <div class="visitor-route-steps" id="visitorRouteSteps"></div>
+                    <div class="visitor-route-actions">
+                        <a class="upgrade-log-action" id="visitorRoutePrimary" href="#skills">Start route</a>
+                        <button class="upgrade-log-action" type="button" data-open-command-center>Use quick links</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

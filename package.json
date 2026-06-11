@@ -2,6 +2,8 @@
   "name": "vladyslav-portfolio",
   "private": true,
   "scripts": {
+    "build": "python3 tools/build_html.py",
+    "check:build": "python3 tools/build_html.py --check",
     "capture:screenshots": "node tools/capture_case_screenshots.js && python3 tools/optimize_images.py",
     "optimize:images": "python3 tools/optimize_images.py",
     "check:smoke": "node tools/smoke_check.js"
