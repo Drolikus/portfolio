@@ -46,6 +46,10 @@ async function copyToClipboard(text) {
     }
 }
 
+function prefersReducedMotion() {
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     initThemeToggle();
@@ -199,7 +203,7 @@ function initCommandPalette() {
         if (!target) return;
         const navbarHeight = document.getElementById('navbar')?.offsetHeight || 0;
         const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+        window.scrollTo({ top: targetPosition, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
         history.pushState(null, '', href);
     };
 
@@ -974,7 +978,7 @@ function initSmoothScroll() {
                 e.preventDefault();
                 const navbarHeight = document.getElementById('navbar').offsetHeight;
                 const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                window.scrollTo({ top: targetPosition, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
             }
         });
     });
@@ -986,6 +990,10 @@ function initSmoothScroll() {
 function initTypingEffect() {
     const typingText = document.getElementById('typingText');
     if (!typingText) return;
+    if (prefersReducedMotion()) {
+        typingText.textContent = 'const developer = "Vladyslav";';
+        return;
+    }
     const phrases = [
         'const developer = "Vladyslav";',
         'Building Voltage guitar store...',
