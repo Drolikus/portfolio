@@ -6,29 +6,36 @@
 <title>Redesign preview — Vladyslav Kikhtenko</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,900&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#16130d;          /* warm near-black */
-  --paper-2:#1d1a13;
-  --ink:#efe9dc;            /* warm cream */
-  --ink-dim:#b5ad9c;
-  --ink-faint:#7d766a;
-  --rule:rgba(239,233,220,0.16);
-  --accent:#ff4d23;         /* vermilion — deliberately not cyan/purple */
-  --max:1180px;
+  --paper:#f3ede1;          /* milky base */
+  --paper-2:#ece4d4;
+  --card:#fbf8f1;
+  --ink:#2c2620;            /* warm charcoal */
+  --ink-dim:#6c6356;
+  --ink-faint:#a79d8c;
+  --rule:rgba(44,38,32,0.14);
+  --tint:#e9d9c7;           /* active project tint (animated) */
+  --accent:#bd6a45;         /* soft clay — characterful, not generic */
+  --max:1200px;
   --display:'Fraunces',Georgia,serif;
   --sans:'Inter',system-ui,sans-serif;
   --mono:'IBM Plex Mono',monospace;
+  --ease:cubic-bezier(.22,.61,.36,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{-webkit-font-smoothing:antialiased}
-body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.5;font-size:17px}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.5;font-size:17px;
+  background-image:radial-gradient(rgba(44,38,32,0.025) 1px,transparent 1px);background-size:3px 3px;}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:var(--max);margin:0 auto;padding:0 32px}
-.rule{height:1px;background:var(--rule);border:0}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 34px}
 
-/* ---- top bar ---- */
+/* reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+/* top */
 .top{display:flex;align-items:baseline;justify-content:space-between;padding:26px 0;border-bottom:1px solid var(--rule)}
 .mark{font-family:var(--display);font-weight:600;font-size:21px;letter-spacing:-0.01em}
 .mark b{color:var(--accent);font-weight:600}
@@ -37,37 +44,63 @@ a{color:inherit;text-decoration:none}
 .topnav .avail{color:var(--accent)}
 .topnav .avail::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-right:7px;vertical-align:middle}
 
-/* ---- hero ---- */
-.hero{padding:96px 0 80px}
-.kicker{font-family:var(--mono);font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:34px}
+/* hero */
+.hero{padding:92px 0 70px}
+.kicker{font-family:var(--mono);font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:32px}
 .kicker b{color:var(--ink-dim);font-weight:500}
-.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(48px,8.2vw,116px);line-height:0.95;letter-spacing:-0.025em}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(46px,7.6vw,104px);line-height:0.97;letter-spacing:-0.025em}
 .hero h1 .em{font-style:italic;color:var(--accent)}
-.hero-sub{display:flex;gap:56px;margin-top:46px;max-width:760px;flex-wrap:wrap}
-.hero-sub p{font-size:18px;color:var(--ink-dim);max-width:430px;line-height:1.6}
+.hero-sub{display:flex;gap:56px;margin-top:42px;max-width:780px;flex-wrap:wrap}
+.hero-sub p{font-size:18px;color:var(--ink-dim);max-width:440px;line-height:1.6}
 .hero-meta{font-family:var(--mono);font-size:13px;color:var(--ink-faint);line-height:2.1;letter-spacing:0.02em}
 .hero-meta b{color:var(--ink);font-weight:500}
 
-/* ---- section head ---- */
-.sec{padding:74px 0}
-.sec-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:8px}
+/* section head */
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:26px}
 .sec-head h2{font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-faint)}
 .sec-head span{font-family:var(--mono);font-size:13px;color:var(--ink-faint)}
 
-/* ---- work index ---- */
-.work a.row{display:grid;grid-template-columns:64px 1.6fr 1fr auto;align-items:center;gap:24px;padding:30px 4px;border-bottom:1px solid var(--rule);transition:padding .35s cubic-bezier(.2,.7,.2,1)}
-.work a.row:hover{padding-left:18px}
-.work .num{font-family:var(--mono);font-size:14px;color:var(--ink-faint)}
-.work .name{font-family:var(--display);font-weight:500;font-size:clamp(30px,4.4vw,52px);line-height:1;letter-spacing:-0.02em;transition:color .25s}
-.work a.row:hover .name{color:var(--accent)}
-.work .role{font-size:15px;color:var(--ink-dim)}
-.work .tag{justify-self:end;display:flex;align-items:center;gap:14px}
-.work .status{font-family:var(--mono);font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;padding:4px 11px;border:1px solid var(--rule);border-radius:100px;color:var(--ink-dim)}
-.work .status.live{color:var(--accent);border-color:rgba(255,77,35,0.4)}
-.work .arrow{font-family:var(--mono);color:var(--ink-faint);transition:transform .3s,color .25s}
-.work a.row:hover .arrow{transform:translate(6px,-6px);color:var(--accent)}
+/* ===== project carousel ===== */
+.work{padding:40px 0 80px}
+.stage{position:relative;border:1px solid var(--rule);border-radius:18px;overflow:hidden;
+  background:var(--tint);transition:background 1s var(--ease);min-height:430px}
+.slides{position:relative;min-height:430px}
+.slide{position:absolute;inset:0;display:grid;grid-template-columns:1fr 0.9fr;gap:30px;
+  padding:46px 50px;opacity:0;transform:translateX(40px);pointer-events:none;
+  transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.slide.active{opacity:1;transform:none;pointer-events:auto}
+.slide.leaving{opacity:0;transform:translateX(-40px)}
+.slide-info{display:flex;flex-direction:column}
+.slide-num{font-family:var(--mono);font-size:14px;color:var(--ink-dim);letter-spacing:0.08em}
+.slide-name{font-family:var(--display);font-weight:500;font-size:clamp(48px,7vw,88px);line-height:0.98;letter-spacing:-0.025em;margin:14px 0 18px}
+.slide-role{font-size:18px;color:var(--ink-dim);max-width:380px;line-height:1.55}
+.slide-foot{margin-top:auto;display:flex;align-items:center;gap:16px;padding-top:26px}
+.status{font-family:var(--mono);font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;padding:5px 12px;border:1px solid var(--ink);border-radius:100px;color:var(--ink)}
+.status.live{color:#fff;background:var(--accent);border-color:var(--accent)}
+.slide-link{font-family:var(--mono);font-size:12.5px;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--ink)}
+.slide-link:hover{color:var(--accent);border-color:var(--accent)}
+/* preview tile */
+.slide-art{position:relative;border-radius:12px;background:rgba(255,255,255,0.5);border:1px solid var(--rule);overflow:hidden;display:flex;align-items:flex-end;padding:24px}
+.slide-art .ghost{position:absolute;top:-22px;right:-6px;font-family:var(--display);font-weight:600;font-size:230px;line-height:1;color:rgba(44,38,32,0.07)}
+.slide-art .spec{position:relative;font-family:var(--mono);font-size:12px;color:var(--ink-dim);line-height:2}
+.slide-art .spec b{color:var(--ink);font-weight:500}
 
-/* ---- about / capabilities ---- */
+/* controls */
+.stage-bar{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-top:1px solid var(--rule);background:rgba(255,255,255,0.28)}
+.dots{display:flex;gap:10px}
+.dot{font-family:var(--mono);font-size:12px;color:var(--ink-faint);background:none;border:0;cursor:pointer;letter-spacing:0.06em;padding:4px 2px;transition:color .3s}
+.dot.on{color:var(--ink)}
+.dot.on::after{content:"";display:block;height:2px;background:var(--accent);margin-top:4px;animation:grow 6s linear}
+@keyframes grow{from{transform:scaleX(0);transform-origin:left}to{transform:scaleX(1);transform-origin:left}}
+.arrows{display:flex;gap:10px}
+.arrows button{width:42px;height:42px;border-radius:50%;border:1px solid var(--ink);background:none;color:var(--ink);
+  font-size:17px;cursor:pointer;transition:background .25s,color .25s,transform .25s}
+.arrows button:hover{background:var(--ink);color:var(--paper)}
+.arrows button:active{transform:scale(.92)}
+.arrows button:focus-visible,.dot:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* about */
+.sec{padding:74px 0}
 .cols{display:grid;grid-template-columns:1.3fr 1fr;gap:64px;align-items:start}
 .lead{font-family:var(--display);font-weight:400;font-size:clamp(24px,3vw,34px);line-height:1.32;letter-spacing:-0.01em}
 .lead .em{font-style:italic;color:var(--accent)}
@@ -75,15 +108,26 @@ a{color:inherit;text-decoration:none}
 .caps div{display:flex;justify-content:space-between;padding:15px 0;border-bottom:1px solid var(--rule)}
 .caps div span:last-child{color:var(--ink-faint)}
 
-/* ---- contact ---- */
-.contact{padding:90px 0 30px}
-.contact h2{font-family:var(--display);font-weight:400;font-size:clamp(40px,6.5vw,84px);line-height:1;letter-spacing:-0.025em}
+/* contact */
+.contact{padding:84px 0 30px}
+.contact h2{font-family:var(--display);font-weight:400;font-size:clamp(40px,6.4vw,82px);line-height:1;letter-spacing:-0.025em}
 .contact h2 a{border-bottom:3px solid var(--accent)}
 .contact h2 a:hover{color:var(--accent)}
-.contact-row{display:flex;justify-content:space-between;align-items:flex-end;margin-top:48px;flex-wrap:wrap;gap:20px}
-.contact-links{display:flex;gap:26px;font-family:var(--mono);font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-dim)}
+.contact-links{display:flex;gap:26px;margin-top:42px;font-family:var(--mono);font-size:13px;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-dim)}
 .contact-links a:hover{color:var(--accent)}
-footer{padding:30px 0 60px;font-family:var(--mono);font-size:12px;color:var(--ink-faint);display:flex;justify-content:space-between}
+footer{padding:34px 0 60px;font-family:var(--mono);font-size:12px;color:var(--ink-faint);display:flex;justify-content:space-between;border-top:1px solid var(--rule);margin-top:40px}
+
+@media (max-width:760px){
+  .slide{grid-template-columns:1fr;padding:32px}
+  .slide-art{display:none}
+  .cols{grid-template-columns:1fr;gap:34px}
+  .hero-sub{gap:28px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition-duration:.01ms!important;animation-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none}
+}
 </style>
 </head>
 <body>
@@ -92,60 +136,79 @@ footer{padding:30px 0 60px;font-family:var(--mono);font-size:12px;color:var(--in
   <header class="top">
     <div class="mark">Vladyslav <b>Kikhtenko</b></div>
     <nav class="topnav">
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a>
       <a class="avail" href="#contact">Open to work</a>
     </nav>
   </header>
 
   <section class="hero">
-    <p class="kicker">Junior Frontend Developer &nbsp;·&nbsp; <b>Ukraine → Germany</b></p>
-    <h1>I build interfaces<br>that <span class="em">feel</span> considered,<br>not generated.</h1>
-    <div class="hero-sub">
+    <p class="kicker rv">Junior Frontend Developer &nbsp;·&nbsp; <b>Ukraine → Germany</b></p>
+    <h1 class="rv">Interfaces made<br>with <span class="em">care</span>, not<br>by the metre.</h1>
+    <div class="hero-sub rv">
       <p>Responsive UI, e-commerce flows, and multilingual interfaces in plain HTML, CSS, and JavaScript — shipped, tested, and tightened where it matters.</p>
       <div class="hero-meta">
-        BASED &nbsp; <b>Germany</b><br>
-        FOCUS &nbsp; <b>Frontend · UI states</b><br>
-        LANGS &nbsp; <b>EN / DE / RU / UA</b>
+        BASED &nbsp; <b>Germany</b><br>FOCUS &nbsp; <b>Frontend · UI states</b><br>LANGS &nbsp; <b>EN / DE / RU / UA</b>
       </div>
     </div>
   </section>
 
-  <section class="sec work" id="work">
+  <section class="work rv" id="work">
     <div class="sec-head">
       <h2>Selected Work</h2>
-      <span>04 projects · 2024 — 2026</span>
+      <span id="counter">01 / 04</span>
     </div>
-    <div>
-      <a class="row" href="#">
-        <span class="num">01</span>
-        <span class="name">Voltage</span>
-        <span class="role">E-commerce store — catalog, cart &amp; admin</span>
-        <span class="tag"><span class="status live">In rebuild</span><span class="arrow">↗</span></span>
-      </a>
-      <a class="row" href="#">
-        <span class="num">02</span>
-        <span class="name">ERP</span>
-        <span class="role">Internal dashboard &amp; data tables</span>
-        <span class="tag"><span class="status">Planned</span><span class="arrow">↗</span></span>
-      </a>
-      <a class="row" href="#">
-        <span class="num">03</span>
-        <span class="name">Viber</span>
-        <span class="role">Messaging interface concept</span>
-        <span class="tag"><span class="status">Planned</span><span class="arrow">↗</span></span>
-      </a>
-      <a class="row" href="#">
-        <span class="num">04</span>
-        <span class="name">Lottery</span>
-        <span class="role">Web app — draws &amp; results</span>
-        <span class="tag"><span class="status">Exploring</span><span class="arrow">↗</span></span>
-      </a>
+
+    <div class="stage" id="stage">
+      <div class="slides" id="slides">
+        <!-- slide 1 -->
+        <article class="slide active" data-tint="#e7d6c6">
+          <div class="slide-info">
+            <span class="slide-num">01 — E-COMMERCE</span>
+            <span class="slide-name">Voltage</span>
+            <p class="slide-role">An online guitar store: catalog browsing, cart with quantity merge, an admin overview, and German-label stress tests.</p>
+            <div class="slide-foot"><span class="status live">In rebuild</span><a class="slide-link" href="#">Open case ↗</a></div>
+          </div>
+          <div class="slide-art"><span class="ghost">V</span><div class="spec">STACK &nbsp; <b>HTML · CSS · JS</b><br>FLOWS &nbsp; <b>Catalog · Cart · Admin</b><br>I18N &nbsp;&nbsp; <b>EN / RU / UA / DE</b></div></div>
+        </article>
+        <!-- slide 2 -->
+        <article class="slide" data-tint="#cfd8de">
+          <div class="slide-info">
+            <span class="slide-num">02 — DASHBOARD</span>
+            <span class="slide-name">ERP</span>
+            <p class="slide-role">An internal operations dashboard: data tables, filters, status flows, and dense layouts that stay readable.</p>
+            <div class="slide-foot"><span class="status">Planned</span><a class="slide-link" href="#">Coming soon ↗</a></div>
+          </div>
+          <div class="slide-art"><span class="ghost">E</span><div class="spec">TYPE &nbsp;&nbsp; <b>Internal tool</b><br>FOCUS &nbsp; <b>Tables · Filters</b><br>SCALE &nbsp; <b>Data-dense UI</b></div></div>
+        </article>
+        <!-- slide 3 -->
+        <article class="slide" data-tint="#d9d2e2">
+          <div class="slide-info">
+            <span class="slide-num">03 — MESSAGING</span>
+            <span class="slide-name">Viber</span>
+            <p class="slide-role">A messaging interface concept: conversation list, threads, presence and input states, mobile-first.</p>
+            <div class="slide-foot"><span class="status">Planned</span><a class="slide-link" href="#">Coming soon ↗</a></div>
+          </div>
+          <div class="slide-art"><span class="ghost">V</span><div class="spec">TYPE &nbsp;&nbsp; <b>Messaging UI</b><br>FOCUS &nbsp; <b>Threads · States</b><br>FORM &nbsp;&nbsp; <b>Mobile-first</b></div></div>
+        </article>
+        <!-- slide 4 -->
+        <article class="slide" data-tint="#e6dcc2">
+          <div class="slide-info">
+            <span class="slide-num">04 — WEB APP</span>
+            <span class="slide-name">Lottery</span>
+            <p class="slide-role">A draws-and-results web app concept: ticket flow, live results, and clear win/lose states.</p>
+            <div class="slide-foot"><span class="status">Exploring</span><a class="slide-link" href="#">Idea ↗</a></div>
+          </div>
+          <div class="slide-art"><span class="ghost">L</span><div class="spec">TYPE &nbsp;&nbsp; <b>Web app</b><br>FOCUS &nbsp; <b>Draws · Results</b><br>STATE &nbsp; <b>Win / Lose</b></div></div>
+        </article>
+      </div>
+      <div class="stage-bar">
+        <div class="dots" id="dots"></div>
+        <div class="arrows"><button id="prev" aria-label="Previous project">←</button><button id="next" aria-label="Next project">→</button></div>
+      </div>
     </div>
   </section>
 
-  <section class="sec cols" id="about">
+  <section class="sec cols rv" id="about">
     <p class="lead">I learn by <span class="em">shipping</span> visible work, then sharpening the weak parts — structure, states, responsiveness — until the detail holds up under inspection.</p>
     <div class="caps">
       <div><span>HTML / Semantics</span><span>strong</span></div>
@@ -156,24 +219,70 @@ footer{padding:30px 0 60px;font-family:var(--mono);font-size:12px;color:var(--in
     </div>
   </section>
 
-  <hr class="rule">
-
-  <section class="contact" id="contact">
+  <section class="contact rv" id="contact">
     <h2>Let's <a href="https://t.me/VLADOSINAMSK">talk</a> about<br>your frontend.</h2>
-    <div class="contact-row">
-      <div class="contact-links">
-        <a href="https://t.me/VLADOSINAMSK">Telegram</a>
-        <a href="mailto:vladikkihtenko@gmail.com">Email</a>
-        <a href="https://github.com/Drolikus">GitHub</a>
-      </div>
+    <div class="contact-links">
+      <a href="https://t.me/VLADOSINAMSK">Telegram</a><a href="mailto:vladikkihtenko@gmail.com">Email</a><a href="https://github.com/Drolikus">GitHub</a>
     </div>
   </section>
 
-  <footer>
-    <span>© 2026 Vladyslav Kikhtenko</span>
-    <span>Built by hand · HTML · CSS · JS</span>
-  </footer>
+  <footer><span>© 2026 Vladyslav Kikhtenko</span><span>Built by hand · HTML · CSS · JS</span></footer>
 
 </div>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var stage=document.getElementById('stage');
+  var dotsWrap=document.getElementById('dots');
+  var counter=document.getElementById('counter');
+  var i=0, n=slides.length;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  slides.forEach(function(s,idx){
+    var b=document.createElement('button');
+    b.className='dot'+(idx===0?' on':'');
+    b.textContent=('0'+(idx+1)).slice(-2);
+    b.setAttribute('aria-label','Project '+(idx+1));
+    b.addEventListener('click',function(){go(idx)});
+    dotsWrap.appendChild(b);
+  });
+  var dots=[].slice.call(dotsWrap.children);
+
+  function go(to){
+    if(to===i)return;
+    var prev=slides[i];
+    i=(to+n)%n;
+    slides.forEach(function(s){s.classList.remove('active','leaving')});
+    prev.classList.add('leaving');
+    slides[i].classList.add('active');
+    stage.style.setProperty('--tint',slides[i].getAttribute('data-tint'));
+    dots.forEach(function(d,x){d.classList.toggle('on',x===i)});
+    counter.textContent=('0'+(i+1)).slice(-2)+' / 0'+n;
+  }
+  function next(){go(i+1)} function prev(){go(i-1)}
+  document.getElementById('next').addEventListener('click',next);
+  document.getElementById('prev').addEventListener('click',prev);
+  // init tint
+  stage.style.setProperty('--tint',slides[0].getAttribute('data-tint'));
+  // keyboard
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight')next(); if(e.key==='ArrowLeft')prev();
+  });
+  // swipe / drag
+  var x0=null;
+  stage.addEventListener('pointerdown',function(e){x0=e.clientX});
+  stage.addEventListener('pointerup',function(e){
+    if(x0===null)return; var dx=e.clientX-x0; if(Math.abs(dx)>50){dx<0?next():prev()} x0=null;
+  });
+
+  // scroll reveal
+  if(reduce){ document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')}); }
+  else{
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:0.12});
+    document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  }
+})();
+</script>
 </body>
 </html>
