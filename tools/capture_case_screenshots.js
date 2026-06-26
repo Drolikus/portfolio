@@ -6,7 +6,7 @@ async function preparePage(page, width, height) {
   await page.setViewportSize({ width, height });
   await page.addInitScript(() => {
     sessionStorage.setItem('portfolioIntroSeen', 'true');
-    localStorage.setItem('theme', 'dark');
+    localStorage.setItem('theme', 'light');
   });
   await page.goto(baseUrl, { waitUntil: 'networkidle' });
   await page.waitForTimeout(700);
@@ -25,12 +25,10 @@ async function captureSection(page, selector, path, offset = 88) {
 
   await preparePage(page, 1440, 900);
   await captureSection(page, '#home', 'assets/case-portfolio-home.png', 0);
-  await captureSection(page, '#showcase', 'assets/case-voltage-preview.png');
-  await captureSection(page, '#lab-board', 'assets/case-lab-board.png');
-  await captureSection(page, '#site-checks', 'assets/case-site-checks.png');
+  await captureSection(page, '#work', 'assets/case-voltage-preview.png');
 
   await preparePage(page, 390, 844);
-  await captureSection(page, '#projects', 'assets/case-portfolio-mobile.png', 72);
+  await captureSection(page, '#home', 'assets/case-portfolio-mobile.png', 0);
 
   await browser.close();
 })();

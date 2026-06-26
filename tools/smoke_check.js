@@ -33,7 +33,7 @@ const baseUrl = process.env.PORTFOLIO_URL || 'http://127.0.0.1:8123/index.html';
     const brokenImages = [...document.images]
       .filter((img) => img.complete && img.naturalWidth === 0)
       .map((img) => img.getAttribute('src') || img.alt || 'unknown');
-    const navHrefs = [...document.querySelectorAll('.nav-links a[href^="#"]')]
+    const navHrefs = [...document.querySelectorAll('.topnav a[href^="#"]')]
       .map((a) => a.getAttribute('href'))
       .filter((href, i, all) => href && all.indexOf(href) === i);
     const missingTargets = navHrefs.filter((href) => !document.querySelector(href));

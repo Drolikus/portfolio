@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-06-16
+
+- Redesigned the site in an editorial "ryazhenka" (baked-milk) palette with a paired warm-dark theme and a theme toggle (light default).
+- New homepage: type-led hero, an animated project carousel (Voltage / ERP / Viber / Lottery) with per-project scene tints, keyboard + swipe control, a condensed about/skills strip, and a focused contact block.
+- Restyled the case pages to match the new system; fixed cross-page anchors after section removal.
+- Switched fonts to Fraunces (display) + Inter + IBM Plex Mono; dropped the old glow/glass/noise/spotlight/parallax/typing chrome.
+- Rebuilt `js/main.js` around the new interactions (theme, carousel, reveal, copy, Berlin clock) and updated the CSP hash for the new inline theme script.
+
 ## 2026-06-11
 
 - Removed dead contact-form validation code and fixed the misleading "contact form wiring" check label.
