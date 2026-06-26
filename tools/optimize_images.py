@@ -5,9 +5,8 @@ Images keep their original names and PNG format so no HTML/CSS references need
 to change. Dimensions are capped at roughly 2x the largest on-screen display
 size, which is enough for high-DPI screens while cutting transfer size sharply.
 
-Run after regenerating case screenshots:
+Run after adding or replacing a raster asset:
 
-    npm run capture:screenshots   # writes assets/case-*.png
     python3 tools/optimize_images.py
 """
 
@@ -19,13 +18,8 @@ ASSETS = os.path.join(os.path.dirname(__file__), "..", "assets")
 # filename -> max width in pixels (height scales to keep aspect ratio).
 # Display sizes: profile photo 88px, QR 220px, case shots <=1120px.
 MAX_WIDTH = {
-    "studio-headshot.png": 264,        # shown at 88px (3x)
     "telegram-qr.png": 500,            # shown at 220px (~2.3x)
-    "case-portfolio-home.png": 1280,   # case page, shown <=1120px
-    "case-portfolio-mobile.png": 900,
-    "case-lab-board.png": 1280,
-    "case-site-checks.png": 1280,
-    "case-voltage-preview.png": 1280,
+    "case-voltage-preview.png": 1280,  # carousel + Voltage case, shown <=1120px
     # social-preview.png is intentionally left untouched (OG image, 1200x630).
 }
 

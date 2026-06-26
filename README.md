@@ -1,22 +1,22 @@
 # Vladyslav Kikhtenko Portfolio
 
 [![Live site](https://img.shields.io/badge/GitHub%20Pages-live-22c55e?style=flat-square)](https://drolikus.github.io/portfolio/)
-[![Site checks](https://img.shields.io/badge/checks-7%20%2F%207-0891b2?style=flat-square)](https://drolikus.github.io/portfolio/quality.html)
+[![Checks](https://img.shields.io/badge/CI-smoke%20%2B%20build--sync-bd6a45?style=flat-square)](https://drolikus.github.io/portfolio/quality.html)
 
-Frontend portfolio for Vladyslav Kikhtenko, a junior web developer in Germany building responsive interfaces, e-commerce UI, and practical frontend projects.
+Frontend portfolio for Vladyslav Kikhtenko, a junior frontend developer in Germany building responsive interfaces, e-commerce UI, and practical web projects. Editorial "ryazhenka" design with a light and a warm-dark theme.
 
 ## What This Site Includes
 
-- Project cards with clear current status.
-- Dedicated case-study pages for Voltage, the portfolio site, and the UI practice lab.
-- Quick navigation, visitor routes, site checks, and contact message helpers.
-- Static HTML, CSS, and vanilla JavaScript with responsive behavior and browser-tested interactions.
+- An animated project carousel (Voltage, ERP, Viber, Lottery) with honest, current statuses.
+- Dedicated case-study pages per project.
+- A light + warm-dark theme toggle, a contact block, and a public checks page.
+- Static HTML, CSS, and vanilla JavaScript with responsive behavior and CI-tested interactions.
 
 ## Live Links
 
 - Live site: https://drolikus.github.io/portfolio/
-- Site checks: https://drolikus.github.io/portfolio/quality.html
-- Case studies: [Voltage](https://drolikus.github.io/portfolio/projects/voltage.html), [Portfolio](https://drolikus.github.io/portfolio/projects/portfolio.html), [Practice Lab](https://drolikus.github.io/portfolio/projects/lab.html)
+- Checks: https://drolikus.github.io/portfolio/quality.html
+- Case studies: [Voltage](https://drolikus.github.io/portfolio/projects/voltage.html), [ERP](https://drolikus.github.io/portfolio/projects/erp.html), [Viber](https://drolikus.github.io/portfolio/projects/viber.html), [Lottery](https://drolikus.github.io/portfolio/projects/lottery.html)
 
 ## Project Structure
 
@@ -54,20 +54,20 @@ The portfolio is a static site. Open it through a local static server:
 http://127.0.0.1:8123/index.html
 ```
 
-## Site Checks
+## Checks
 
-- Browser checks cover console errors, image loading, horizontal overflow, section targets, case links, quick links, and message builder wiring.
-- The homepage includes a small site checks section with a 7/7 local pass.
-- Case-study screenshots are captured with Playwright.
+A headless Playwright smoke check asserts no console errors, no horizontal
+overflow, that images resolve, and that in-page nav targets exist. A build-sync
+check verifies the generated `index.html` matches its partials.
 
 ```bash
 npm install
-npm run capture:screenshots   # capture + optimize case screenshots
+npm run check:build           # verify index.html matches its source
 npm run optimize:images       # recompress/resize assets in place
 npm run check:smoke           # headless smoke checks (serve the site first)
 ```
 
-Smoke checks also run automatically on push and pull requests via
+Both checks run automatically on push and pull requests via
 `.github/workflows/checks.yml`.
 
 ## Optional Tooling

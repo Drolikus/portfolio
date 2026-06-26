@@ -2,6 +2,9 @@
 
 ## 2026-06-16
 
+- Added case-study pages for ERP, Viber, and Lottery in the new style; retired the stale portfolio and practice-lab case pages.
+- Rewrote `quality.html` and `docs/QUALITY.md` to reflect the real checks (CI smoke + build-sync + accessibility) instead of the removed in-page widget.
+- Cleaned up unused image assets and obsolete screenshot tooling; regenerated the Open Graph preview for the new design; updated the sitemap and README.
 - Redesigned the site in an editorial "ryazhenka" (baked-milk) palette with a paired warm-dark theme and a theme toggle (light default).
 - New homepage: type-led hero, an animated project carousel (Voltage / ERP / Viber / Lottery) with per-project scene tints, keyboard + swipe control, a condensed about/skills strip, and a focused contact block.
 - Restyled the case pages to match the new system; fixed cross-page anchors after section removal.

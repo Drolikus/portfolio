@@ -187,6 +187,13 @@ footer .clock b{color:var(--ink-dim);font-weight:500}
 .case-shot{margin-top:24px;padding:14px;background:var(--card);border:1px solid var(--rule);border-radius:18px}
 .case-shot img{width:100%;border-radius:10px;border:1px solid var(--rule)}
 .case-shot figcaption{margin-top:12px;font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
+/* abstract preview for planned cases (no screenshot yet) */
+.case-art{position:relative;margin-top:24px;min-height:300px;display:flex;align-items:flex-end;gap:24px;
+  padding:32px;background:var(--paper-2);border:1px solid var(--rule);border-radius:18px;overflow:hidden}
+.case-art .ghost{position:absolute;top:-40px;right:6px;font-family:var(--display);font-weight:600;font-size:320px;line-height:1;color:var(--ink);opacity:.06;pointer-events:none}
+.case-art .spec{position:relative;font-family:var(--mono);font-size:13px;color:var(--ink-dim);line-height:2}
+.case-art .spec b{color:var(--ink);font-weight:500}
+.case-art-note{margin-top:12px;font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
 .case-shot-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
 .case-shot-grid .case-shot{margin-top:0}
 .case-section-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:54px}
