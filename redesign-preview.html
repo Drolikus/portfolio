@@ -3,49 +3,63 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('rd-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
 <title>Redesign preview — Vladyslav Kikhtenko</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#f3ede1;          /* milky base */
-  --paper-2:#ece4d4;
-  --card:#fbf8f1;
-  --ink:#2c2620;            /* warm charcoal */
-  --ink-dim:#6c6356;
-  --ink-faint:#a79d8c;
-  --rule:rgba(44,38,32,0.14);
-  --tint:#e9d9c7;           /* active project tint (animated) */
-  --accent:#bd6a45;         /* soft clay — characterful, not generic */
   --max:1200px;
   --display:'Fraunces',Georgia,serif;
   --sans:'Inter',system-ui,sans-serif;
   --mono:'IBM Plex Mono',monospace;
   --ease:cubic-bezier(.22,.61,.36,1);
 }
+/* ===== two versions ===== */
+[data-theme="light"]{           /* ряженка — baked-milk */
+  --paper:#ece0cb; --paper-2:#e3d4ba; --card:#f7efe1;
+  --ink:#2c2317; --ink-dim:#6b5d44; --ink-faint:#6e6043;
+  --rule:rgba(44,35,23,0.16); --grain:rgba(44,35,23,0.030);
+  --accent:#8f4f20; --on-accent:#f7efe1;
+  --t-voltage:#e7d3bf; --t-erp:#dcd9c0; --t-viber:#e3d2cc; --t-lottery:#ead9b8;
+}
+[data-theme="dark"]{            /* ночная ряженка */
+  --paper:#1b1610; --paper-2:#241d14; --card:#261f15;
+  --ink:#efe5d3; --ink-dim:#b3a890; --ink-faint:#928770;
+  --rule:rgba(239,229,211,0.16); --grain:rgba(239,229,211,0.025);
+  --accent:#d98a4e; --on-accent:#1b1610;
+  --t-voltage:#3a2a1e; --t-erp:#2b2c22; --t-viber:#322833; --t-lottery:#362c1a;
+}
 *{margin:0;padding:0;box-sizing:border-box}
 html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
 body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.5;font-size:17px;
-  background-image:radial-gradient(rgba(44,38,32,0.025) 1px,transparent 1px);background-size:3px 3px;}
+  background-image:radial-gradient(var(--grain) 1px,transparent 1px);background-size:3px 3px;
+  transition:background-color .5s var(--ease),color .5s var(--ease)}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 34px}
-
-/* reveal */
 .rv{opacity:0;transform:translateY(18px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .rv.in{opacity:1;transform:none}
 
 /* top */
-.top{display:flex;align-items:baseline;justify-content:space-between;padding:26px 0;border-bottom:1px solid var(--rule)}
+.top{display:flex;align-items:center;justify-content:space-between;padding:24px 0;border-bottom:1px solid var(--rule)}
 .mark{font-family:var(--display);font-weight:600;font-size:21px;letter-spacing:-0.01em}
 .mark b{color:var(--accent);font-weight:600}
-.topnav{display:flex;gap:30px;font-family:var(--mono);font-size:12.5px;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-dim)}
+.topright{display:flex;align-items:center;gap:28px}
+.topnav{display:flex;gap:28px;font-family:var(--mono);font-size:12.5px;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-dim)}
 .topnav a:hover{color:var(--ink)}
 .topnav .avail{color:var(--accent)}
 .topnav .avail::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-right:7px;vertical-align:middle}
+.theme-btn{width:38px;height:38px;border-radius:50%;border:1px solid var(--rule);background:var(--card);color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .25s,transform .2s}
+.theme-btn:hover{border-color:var(--accent)}
+.theme-btn:active{transform:scale(.92)}
+.theme-btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.theme-btn svg{width:17px;height:17px}
+[data-theme="dark"] .theme-btn .sun{display:none}
+[data-theme="light"] .theme-btn .moon{display:none}
 
 /* hero */
-.hero{padding:92px 0 70px}
+.hero{padding:90px 0 68px}
 .kicker{font-family:var(--mono);font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:32px}
 .kicker b{color:var(--ink-dim);font-weight:500}
 .hero h1{font-family:var(--display);font-weight:400;font-size:clamp(46px,7.6vw,104px);line-height:0.97;letter-spacing:-0.025em}
@@ -60,14 +74,11 @@ a{color:inherit;text-decoration:none}
 .sec-head h2{font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-faint)}
 .sec-head span{font-family:var(--mono);font-size:13px;color:var(--ink-faint)}
 
-/* ===== project carousel ===== */
+/* carousel */
 .work{padding:40px 0 80px}
-.stage{position:relative;border:1px solid var(--rule);border-radius:18px;overflow:hidden;
-  background:var(--tint);transition:background 1s var(--ease);min-height:430px}
+.stage{position:relative;border:1px solid var(--rule);border-radius:18px;overflow:hidden;background:var(--tint,var(--card));transition:background-color 1s var(--ease);min-height:430px}
 .slides{position:relative;min-height:430px}
-.slide{position:absolute;inset:0;display:grid;grid-template-columns:1fr 0.9fr;gap:30px;
-  padding:46px 50px;opacity:0;transform:translateX(40px);pointer-events:none;
-  transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.slide{position:absolute;inset:0;display:grid;grid-template-columns:1fr 0.9fr;gap:30px;padding:46px 50px;opacity:0;transform:translateX(40px);pointer-events:none;transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .slide.active{opacity:1;transform:none;pointer-events:auto}
 .slide.leaving{opacity:0;transform:translateX(-40px)}
 .slide-info{display:flex;flex-direction:column}
@@ -76,25 +87,20 @@ a{color:inherit;text-decoration:none}
 .slide-role{font-size:18px;color:var(--ink-dim);max-width:380px;line-height:1.55}
 .slide-foot{margin-top:auto;display:flex;align-items:center;gap:16px;padding-top:26px}
 .status{font-family:var(--mono);font-size:11.5px;letter-spacing:0.06em;text-transform:uppercase;padding:5px 12px;border:1px solid var(--ink);border-radius:100px;color:var(--ink)}
-.status.live{color:#fff;background:var(--accent);border-color:var(--accent)}
+.status.live{color:var(--on-accent);background:var(--accent);border-color:var(--accent)}
 .slide-link{font-family:var(--mono);font-size:12.5px;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--ink)}
 .slide-link:hover{color:var(--accent);border-color:var(--accent)}
-/* preview tile */
-.slide-art{position:relative;border-radius:12px;background:rgba(255,255,255,0.5);border:1px solid var(--rule);overflow:hidden;display:flex;align-items:flex-end;padding:24px}
-.slide-art .ghost{position:absolute;top:-22px;right:-6px;font-family:var(--display);font-weight:600;font-size:230px;line-height:1;color:rgba(44,38,32,0.07)}
+.slide-art{position:relative;border-radius:12px;background:rgba(255,255,255,0.16);border:1px solid var(--rule);overflow:hidden;display:flex;align-items:flex-end;padding:24px}
+.slide-art .ghost{position:absolute;top:-22px;right:-6px;font-family:var(--display);font-weight:600;font-size:230px;line-height:1;color:var(--ink);opacity:0.07}
 .slide-art .spec{position:relative;font-family:var(--mono);font-size:12px;color:var(--ink-dim);line-height:2}
 .slide-art .spec b{color:var(--ink);font-weight:500}
-
-/* controls */
-.stage-bar{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-top:1px solid var(--rule);background:rgba(255,255,255,0.28)}
+.stage-bar{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-top:1px solid var(--rule);background:rgba(255,255,255,0.10)}
 .dots{display:flex;gap:10px}
 .dot{font-family:var(--mono);font-size:12px;color:var(--ink-faint);background:none;border:0;cursor:pointer;letter-spacing:0.06em;padding:4px 2px;transition:color .3s}
 .dot.on{color:var(--ink)}
-.dot.on::after{content:"";display:block;height:2px;background:var(--accent);margin-top:4px;animation:grow 6s linear}
-@keyframes grow{from{transform:scaleX(0);transform-origin:left}to{transform:scaleX(1);transform-origin:left}}
+.dot.on::after{content:"";display:block;height:2px;background:var(--accent);margin-top:4px}
 .arrows{display:flex;gap:10px}
-.arrows button{width:42px;height:42px;border-radius:50%;border:1px solid var(--ink);background:none;color:var(--ink);
-  font-size:17px;cursor:pointer;transition:background .25s,color .25s,transform .25s}
+.arrows button{width:42px;height:42px;border-radius:50%;border:1px solid var(--ink);background:none;color:var(--ink);font-size:17px;cursor:pointer;transition:background .25s,color .25s,transform .25s}
 .arrows button:hover{background:var(--ink);color:var(--paper)}
 .arrows button:active{transform:scale(.92)}
 .arrows button:focus-visible,.dot:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
@@ -122,6 +128,7 @@ footer{padding:34px 0 60px;font-family:var(--mono);font-size:12px;color:var(--in
   .slide-art{display:none}
   .cols{grid-template-columns:1fr;gap:34px}
   .hero-sub{gap:28px}
+  .topnav{display:none}
 }
 @media (prefers-reduced-motion:reduce){
   *{transition-duration:.01ms!important;animation-duration:.01ms!important}
@@ -135,10 +142,16 @@ footer{padding:34px 0 60px;font-family:var(--mono);font-size:12px;color:var(--in
 
   <header class="top">
     <div class="mark">Vladyslav <b>Kikhtenko</b></div>
-    <nav class="topnav">
-      <a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a>
-      <a class="avail" href="#contact">Open to work</a>
-    </nav>
+    <div class="topright">
+      <nav class="topnav">
+        <a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a>
+        <a class="avail" href="#contact">Open to work</a>
+      </nav>
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch theme">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
+      </button>
+    </div>
   </header>
 
   <section class="hero">
@@ -146,58 +159,36 @@ footer{padding:34px 0 60px;font-family:var(--mono);font-size:12px;color:var(--in
     <h1 class="rv">Interfaces made<br>with <span class="em">care</span>, not<br>by the metre.</h1>
     <div class="hero-sub rv">
       <p>Responsive UI, e-commerce flows, and multilingual interfaces in plain HTML, CSS, and JavaScript — shipped, tested, and tightened where it matters.</p>
-      <div class="hero-meta">
-        BASED &nbsp; <b>Germany</b><br>FOCUS &nbsp; <b>Frontend · UI states</b><br>LANGS &nbsp; <b>EN / DE / RU / UA</b>
-      </div>
+      <div class="hero-meta">BASED &nbsp; <b>Germany</b><br>FOCUS &nbsp; <b>Frontend · UI states</b><br>LANGS &nbsp; <b>EN / DE / RU / UA</b></div>
     </div>
   </section>
 
   <section class="work rv" id="work">
-    <div class="sec-head">
-      <h2>Selected Work</h2>
-      <span id="counter">01 / 04</span>
-    </div>
-
+    <div class="sec-head"><h2>Selected Work</h2><span id="counter">01 / 04</span></div>
     <div class="stage" id="stage">
       <div class="slides" id="slides">
-        <!-- slide 1 -->
-        <article class="slide active" data-tint="#e7d6c6">
-          <div class="slide-info">
-            <span class="slide-num">01 — E-COMMERCE</span>
-            <span class="slide-name">Voltage</span>
+        <article class="slide active" data-tint-light="var(--t-voltage)" data-tint-dark="var(--t-voltage)">
+          <div class="slide-info"><span class="slide-num">01 — E-COMMERCE</span><span class="slide-name">Voltage</span>
             <p class="slide-role">An online guitar store: catalog browsing, cart with quantity merge, an admin overview, and German-label stress tests.</p>
-            <div class="slide-foot"><span class="status live">In rebuild</span><a class="slide-link" href="#">Open case ↗</a></div>
-          </div>
+            <div class="slide-foot"><span class="status live">In rebuild</span><a class="slide-link" href="#">Open case ↗</a></div></div>
           <div class="slide-art"><span class="ghost">V</span><div class="spec">STACK &nbsp; <b>HTML · CSS · JS</b><br>FLOWS &nbsp; <b>Catalog · Cart · Admin</b><br>I18N &nbsp;&nbsp; <b>EN / RU / UA / DE</b></div></div>
         </article>
-        <!-- slide 2 -->
-        <article class="slide" data-tint="#cfd8de">
-          <div class="slide-info">
-            <span class="slide-num">02 — DASHBOARD</span>
-            <span class="slide-name">ERP</span>
+        <article class="slide" data-tint-light="var(--t-erp)" data-tint-dark="var(--t-erp)">
+          <div class="slide-info"><span class="slide-num">02 — DASHBOARD</span><span class="slide-name">ERP</span>
             <p class="slide-role">An internal operations dashboard: data tables, filters, status flows, and dense layouts that stay readable.</p>
-            <div class="slide-foot"><span class="status">Planned</span><a class="slide-link" href="#">Coming soon ↗</a></div>
-          </div>
+            <div class="slide-foot"><span class="status">Planned</span><a class="slide-link" href="#">Coming soon ↗</a></div></div>
           <div class="slide-art"><span class="ghost">E</span><div class="spec">TYPE &nbsp;&nbsp; <b>Internal tool</b><br>FOCUS &nbsp; <b>Tables · Filters</b><br>SCALE &nbsp; <b>Data-dense UI</b></div></div>
         </article>
-        <!-- slide 3 -->
-        <article class="slide" data-tint="#d9d2e2">
-          <div class="slide-info">
-            <span class="slide-num">03 — MESSAGING</span>
-            <span class="slide-name">Viber</span>
+        <article class="slide" data-tint-light="var(--t-viber)" data-tint-dark="var(--t-viber)">
+          <div class="slide-info"><span class="slide-num">03 — MESSAGING</span><span class="slide-name">Viber</span>
             <p class="slide-role">A messaging interface concept: conversation list, threads, presence and input states, mobile-first.</p>
-            <div class="slide-foot"><span class="status">Planned</span><a class="slide-link" href="#">Coming soon ↗</a></div>
-          </div>
+            <div class="slide-foot"><span class="status">Planned</span><a class="slide-link" href="#">Coming soon ↗</a></div></div>
           <div class="slide-art"><span class="ghost">V</span><div class="spec">TYPE &nbsp;&nbsp; <b>Messaging UI</b><br>FOCUS &nbsp; <b>Threads · States</b><br>FORM &nbsp;&nbsp; <b>Mobile-first</b></div></div>
         </article>
-        <!-- slide 4 -->
-        <article class="slide" data-tint="#e6dcc2">
-          <div class="slide-info">
-            <span class="slide-num">04 — WEB APP</span>
-            <span class="slide-name">Lottery</span>
+        <article class="slide" data-tint-light="var(--t-lottery)" data-tint-dark="var(--t-lottery)">
+          <div class="slide-info"><span class="slide-num">04 — WEB APP</span><span class="slide-name">Lottery</span>
             <p class="slide-role">A draws-and-results web app concept: ticket flow, live results, and clear win/lose states.</p>
-            <div class="slide-foot"><span class="status">Exploring</span><a class="slide-link" href="#">Idea ↗</a></div>
-          </div>
+            <div class="slide-foot"><span class="status">Exploring</span><a class="slide-link" href="#">Idea ↗</a></div></div>
           <div class="slide-art"><span class="ghost">L</span><div class="spec">TYPE &nbsp;&nbsp; <b>Web app</b><br>FOCUS &nbsp; <b>Draws · Results</b><br>STATE &nbsp; <b>Win / Lose</b></div></div>
         </article>
       </div>
@@ -221,9 +212,7 @@ footer{padding:34px 0 60px;font-family:var(--mono);font-size:12px;color:var(--in
 
   <section class="contact rv" id="contact">
     <h2>Let's <a href="https://t.me/VLADOSINAMSK">talk</a> about<br>your frontend.</h2>
-    <div class="contact-links">
-      <a href="https://t.me/VLADOSINAMSK">Telegram</a><a href="mailto:vladikkihtenko@gmail.com">Email</a><a href="https://github.com/Drolikus">GitHub</a>
-    </div>
+    <div class="contact-links"><a href="https://t.me/VLADOSINAMSK">Telegram</a><a href="mailto:vladikkihtenko@gmail.com">Email</a><a href="https://github.com/Drolikus">GitHub</a></div>
   </section>
 
   <footer><span>© 2026 Vladyslav Kikhtenko</span><span>Built by hand · HTML · CSS · JS</span></footer>
@@ -232,12 +221,16 @@ footer{padding:34px 0 60px;font-family:var(--mono);font-size:12px;color:var(--in
 
 <script>
 (function(){
+  var root=document.documentElement;
   var slides=[].slice.call(document.querySelectorAll('.slide'));
   var stage=document.getElementById('stage');
   var dotsWrap=document.getElementById('dots');
   var counter=document.getElementById('counter');
   var i=0, n=slides.length;
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function tintAttr(){return root.getAttribute('data-theme')==='dark'?'data-tint-dark':'data-tint-light';}
+  function applyTint(){stage.style.setProperty('--tint',slides[i].getAttribute(tintAttr()));}
 
   slides.forEach(function(s,idx){
     var b=document.createElement('button');
@@ -251,37 +244,33 @@ footer{padding:34px 0 60px;font-family:var(--mono);font-size:12px;color:var(--in
 
   function go(to){
     if(to===i)return;
-    var prev=slides[i];
-    i=(to+n)%n;
+    var prev=slides[i]; i=(to+n)%n;
     slides.forEach(function(s){s.classList.remove('active','leaving')});
-    prev.classList.add('leaving');
-    slides[i].classList.add('active');
-    stage.style.setProperty('--tint',slides[i].getAttribute('data-tint'));
+    prev.classList.add('leaving'); slides[i].classList.add('active');
+    applyTint();
     dots.forEach(function(d,x){d.classList.toggle('on',x===i)});
     counter.textContent=('0'+(i+1)).slice(-2)+' / 0'+n;
   }
   function next(){go(i+1)} function prev(){go(i-1)}
   document.getElementById('next').addEventListener('click',next);
   document.getElementById('prev').addEventListener('click',prev);
-  // init tint
-  stage.style.setProperty('--tint',slides[0].getAttribute('data-tint'));
-  // keyboard
-  document.addEventListener('keydown',function(e){
-    if(e.key==='ArrowRight')next(); if(e.key==='ArrowLeft')prev();
-  });
-  // swipe / drag
+  applyTint();
+  document.addEventListener('keydown',function(e){if(e.key==='ArrowRight')next();if(e.key==='ArrowLeft')prev();});
   var x0=null;
   stage.addEventListener('pointerdown',function(e){x0=e.clientX});
-  stage.addEventListener('pointerup',function(e){
-    if(x0===null)return; var dx=e.clientX-x0; if(Math.abs(dx)>50){dx<0?next():prev()} x0=null;
+  stage.addEventListener('pointerup',function(e){if(x0===null)return;var dx=e.clientX-x0;if(Math.abs(dx)>50){dx<0?next():prev()}x0=null;});
+
+  // theme toggle (two versions)
+  document.getElementById('themeBtn').addEventListener('click',function(){
+    var t=root.getAttribute('data-theme')==='dark'?'light':'dark';
+    root.setAttribute('data-theme',t);
+    try{localStorage.setItem('rd-theme',t)}catch(e){}
+    applyTint();
   });
 
-  // scroll reveal
-  if(reduce){ document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')}); }
-  else{
-    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:0.12});
-    document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
-  }
+  if(reduce){document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')});}
+  else{var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}})},{threshold:0.12});
+    document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});}
 })();
 </script>
 </body>
