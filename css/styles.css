@@ -14,14 +14,14 @@
   --ink:#2c2317; --ink-dim:#6b5d44; --ink-faint:#6e6043;
   --rule:rgba(44,35,23,0.16); --grain:rgba(44,35,23,0.030);
   --accent:#8f4f20; --on-accent:#f7efe1;
-  --t-voltage:#e7d3bf; --t-erp:#dcd9c0; --t-viber:#e3d2cc; --t-lottery:#ead9b8;
+  --t-portfolio:#e9dfc8; --t-otkrytki:#e8d4d2; --t-voltage:#e7d3bf; --t-erp:#dcd9c0; --t-viber:#e3d2cc; --t-lottery:#ead9b8;
 }
 [data-theme="dark"]{             /* ночная ряженка — warm night */
   --paper:#1b1610; --paper-2:#241d14; --card:#261f15;
   --ink:#efe5d3; --ink-dim:#b3a890; --ink-faint:#928770;
   --rule:rgba(239,229,211,0.16); --grain:rgba(239,229,211,0.025);
   --accent:#d98a4e; --on-accent:#1b1610;
-  --t-voltage:#3a2a1e; --t-erp:#2b2c22; --t-viber:#322833; --t-lottery:#362c1a;
+  --t-portfolio:#2e281b; --t-otkrytki:#362426; --t-voltage:#3a2a1e; --t-erp:#2b2c22; --t-viber:#322833; --t-lottery:#362c1a;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}

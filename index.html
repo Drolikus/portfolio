@@ -24,7 +24,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css?v=20260616">
+    <link rel="stylesheet" href="css/styles.css?v=20260702">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -87,22 +87,40 @@
     <section class="work rv" id="work">
         <div class="sec-head">
             <h2>Selected Work</h2>
-            <span id="counter">01 / 04</span>
+            <span id="counter">01 / 06</span>
         </div>
         <div class="stage" id="stage">
             <div class="slides" id="slides">
-                <article class="slide active" data-tint-light="var(--t-voltage)" data-tint-dark="var(--t-voltage)">
+                <article class="slide active" data-tint-light="var(--t-portfolio)" data-tint-dark="var(--t-portfolio)">
                     <div class="slide-info">
-                        <span class="slide-num">01 — E-COMMERCE</span>
+                        <span class="slide-num">01 — LIVE SITE</span>
+                        <span class="slide-name">Portfolio</span>
+                        <p class="slide-role">This site: an editorial two-theme portfolio assembled from partials, with CI smoke checks and accessibility baked in.</p>
+                        <div class="slide-foot"><span class="status live">Live</span><a class="slide-link" href="https://github.com/Drolikus/portfolio" target="_blank" rel="noopener noreferrer">View source ↗</a></div>
+                    </div>
+                    <div class="slide-art has-shot"><img src="assets/shot-portfolio.png" alt="Desktop screenshot of this portfolio's homepage" width="1280" height="800" loading="lazy" decoding="async"></div>
+                </article>
+                <article class="slide" data-tint-light="var(--t-otkrytki)" data-tint-dark="var(--t-otkrytki)">
+                    <div class="slide-info">
+                        <span class="slide-num">02 — GALLERY APP</span>
+                        <span class="slide-name">Otkrytki</span>
+                        <p class="slide-role">"Dobrye Otkrytki" — a postcard gallery web app in TypeScript, currently in active development in a private repository.</p>
+                        <div class="slide-foot"><span class="status">In development</span><a class="slide-link" href="projects/otkrytki.html">Open case ↗</a></div>
+                    </div>
+                    <div class="slide-art"><span class="ghost">O</span><div class="spec">TYPE &nbsp;&nbsp; <b>Gallery web app</b><br>STACK &nbsp; <b>TypeScript</b><br>STAGE &nbsp; <b>Active development</b></div></div>
+                </article>
+                <article class="slide" data-tint-light="var(--t-voltage)" data-tint-dark="var(--t-voltage)">
+                    <div class="slide-info">
+                        <span class="slide-num">03 — E-COMMERCE</span>
                         <span class="slide-name">Voltage</span>
                         <p class="slide-role">An online guitar store: catalog browsing, cart with quantity merge, an admin overview, and German-label stress tests.</p>
-                        <div class="slide-foot"><span class="status live">In rebuild</span><a class="slide-link" href="projects/voltage.html">Open case ↗</a></div>
+                        <div class="slide-foot"><span class="status">In rebuild</span><a class="slide-link" href="projects/voltage.html">Open case ↗</a></div>
                     </div>
-                    <div class="slide-art has-shot"><img src="assets/case-voltage-preview.png" alt="Voltage store interface preview" width="1280" height="800" loading="lazy" decoding="async"></div>
+                    <div class="slide-art"><span class="ghost">V</span><div class="spec">STACK &nbsp; <b>HTML · CSS · JS</b><br>FLOWS &nbsp; <b>Catalog · Cart · Admin</b><br>I18N &nbsp;&nbsp; <b>EN / RU / UA / DE</b></div></div>
                 </article>
                 <article class="slide" data-tint-light="var(--t-erp)" data-tint-dark="var(--t-erp)">
                     <div class="slide-info">
-                        <span class="slide-num">02 — DASHBOARD</span>
+                        <span class="slide-num">04 — DASHBOARD</span>
                         <span class="slide-name">ERP</span>
                         <p class="slide-role">An internal operations dashboard: data tables, filters, status flows, and dense layouts that stay readable.</p>
                         <div class="slide-foot"><span class="status">Planned</span><a class="slide-link" href="projects/erp.html">Read the plan ↗</a></div>
@@ -111,7 +129,7 @@
                 </article>
                 <article class="slide" data-tint-light="var(--t-viber)" data-tint-dark="var(--t-viber)">
                     <div class="slide-info">
-                        <span class="slide-num">03 — MESSAGING</span>
+                        <span class="slide-num">05 — MESSAGING</span>
                         <span class="slide-name">Viber</span>
                         <p class="slide-role">A messaging interface concept: conversation list, threads, presence and input states, mobile-first.</p>
                         <div class="slide-foot"><span class="status">Planned</span><a class="slide-link" href="projects/viber.html">Read the plan ↗</a></div>
@@ -120,7 +138,7 @@
                 </article>
                 <article class="slide" data-tint-light="var(--t-lottery)" data-tint-dark="var(--t-lottery)">
                     <div class="slide-info">
-                        <span class="slide-num">04 — WEB APP</span>
+                        <span class="slide-num">06 — WEB APP</span>
                         <span class="slide-name">Lottery</span>
                         <p class="slide-role">A draws-and-results web app concept: ticket flow, live results, and clear win/lose states.</p>
                         <div class="slide-foot"><span class="status">Exploring</span><a class="slide-link" href="projects/lottery.html">Read the idea ↗</a></div>
@@ -168,6 +186,6 @@
         <span class="clock" id="clock">Germany · local</span>
         <span>Built by hand · HTML · CSS · JS</span>
     </footer>    <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="js/main.js?v=20260616"></script>
+    <script src="js/main.js?v=20260702"></script>
 </body>
 </html>

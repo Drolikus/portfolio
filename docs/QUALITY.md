@@ -22,7 +22,7 @@
 
 - Public checks page: `quality.html`.
 - Custom GitHub Pages fallback: `404.html`.
-- Case-study pages live in `projects/` (Voltage, ERP, Viber, Lottery).
+- Case-study pages live in `projects/` (Otkrytki, Voltage, ERP, Viber, Lottery).
 
 ## Guardrails
 

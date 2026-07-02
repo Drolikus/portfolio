@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-07-02
+
+- Added "Dobrye Otkrytki" (postcard gallery, TypeScript, in development) to the project carousel with its own case page.
+- Added the portfolio itself as the first carousel slide — the one live site — with a real desktop screenshot.
+- Replaced the stale Voltage screenshot (it showed the previous dark design) with an honest abstract placeholder in the carousel and the case page.
+- Renumbered case pages, extended case navigation, and refreshed the sitemap, README, and check notes.
+
 ## 2026-06-16
 
 - Added case-study pages for ERP, Viber, and Lottery in the new style; retired the stale portfolio and practice-lab case pages.

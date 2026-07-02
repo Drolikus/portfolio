@@ -7,7 +7,7 @@ Frontend portfolio for Vladyslav Kikhtenko, a junior frontend developer in Germa
 
 ## What This Site Includes
 
-- An animated project carousel (Voltage, ERP, Viber, Lottery) with honest, current statuses.
+- An animated project carousel (Portfolio, Otkrytki, Voltage, ERP, Viber, Lottery) with honest, current statuses and a real desktop screenshot for the live site.
 - Dedicated case-study pages per project.
 - A light + warm-dark theme toggle, a contact block, and a public checks page.
 - Static HTML, CSS, and vanilla JavaScript with responsive behavior and CI-tested interactions.
@@ -16,7 +16,7 @@ Frontend portfolio for Vladyslav Kikhtenko, a junior frontend developer in Germa
 
 - Live site: https://drolikus.github.io/portfolio/
 - Checks: https://drolikus.github.io/portfolio/quality.html
-- Case studies: [Voltage](https://drolikus.github.io/portfolio/projects/voltage.html), [ERP](https://drolikus.github.io/portfolio/projects/erp.html), [Viber](https://drolikus.github.io/portfolio/projects/viber.html), [Lottery](https://drolikus.github.io/portfolio/projects/lottery.html)
+- Case studies: [Otkrytki](https://drolikus.github.io/portfolio/projects/otkrytki.html), [Voltage](https://drolikus.github.io/portfolio/projects/voltage.html), [ERP](https://drolikus.github.io/portfolio/projects/erp.html), [Viber](https://drolikus.github.io/portfolio/projects/viber.html), [Lottery](https://drolikus.github.io/portfolio/projects/lottery.html)
 
 ## Project Structure
 

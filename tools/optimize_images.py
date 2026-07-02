@@ -19,7 +19,7 @@ ASSETS = os.path.join(os.path.dirname(__file__), "..", "assets")
 # Display sizes: profile photo 88px, QR 220px, case shots <=1120px.
 MAX_WIDTH = {
     "telegram-qr.png": 500,            # shown at 220px (~2.3x)
-    "case-voltage-preview.png": 1280,  # carousel + Voltage case, shown <=1120px
+    "shot-portfolio.png": 1280,        # carousel slide, shown <=1120px
     # social-preview.png is intentionally left untouched (OG image, 1200x630).
 }
 
