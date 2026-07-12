@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-07-12
+
+- Recovered the interactive Voltage UI mock from the earlier build (git history), captured desktop screenshots of its catalog and cart states, and placed them in the carousel slide and the case page with honest captions.
+
 ## 2026-07-02
 
 - Added "Dobrye Otkrytki" (postcard gallery, TypeScript, in development) to the project carousel with its own case page.
