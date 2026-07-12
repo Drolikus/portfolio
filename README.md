@@ -83,3 +83,8 @@ python tools/build_portfolio_brief.py
 ## Current Status
 
 This is an actively improving portfolio, not a frozen showcase. See [CHANGELOG.md](CHANGELOG.md), [ROADMAP.md](ROADMAP.md), and [docs/QUALITY.md](docs/QUALITY.md).
+
+## License
+
+**All rights reserved.** The code is public for portfolio review only — it is
+not licensed for copying, reuse, or redistribution. See [LICENSE](LICENSE).
