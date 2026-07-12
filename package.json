@@ -2,7 +2,10 @@
   "name": "vladyslav-portfolio",
   "private": true,
   "scripts": {
-    "capture:screenshots": "node tools/capture_case_screenshots.js"
+    "build": "python3 tools/build_html.py",
+    "check:build": "python3 tools/build_html.py --check",
+    "optimize:images": "python3 tools/optimize_images.py",
+    "check:smoke": "node tools/smoke_check.js"
   },
   "devDependencies": {
     "@playwright/test": "^1.56.1"

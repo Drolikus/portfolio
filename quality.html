@@ -1,22 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Site Checks - Vladyslav Kikhtenko</title>
-    <meta name="description" content="Site checks for Vladyslav Kikhtenko's portfolio: local checks, browser QA, screenshots, deployment notes, and source links.">
-    <link rel="stylesheet" href="css/styles.css?v=20260603">
+    <script>(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+    <title>Portfolio Checks - Vladyslav Kikhtenko</title>
+    <meta name="description" content="How this portfolio is checked: automated smoke tests in CI, a build-sync check for the generated HTML, accessibility, and deployment notes.">
+    <link rel="canonical" href="https://drolikus.github.io/portfolio/quality.html">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/styles.css?v=20260702">
 </head>
 <body class="case-page-shell">
     <header class="case-nav">
         <a class="logo" href="index.html#home"><span class="logo-bracket">&lt;</span>Vlad<span class="logo-bracket">/&gt;</span></a>
-        <nav aria-label="Site checks navigation">
-            <a href="index.html#projects">Projects</a>
+        <nav aria-label="Checks navigation">
+            <a href="index.html#work">Work</a>
+            <a href="projects/otkrytki.html">Otkrytki</a>
             <a href="projects/voltage.html">Voltage</a>
-            <a href="projects/portfolio.html">Portfolio</a>
-            <a href="projects/lab.html">Lab</a>
+            <a href="projects/erp.html">ERP</a>
+            <a href="projects/viber.html">Viber</a>
+            <a href="projects/lottery.html">Lottery</a>
         </nav>
-        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light theme">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark theme">
             <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
             <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
         </button>
@@ -24,42 +29,47 @@
 
     <main class="case-main">
         <section class="case-hero-section">
-            <a class="case-back-link" href="index.html#site-checks">Back to site checks</a>
-            <span class="case-kicker">Site checks / Public notes</span>
-            <h1>Checks and deployment notes</h1>
-            <p>This page keeps operational details outside the main flow: live status, local checks, screenshots, source links, and remaining risks worth tracking.</p>
+            <a class="case-back-link" href="index.html#home">Back to home</a>
+            <span class="case-kicker">Checks / How this site is kept honest</span>
+            <h1>Checked, not just shipped</h1>
+            <p>This portfolio is a static site, but it is treated like a small product: every change runs through automated checks before it lands, and the generated HTML is verified against its source.</p>
             <div class="case-hero-actions">
                 <a class="btn btn-primary" href="https://drolikus.github.io/portfolio/" target="_blank" rel="noopener noreferrer">Open live site</a>
                 <a class="btn btn-secondary" href="https://github.com/Drolikus/portfolio/blob/main/docs/QUALITY.md" target="_blank" rel="noopener noreferrer">View check notes</a>
             </div>
             <div class="case-facts">
                 <article><span>Live</span><strong>GitHub Pages</strong></article>
-                <article><span>Checks</span><strong>7 / 7 local pass</strong></article>
+                <article><span>CI</span><strong>Smoke + build-sync</strong></article>
                 <article><span>Scope</span><strong>Static HTML/CSS/JS</strong></article>
             </div>
         </section>
 
-        <figure class="case-shot case-shot-wide">
-            <img src="assets/case-site-checks.png" alt="Portfolio site checks screenshot">
-            <figcaption>Site checks visible inside the live portfolio.</figcaption>
-        </figure>
-
         <section class="case-section-grid">
             <article>
-                <span>Browser checks</span>
-                <h2>Console, overflow, images, routes</h2>
-                <p>The local checks cover horizontal overflow, image loading, navigation targets, case links, quick-link coverage, message builder wiring, and check tabs.</p>
+                <span>Automated</span>
+                <h2>Smoke checks in CI</h2>
+                <p>A headless Playwright run on every push and pull request asserts no console errors, no horizontal overflow, that images resolve, and that in-page navigation targets exist.</p>
             </article>
             <article>
-                <span>Deployment</span>
-                <h2>Production notes are documented</h2>
-                <p>GitHub Pages is live, with deployment notes for route checks, static assets, and future hosting decisions.</p>
+                <span>Build integrity</span>
+                <h2>Generated HTML stays in sync</h2>
+                <p>The homepage is assembled from partials. CI fails if the committed <code>index.html</code> drifts from its source, so the deployed page always matches the repository.</p>
             </article>
             <article>
-                <span>Risk</span>
-                <h2>Future features wait until they are real</h2>
-                <p>The portfolio does not ship unfinished tools, unfinished live demos, or browser-exposed credentials.</p>
+                <span>Accessibility</span>
+                <h2>Contrast and motion</h2>
+                <p>Text colours meet WCAG AA contrast in both themes, focus is always visible, and animation respects <code>prefers-reduced-motion</code>.</p>
             </article>
+        </section>
+
+        <section class="case-checklist">
+            <h2>Standing guardrails</h2>
+            <ul>
+                <li>Keep claims tied to visible, real work — planned projects are labelled as planned.</li>
+                <li>No unfinished tools or browser-exposed credentials.</li>
+                <li>Production security headers and a Content-Security-Policy on supported hosts.</li>
+                <li>Test both themes, desktop, and mobile after layout changes.</li>
+            </ul>
         </section>
     </main>
 
@@ -67,6 +77,6 @@
         <span>&copy; <span id="currentYear"></span> Vladyslav Kikhtenko</span>
         <a href="index.html#contact">Contact</a>
     </footer>
-    <script src="js/case-pages.js?v=20260603"></script>
+    <script src="js/case-pages.js?v=20260702"></script>
 </body>
 </html>

@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
     <title>Page Not Found — Vladyslav Kikhtenko</title>
     <meta name="description" content="The requested portfolio page was not found.">
-    <link rel="stylesheet" href="css/styles.css?v=20260603">
+    <meta name="robots" content="noindex">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/styles.css?v=20260702">
 </head>
 <body class="case-page-shell">
     <header class="case-nav">
         <a class="logo" href="index.html#home"><span class="logo-bracket">&lt;</span>Vlad<span class="logo-bracket">/&gt;</span></a>
         <nav aria-label="Error page navigation">
-            <a href="index.html#projects">Projects</a>
-            <a href="quality.html">Quality</a>
+            <a href="index.html#work">Work</a>
+            <a href="quality.html">Checks</a>
             <a href="index.html#contact">Contact</a>
         </nav>
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light theme">
@@ -27,7 +30,7 @@
             <h1>This page is not part of the portfolio map.</h1>
             <p>The route may have moved while the portfolio is being cleaned up. Start from the live project index or jump straight to contact.</p>
             <div class="case-hero-actions">
-                <a class="btn btn-primary" href="index.html#projects">Open projects</a>
+                <a class="btn btn-primary" href="index.html#work">Open projects</a>
                 <a class="btn btn-secondary" href="index.html#contact">Contact</a>
             </div>
         </section>
@@ -37,6 +40,6 @@
         <span>© <span id="currentYear"></span> Vladyslav Kikhtenko</span>
         <a href="index.html#home">Home</a>
     </footer>
-    <script src="js/case-pages.js?v=20260603"></script>
+    <script src="js/case-pages.js?v=20260702"></script>
 </body>
 </html>

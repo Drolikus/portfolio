@@ -17,9 +17,11 @@
 
 ## Engineering
 
-- Add deployment checks and production headers.
-- Add lightweight smoke tests for the static page.
+- Production security headers (incl. CSP) configured for Netlify/Vercel/Cloudflare. Done.
+- Lightweight headless smoke checks run in CI on every push/PR. Done.
+- Canonical host set to GitHub Pages across canonical/OG/sitemap. Done.
 - Keep GitHub issues aligned with the public roadmap.
+- Track remaining ideas in `docs/IMPROVEMENT_PLAN.md`.
 
 ## GitHub Tracker
 

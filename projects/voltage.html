@@ -1,19 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
     <title>Voltage Case Study - Vladyslav Kikhtenko</title>
     <meta name="description" content="Voltage case study: e-commerce rebuild with catalog, cart, admin, orders, and multilingual UI work.">
-    <link rel="stylesheet" href="../css/styles.css?v=20260603">
+    <link rel="canonical" href="https://drolikus.github.io/portfolio/projects/voltage.html">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/styles.css?v=20260702">
 </head>
 <body class="case-page-shell">
     <header class="case-nav">
         <a class="logo" href="../index.html#home"><span class="logo-bracket">&lt;</span>Vlad<span class="logo-bracket">/&gt;</span></a>
         <nav aria-label="Case navigation">
-            <a href="../index.html#projects">Projects</a>
-            <a href="portfolio.html">Portfolio</a>
-            <a href="lab.html">Lab</a>
+            <a href="../index.html#work">Work</a>
+            <a href="otkrytki.html">Otkrytki</a>
+            <a href="erp.html">ERP</a>
+            <a href="viber.html">Viber</a>
+            <a href="lottery.html">Lottery</a>
             <a href="../quality.html">Checks</a>
         </nav>
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light theme">
@@ -24,12 +29,12 @@
 
     <main class="case-main">
         <section class="case-hero-section">
-            <a class="case-back-link" href="../index.html#projects">Back to projects</a>
-            <span class="case-kicker">Case 01 / E-commerce rebuild</span>
+            <a class="case-back-link" href="../index.html#work">Back to work</a>
+            <span class="case-kicker">Case 03 / E-commerce rebuild</span>
             <h1>Voltage: from practice project to store flow</h1>
             <p>Voltage is currently in rebuild. The work focuses on product browsing, cart state, admin surfaces, order signals, and EN/RU/UA/DE interface pressure.</p>
             <div class="case-hero-actions">
-                <a class="btn btn-primary" href="../index.html#showcase">View UI preview</a>
+                <a class="btn btn-primary" href="../index.html#contact">Discuss this build</a>
                 <a class="btn btn-secondary" href="https://github.com/Drolikus/portfolio/blob/main/projects/voltage.html" target="_blank" rel="noopener noreferrer">View source</a>
             </div>
             <div class="case-facts">
@@ -39,10 +44,17 @@
             </div>
         </section>
 
-        <figure class="case-shot case-shot-wide">
-            <img src="../assets/case-voltage-preview.png" alt="Voltage interactive preview screenshot">
-            <figcaption>Current portfolio preview for the Voltage UI surface.</figcaption>
-        </figure>
+        <div class="case-shot-grid">
+            <figure class="case-shot">
+                <img src="../assets/case-voltage-catalog.jpg" alt="Voltage interactive UI mock — catalog flow with product search and cards" width="1016" height="1814" loading="lazy" decoding="async">
+                <figcaption>Catalog flow — interactive UI mock built for the earlier portfolio (May 2026).</figcaption>
+            </figure>
+            <figure class="case-shot">
+                <img src="../assets/case-voltage-cart.jpg" alt="Voltage interactive UI mock — cart behavior with quantity merge total" width="1016" height="1914" loading="lazy" decoding="async">
+                <figcaption>Cart behavior with quantity merge — same mock, cart state.</figcaption>
+            </figure>
+        </div>
+        <p class="case-art-note">These are states of a working UI mock, not the full store &mdash; final screenshots land after the rebuild stabilizes.</p>
 
         <section class="case-section-grid">
             <article>
@@ -77,6 +89,6 @@
         <span>&copy; <span id="currentYear"></span> Vladyslav Kikhtenko</span>
         <a href="../index.html#contact">Contact</a>
     </footer>
-    <script src="../js/case-pages.js?v=20260603"></script>
+    <script src="../js/case-pages.js?v=20260702"></script>
 </body>
 </html>
